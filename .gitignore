@@ -1,0 +1,19 @@
+# Local backups and archives
+Index - Copy.html
+Index-city-markers-backup.html
+Index-side-map-filters-backup.html
+Site-03-Corrected-v2/
+Site-03-Corrected-v2.zip
+Site-03.rar
+
+# Internal source and generated inspection files
+outputs/
+tools/
+UPDATE_PROJECTS.cmd
+PROJECTS_DATA_GUIDE_AR.md
+Snap_ Profile.docx
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+desktop.ini

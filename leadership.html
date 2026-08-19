@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <script>
+  (function(){
+    var v = new URLSearchParams(location.search).get("lang");
+    var lang = (v === "ar" || v === "en") ? v : (function(){ try { return localStorage.getItem("snapLang"); } catch(e){ return null; } })() || "en";
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+  })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Meet the five founding partners of SNAP Saudi and the 25-specialist team behind three decades of architecture, engineering and visualization work." />
+  <title>Leadership — SNAP Saudi</title>
+  <link rel="canonical" href="https://www.snaparc.com/leadership.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SNAP Saudi" />
+  <meta property="og:title" content="Leadership — SNAP Saudi" />
+  <meta property="og:description" content="The five founding partners of SNAP Saudi and the team behind three decades of architecture, engineering and visualization work." />
+  <meta property="og:image" content="https://www.snaparc.com/logo.png" />
+  <meta property="og:url" content="https://www.snaparc.com/leadership.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Tajawal:wght@400;500;700;800&family=Zain:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="Index.html#home" class="logo brand" aria-label="SNAP Saudi home">
+        <img class="brand-logo" src="logo.png" alt="SNAP Saudi Architecture logo">
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="Index.html#home"><span class="en-only">Home</span><span class="ar-only">الرئيسية</span></a>
+        <a href="Index.html#projects"><span class="en-only">Projects</span><span class="ar-only">المشاريع</span></a>
+        <a href="services.html"><span class="en-only">Services</span><span class="ar-only">الخدمات</span></a>
+        <a href="about.html"><span class="en-only">About</span><span class="ar-only">من نحن</span></a>
+        <div class="nav-group">
+          <button class="nav-group-trigger current" type="button" aria-haspopup="true" aria-expanded="false"><span class="en-only">Studio</span><span class="ar-only">المكتب</span></button>
+          <div class="nav-group-menu">
+            <a href="how-we-work.html"><span class="en-only">How We Work</span><span class="ar-only">منهج العمل</span></a>
+            <a href="leadership.html" class="current"><span class="en-only">Leadership</span><span class="ar-only">فريق القيادة</span></a>
+            <a href="clients.html"><span class="en-only">Clients</span><span class="ar-only">العملاء</span></a>
+          </div>
+        </div>
+        <a href="Index.html#contact"><span class="en-only">Contact</span><span class="ar-only">تواصل معنا</span></a>
+      </nav>
+      <div class="nav-actions">
+        <button class="lang-btn" id="langBtn" aria-label="Switch language">AR</button>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header plate">
+      <div class="container page-header-inner">
+        <div class="eyebrow">
+          <span class="en-only">Leadership</span>
+          <span class="ar-only">فريق القيادة</span>
+        </div>
+        <h1>
+          <span class="en-only">Founding partners across two offices. Thirty years of shared practice.</span>
+          <span class="ar-only">شركاء مؤسسون في مكتبين. ثلاثون عامًا من العمل المشترك.</span>
+        </h1>
+        <p>
+          <span class="en-only">SNAP Saudi is led by senior consulting engineers across its Saudi Arabia and Egypt offices — the Egypt office founded in 1993 — supported by a permanent team of 25 specialists across every discipline the studio practices.</span>
+          <span class="ar-only">تقود سناب السعودية مهندسون استشاريون كبار في مكتبيها بالسعودية ومصر — مكتب مصر تأسس عام 1993 — يدعمهم فريق عمل دائم مكوّن من 25 متخصصًا في كل تخصص يمارسه الاستوديو.</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2><span class="en-only">Founding Partners</span><span class="ar-only">الشركاء المؤسسون</span></h2>
+        </div>
+        <div class="founder-group">
+          <h3><span class="en-only">Saudi Arabia Office</span><span class="ar-only">مكتب السعودية</span></h3>
+          <div class="founder-grid">
+            <div class="founder-card">
+              <span class="founder-role"><span class="en-only">Founding Partner</span><span class="ar-only">شريك مؤسس</span></span>
+              <span class="founder-name"><span class="en-only">Dr. Abdullah</span><span class="ar-only">د. عبدالله</span></span>
+            </div>
+            <div class="founder-card">
+              <span class="founder-role"><span class="en-only">Founding Partner</span><span class="ar-only">شريك مؤسس</span></span>
+              <span class="founder-name"><span class="en-only">Mohamed Abdullah</span><span class="ar-only">محمد عبدالله</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="founder-group">
+          <h3><span class="en-only">Egypt Office — Founded 1993</span><span class="ar-only">مكتب مصر — تأسس 1993</span></h3>
+          <div class="founder-grid">
+            <div class="founder-card">
+              <span class="founder-role"><span class="en-only">Founding Partner</span><span class="ar-only">شريك مؤسس</span></span>
+              <span class="founder-title"><span class="en-only">Consultant Engineer</span><span class="ar-only">مستشار</span></span>
+              <span class="founder-name"><span class="en-only">Ahmed Kamel</span><span class="ar-only">أحمد كامل</span></span>
+              <span class="founder-meta"><span class="en-only">Cairo University, 1992</span><span class="ar-only">جامعة القاهرة، 1992</span></span>
+            </div>
+            <div class="founder-card">
+              <span class="founder-role"><span class="en-only">Founding Partner</span><span class="ar-only">شريك مؤسس</span></span>
+              <span class="founder-title"><span class="en-only">Architect</span><span class="ar-only">معماري</span></span>
+              <span class="founder-name"><span class="en-only">Amr Seif</span><span class="ar-only">عمرو سيف</span></span>
+              <span class="founder-meta"><span class="en-only">Cairo University, 1992</span><span class="ar-only">جامعة القاهرة، 1992</span></span>
+            </div>
+            <div class="founder-card">
+              <span class="founder-role"><span class="en-only">Founding Partner</span><span class="ar-only">شريك مؤسس</span></span>
+              <span class="founder-title"><span class="en-only">Architect</span><span class="ar-only">معماري</span></span>
+              <span class="founder-name"><span class="en-only">Ashraf El Taie</span><span class="ar-only">اشرف الطائي</span></span>
+              <span class="founder-meta"><span class="en-only">Cairo University, 1991</span><span class="ar-only">جامعة القاهرة، 1991</span></span>
+            </div>
+            <div class="founder-card">
+              <span class="founder-role"><span class="en-only">Founding Partner</span><span class="ar-only">شريك مؤسس</span></span>
+              <span class="founder-title"><span class="en-only">Architect</span><span class="ar-only">معماري</span></span>
+              <span class="founder-name"><span class="en-only">Mohamed Said</span><span class="ar-only">محمد سعيد</span></span>
+              <span class="founder-meta"><span class="en-only">Ain Shams University, 1992</span><span class="ar-only">جامعة عين شمس، 1992</span></span>
+            </div>
+            <div class="founder-card">
+              <span class="founder-role"><span class="en-only">Founding Partner</span><span class="ar-only">شريك مؤسس</span></span>
+              <span class="founder-title"><span class="en-only">Architect</span><span class="ar-only">معماري</span></span>
+              <span class="founder-name"><span class="en-only">Mohamed Salah</span><span class="ar-only">محمد صلاح</span></span>
+              <span class="founder-meta"><span class="en-only">Ain Shams University, 1992</span><span class="ar-only">جامعة عين شمس، 1992</span></span>
+            </div>
+          </div>
+        </div>
+        <div class="note-box" style="margin-top:32px">
+          <p><span class="en-only">Names and graduation details are shown as provided by SNAP Saudi. Individual role titles and biographies can be added once supplied.</span><span class="ar-only">الأسماء وتفاصيل التخرج معروضة كما وردت من سناب السعودية. يمكن إضافة المسميات الوظيفية والسير الذاتية التفصيلية لكل شريك عند توفرها.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--vellum-2)">
+      <div class="container">
+        <div class="section-head">
+          <h2><span class="en-only">The Team</span><span class="ar-only">فريق العمل</span></h2>
+          <p><span class="en-only">A permanent team of 25 specialists supports the five partners.</span><span class="ar-only">فريق دائم من 25 متخصصًا يدعم الشركاء الخمسة.</span></p>
+        </div>
+        <div class="stat-grid" style="grid-template-columns:repeat(3,1fr)">
+          <div class="stat-cell">
+            <strong><span class="en-only">Engineering</span><span class="ar-only">الهندسة</span></strong>
+            <span><span class="en-only">Architectural, structural, mechanical &amp; electrical design</span><span class="ar-only">تصميم معماري وإنشائي وميكانيكي وكهربائي</span></span>
+          </div>
+          <div class="stat-cell">
+            <strong><span class="en-only">Media &amp; CGI</span><span class="ar-only">الميديا والإظهار المرئي</span></strong>
+            <span><span class="en-only">3D visualization, animation, VR &amp; interactive systems</span><span class="ar-only">إظهار ثلاثي الأبعاد، تحريك، واقع افتراضي، أنظمة تفاعلية</span></span>
+          </div>
+          <div class="stat-cell">
+            <strong><span class="en-only">Graphics &amp; Editing</span><span class="ar-only">الجرافيك والمونتاج</span></strong>
+            <span><span class="en-only">Graphic design, film editing and presentation production</span><span class="ar-only">تصميم جرافيكي، مونتاج، إنتاج العروض</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--blueprint);color:var(--vellum)">
+      <div class="container" style="text-align:center">
+        <h2 style="color:var(--white);max-width:640px;margin:0 auto 24px">
+          <span class="en-only">Work with the team behind three decades of delivery.</span>
+          <span class="ar-only">اعمل مع الفريق اللي وراء ثلاثين عامًا من التنفيذ.</span>
+        </h2>
+        <a class="btn btn-gold" href="Index.html#contact"><span class="en-only">Start a project</span><span class="ar-only">ابدأ مشروعك</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img class="footer-brand-mark" src="logo.png" alt="SNAP Saudi logo">
+          <p><span class="en-only">Architecture, interiors, urban development and visual storytelling across Egypt, Saudi Arabia and the Gulf.</span><span class="ar-only">عمارة وتصميم داخلي وتطوير عمراني وسرد بصري عبر مصر والسعودية والخليج.</span></p>
+        </div>
+        <div>
+          <strong><span class="en-only">Navigation</span><span class="ar-only">التنقل</span></strong>
+          <p><a href="about.html"><span class="en-only">About</span><span class="ar-only">من نحن</span></a><br><a href="how-we-work.html"><span class="en-only">How We Work</span><span class="ar-only">منهج العمل</span></a><br><a href="leadership.html"><span class="en-only">Leadership</span><span class="ar-only">فريق القيادة</span></a><br><a href="clients.html"><span class="en-only">Clients</span><span class="ar-only">العملاء</span></a><br><a href="services.html"><span class="en-only">Services</span><span class="ar-only">الخدمات</span></a><br><a href="Index.html#projects"><span class="en-only">Projects</span><span class="ar-only">المشاريع</span></a></p>
+        </div>
+        <div>
+          <strong><span class="en-only">Markets</span><span class="ar-only">الأسواق</span></strong>
+          <p><a href="saudi-arabia.html"><span class="en-only">Saudi Arabia</span><span class="ar-only">السعودية</span></a><br><a href="egypt.html"><span class="en-only">Egypt</span><span class="ar-only">مصر</span></a><br><a href="gulf-arab-states.html"><span class="en-only">Gulf &amp; Arab States</span><span class="ar-only">الخليج والدول العربية</span></a></p>
+        </div>
+        <div>
+          <strong><span class="en-only">Offices</span><span class="ar-only">المكاتب</span></strong>
+          <p>Cairo, Egypt<br>Riyadh, Saudi Arabia</p>
+        </div>
+      </div>
+      <div class="copyright">© 2026 SNAP Saudi. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+</html>

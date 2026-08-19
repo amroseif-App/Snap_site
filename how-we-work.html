@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <script>
+  (function(){
+    var v = new URLSearchParams(location.search).get("lang");
+    var lang = (v === "ar" || v === "en") ? v : (function(){ try { return localStorage.getItem("snapLang"); } catch(e){ return null; } })() || "en";
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+  })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="How SNAP Saudi works — from discovery and concept design through technical documentation, visualization and construction support, across full design and visualization-only engagements." />
+  <title>How We Work — SNAP Saudi</title>
+  <link rel="canonical" href="https://www.snaparc.com/how-we-work.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SNAP Saudi" />
+  <meta property="og:title" content="How We Work — SNAP Saudi" />
+  <meta property="og:description" content="From discovery to construction support: how SNAP Saudi structures a project, and the two engagement models clients work with us under." />
+  <meta property="og:image" content="https://www.snaparc.com/logo.png" />
+  <meta property="og:url" content="https://www.snaparc.com/how-we-work.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Tajawal:wght@400;500;700;800&family=Zain:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="Index.html#home" class="logo brand" aria-label="SNAP Saudi home">
+        <img class="brand-logo" src="logo.png" alt="SNAP Saudi Architecture logo">
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="Index.html#home"><span class="en-only">Home</span><span class="ar-only">الرئيسية</span></a>
+        <a href="Index.html#projects"><span class="en-only">Projects</span><span class="ar-only">المشاريع</span></a>
+        <a href="services.html"><span class="en-only">Services</span><span class="ar-only">الخدمات</span></a>
+        <a href="about.html"><span class="en-only">About</span><span class="ar-only">من نحن</span></a>
+        <div class="nav-group">
+          <button class="nav-group-trigger current" type="button" aria-haspopup="true" aria-expanded="false"><span class="en-only">Studio</span><span class="ar-only">المكتب</span></button>
+          <div class="nav-group-menu">
+            <a href="how-we-work.html" class="current"><span class="en-only">How We Work</span><span class="ar-only">منهج العمل</span></a>
+            <a href="leadership.html"><span class="en-only">Leadership</span><span class="ar-only">فريق القيادة</span></a>
+            <a href="clients.html"><span class="en-only">Clients</span><span class="ar-only">العملاء</span></a>
+          </div>
+        </div>
+        <a href="Index.html#contact"><span class="en-only">Contact</span><span class="ar-only">تواصل معنا</span></a>
+      </nav>
+      <div class="nav-actions">
+        <button class="lang-btn" id="langBtn" aria-label="Switch language">AR</button>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header plate">
+      <div class="container page-header-inner">
+        <div class="eyebrow">
+          <span class="en-only">How We Work</span>
+          <span class="ar-only">منهج العمل</span>
+        </div>
+        <h1>
+          <span class="en-only">One process, six stages, from the first sketch to the last inspection.</span>
+          <span class="ar-only">منهج متكامل من ست مراحل، يبدأ من أول خط في التصميم وينتهي بالمعاينة النهائية في الموقع.</span>
+        </h1>
+        <p>
+          <span class="en-only">Every SNAP project — whether we lead the design from concept or join to visualize a design led by a partner office — follows the same structured process, so clients always know what stage they're at and what they'll receive next.</span>
+          <span class="ar-only">كل مشروع تعمل عليه سناب — سواء قدنا التصميم من الفكرة أو انضممنا لتنفيذ الإظهار المعماري لتصميم قاده مكتب شريك — بيمر بنفس المنهج المنظم، عشان العميل يعرف دايمًا في أي مرحلة هو وهياخد إيه بعد كده.</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2><span class="en-only">The six stages</span><span class="ar-only">المراحل الست</span></h2>
+          <p><span class="en-only">What happens at each stage, and what the client receives.</span><span class="ar-only">إيه اللي بيحصل في كل مرحلة، وإيه اللي بياخده العميل.</span></p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <strong><span class="en-only">01 — Discovery &amp; Briefing</span><span class="ar-only">01 — الاكتشاف وتحديد المتطلبات</span></strong>
+            <p><span class="en-only">Site analysis, program requirements, budget and timeline framing, and review of any existing masterplan, brief or regulatory constraints. The client leaves this stage with a clear written brief both sides agree on.</span><span class="ar-only">تحليل الموقع، تحديد البرنامج التصميمي، تأطير الميزانية والجدول الزمني، ومراجعة أي مخطط عام أو اشتراطات تنظيمية قائمة. يخرج العميل من هذه المرحلة بمستند مواصفات مكتوب متفق عليه من الطرفين.</span></p>
+          </div>
+          <div class="timeline-item">
+            <strong><span class="en-only">02 — Concept Design</span><span class="ar-only">02 — التصميم المبدئي</span></strong>
+            <p><span class="en-only">Initial massing and spatial concepts — typically two to three design directions — presented for the client to review and select from before further investment in detail.</span><span class="ar-only">كتل مبدئية وأفكار تصميمية — عادةً اتجاهين أو ثلاثة — تُعرض على العميل للمراجعة والاختيار قبل التعمق في التفاصيل.</span></p>
+          </div>
+          <div class="timeline-item">
+            <strong><span class="en-only">03 — Design Development</span><span class="ar-only">03 — تطوير التصميم</span></strong>
+            <p><span class="en-only">The selected concept is developed into full architectural, interior and — where relevant — landscape or urban design, coordinated across every discipline the project needs.</span><span class="ar-only">يتم تطوير التصميم المختار إلى تصميم معماري وداخلي متكامل، وتخطيط عمراني أو لاندسكيب عند الحاجة، بالتنسيق بين كل التخصصات اللي يحتاجها المشروع.</span></p>
+          </div>
+          <div class="timeline-item">
+            <strong><span class="en-only">04 — Technical Documentation</span><span class="ar-only">04 — المستندات الفنية</span></strong>
+            <p><span class="en-only">Structural, mechanical and electrical drawings, specifications and quantity surveying (BOQ) — the full documentation package a project needs to go to tender or construction.</span><span class="ar-only">رسومات إنشائية وميكانيكية وكهربائية، مواصفات فنية، وحصر كميات (BOQ) — الحزمة الكاملة اللي يحتاجها المشروع للطرح أو التنفيذ.</span></p>
+          </div>
+          <div class="timeline-item">
+            <strong><span class="en-only">05 — Visualization &amp; Presentation</span><span class="ar-only">05 — الإظهار المعماري والعرض</span></strong>
+            <p><span class="en-only">Still 3D imagery, cinematic animation and interactive/VR walkthroughs — used for internal design review, marketing, or presentation to investors and government bodies. This is also the stage where SNAP is engaged as a visualization partner for designs led by another architectural office.</span><span class="ar-only">صور ثلاثية الأبعاد ثابتة، تحريك سينمائي، وجولات تفاعلية بتقنية الواقع الافتراضي — تُستخدم للمراجعة الداخلية، أو التسويق، أو العرض على المستثمرين والجهات الحكومية. وهي أيضًا المرحلة اللي بتنضم فيها سناب كشريك إظهار لتصميم قاده مكتب معماري آخر.</span></p>
+          </div>
+          <div class="timeline-item">
+            <strong><span class="en-only">06 — Construction Support</span><span class="ar-only">06 — الإشراف على التنفيذ</span></strong>
+            <p><span class="en-only">Site supervision, contractor coordination and design-intent verification through completion, so what gets built matches what was designed.</span><span class="ar-only">إشراف على الموقع، تنسيق مع المقاول، والتأكد من مطابقة التنفيذ للتصميم حتى التسليم النهائي.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--vellum-2)">
+      <div class="container">
+        <div class="note-box" style="margin:0">
+          <p>
+            <span class="en-only"><strong>Two ways to work with SNAP.</strong> Not every project runs through all six stages with SNAP as lead designer. On some engagements SNAP is the design authority from stage 01 through 06. On others — often where a client or partner office already has a design in place — SNAP is engaged specifically at stage 05, to produce the visualization, CGI or animation. We're explicit about which model applies on every project.</span>
+            <span class="ar-only"><strong>طريقتان للعمل مع سناب.</strong> مش كل مشروع بيمر بالمراحل الست الست وسناب هي الجهة المصممة. في بعض المشاريع تكون سناب هي الجهة المصممة الرئيسية من المرحلة 01 وحتى 06. وفي مشاريع أخرى — غالبًا لما يكون عند العميل أو المكتب الشريك تصميم جاهز بالفعل — يتم التعاقد مع سناب تحديدًا في المرحلة 05، لتنفيذ الإظهار المعماري أو التحريك. وإحنا واضحين في كل مشروع عن أي الطريقتين اتبعناها.</span>
+          </p>
+          <div class="role-tags">
+            <span class="role-tag"><span class="en-only">Full Design Authority</span><span class="ar-only">جهة تصميم رئيسية</span></span>
+            <span class="role-tag"><span class="en-only">Visualization Partner</span><span class="ar-only">شريك إظهار معماري</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2><span class="en-only">What runs through every stage</span><span class="ar-only">ثابت في كل مرحلة</span></h2>
+        </div>
+        <div class="stat-grid" style="grid-template-columns:repeat(3,1fr)">
+          <div class="stat-cell">
+            <strong><span class="en-only">One team, every discipline</span><span class="ar-only">فريق واحد، كل التخصصات</span></strong>
+            <span><span class="en-only">Architecture, structural/MEP engineering, interior design and visualization sit under one roof, so handoffs between stages don't lose information.</span><span class="ar-only">التصميم المعماري، الهندسة الإنشائية والميكانيكية والكهربائية، التصميم الداخلي، والإظهار المعماري كلها تحت سقف واحد، فمفيش فقدان للمعلومات بين المراحل.</span></span>
+          </div>
+          <div class="stat-cell">
+            <strong><span class="en-only">A single point of contact</span><span class="ar-only">جهة تواصل واحدة</span></strong>
+            <span><span class="en-only">One project lead coordinates every discipline on the client's behalf, from the first meeting to handover.</span><span class="ar-only">مسؤول واحد عن المشروع بينسق كل التخصصات نيابة عن العميل، من أول اجتماع وحتى التسليم.</span></span>
+          </div>
+          <div class="stat-cell">
+            <strong><span class="en-only">Clear role labeling</span><span class="ar-only">توضيح الدور بدقة</span></strong>
+            <span><span class="en-only">Every project we publish states plainly whether SNAP was the design authority or the visualization partner — no ambiguity about who designed what.</span><span class="ar-only">كل مشروع بننشره بنوضح فيه بصراحة هل سناب كانت الجهة المصممة ولا شريك الإظهار — من غير أي لبس حول مين صمم إيه.</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--blueprint);color:var(--vellum)">
+      <div class="container" style="text-align:center">
+        <h2 style="color:var(--white);max-width:640px;margin:0 auto 24px">
+          <span class="en-only">Have a project brief ready? Let's talk about which stage you're starting from.</span>
+          <span class="ar-only">عندك فكرة مشروع جاهزة؟ خلينا نتكلم عن المرحلة اللي هتبدأ منها.</span>
+        </h2>
+        <a class="btn btn-gold" href="Index.html#contact"><span class="en-only">Start a conversation</span><span class="ar-only">ابدأ الحديث</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img class="footer-brand-mark" src="logo.png" alt="SNAP Saudi logo">
+          <p><span class="en-only">Architecture, interiors, urban development and visual storytelling across Egypt, Saudi Arabia and the Gulf.</span><span class="ar-only">عمارة وتصميم داخلي وتطوير عمراني وسرد بصري عبر مصر والسعودية والخليج.</span></p>
+        </div>
+        <div>
+          <strong><span class="en-only">Navigation</span><span class="ar-only">التنقل</span></strong>
+          <p><a href="about.html"><span class="en-only">About</span><span class="ar-only">من نحن</span></a><br><a href="how-we-work.html"><span class="en-only">How We Work</span><span class="ar-only">منهج العمل</span></a><br><a href="leadership.html"><span class="en-only">Leadership</span><span class="ar-only">فريق القيادة</span></a><br><a href="clients.html"><span class="en-only">Clients</span><span class="ar-only">العملاء</span></a><br><a href="services.html"><span class="en-only">Services</span><span class="ar-only">الخدمات</span></a><br><a href="Index.html#projects"><span class="en-only">Projects</span><span class="ar-only">المشاريع</span></a></p>
+        </div>
+        <div>
+          <strong><span class="en-only">Markets</span><span class="ar-only">الأسواق</span></strong>
+          <p><a href="saudi-arabia.html"><span class="en-only">Saudi Arabia</span><span class="ar-only">السعودية</span></a><br><a href="egypt.html"><span class="en-only">Egypt</span><span class="ar-only">مصر</span></a><br><a href="gulf-arab-states.html"><span class="en-only">Gulf &amp; Arab States</span><span class="ar-only">الخليج والدول العربية</span></a></p>
+        </div>
+        <div>
+          <strong><span class="en-only">Offices</span><span class="ar-only">المكاتب</span></strong>
+          <p>Cairo, Egypt<br>Riyadh, Saudi Arabia</p>
+        </div>
+      </div>
+      <div class="copyright">© 2026 SNAP Saudi. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+</html>
