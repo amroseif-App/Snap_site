@@ -1580,7 +1580,6 @@ if (typeof L === "undefined") {
       });
 
       const bounds=[];
-      const countryFocused=Boolean($("#countryFilter").value);
       grouped.forEach(group=>{
         if(!group.hasFixedCenter){
           group.lat/=group.projects.length;
@@ -1589,11 +1588,9 @@ if (typeof L === "undefined") {
         const regionLabel=lang==="ar"?group.regionAr:group.region;
         const markerIcon=L.divIcon({
           className:"",
-          html:countryFocused
-            ? `<div class="region-map-marker ${activeDiscipline}-marker"><span class="region-marker-name">${regionLabel}</span><strong class="region-marker-count">${group.projects.length}</strong></div>`
-            : `<div class="overview-map-marker ${activeDiscipline}-marker">${group.projects.length}</div>`,
-          iconSize:countryFocused?[96,38]:[30,30],
-          iconAnchor:countryFocused?[48,-8]:[15,-8],
+          html:`<div class="overview-map-marker ${activeDiscipline}-marker">${group.projects.length}</div>`,
+          iconSize:[30,30],
+          iconAnchor:[15,-8],
           popupAnchor:[0,-18]
         });
 
@@ -1721,7 +1718,6 @@ if (typeof L === "undefined") {
       activeDiscipline=discipline;
       $("#searchInput").value="";
       $("#categoryFilter").value="";
-      $("#countryFilter").value="";
       updateDisciplineTabs();
       setupFilters();
       filterProjects();
