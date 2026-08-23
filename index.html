@@ -222,7 +222,11 @@
       width:44px;height:44px;border:1px solid var(--paper-line);background:transparent;cursor:pointer;font-family:var(--font-mono);font-size:.78rem;
     }
     .lang-btn:hover,.menu-btn:hover{border-color:var(--ink)}
-    .menu-btn{display:none}
+    .menu-btn{display:none;border:0;background:transparent;padding:8px;width:44px;height:44px;gap:6px}
+    .menu-btn span{display:block;width:28px;height:2px;background:var(--ink);transition:transform .24s ease,opacity .2s ease}
+    .menu-btn.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+    .menu-btn.open span:nth-child(2){opacity:0}
+    .menu-btn.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
 
     /* signature device: registration marks on drawing 'plates' */
     .plate{position:relative}
@@ -517,7 +521,11 @@
     .modal-gallery img{width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--vellum-2)}
 
     @media (max-width:1160px){
+      .nav{direction:ltr;justify-content:flex-start;gap:12px}
+      .nav .brand{margin-right:auto}
+      .nav-actions{margin-left:auto}
       .nav-links{display:none;position:absolute;top:var(--nav-h);left:0;right:0;background:var(--vellum);padding:24px;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--paper-line)}
+      html[dir="rtl"] .nav-links{direction:rtl;align-items:flex-end}
       .nav-links.open{display:flex}
       .nav-links a{border-left:0;padding:10px 0;width:100%;white-space:normal}
       .nav-links a::after{left:0;right:auto;bottom:2px}
@@ -954,6 +962,9 @@ html[dir="rtl"] .project-popup button{text-align:right}
   -->
   <header class="site-header">
     <div class="container nav">
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
       <a href="#home" class="logo brand" aria-label="SNAP Saudi home">
         <img class="brand-logo" src="logo.png" alt="SNAP Saudi Architecture logo">
       </a>
@@ -974,7 +985,6 @@ html[dir="rtl"] .project-popup button{text-align:right}
       </nav>
       <div class="nav-actions">
         <button class="lang-btn" id="langBtn" aria-label="Switch language">AR</button>
-        <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
       </div>
     </div>
   </header>
@@ -1922,8 +1932,16 @@ if (typeof L === "undefined") {
     }
 
     $("#langBtn").addEventListener("click",()=>{lang=lang==="en"?"ar":"en";applyLanguage();});
-    $("#menuBtn").addEventListener("click",()=>$("#navLinks").classList.toggle("open"));
-    $$("#navLinks a").forEach(a=>a.addEventListener("click",()=>$("#navLinks").classList.remove("open")));
+    $("#menuBtn").addEventListener("click",()=>{
+      const open=$("#navLinks").classList.toggle("open");
+      $("#menuBtn").classList.toggle("open",open);
+      $("#menuBtn").setAttribute("aria-expanded",String(open));
+    });
+    $$("#navLinks a").forEach(a=>a.addEventListener("click",()=>{
+      $("#navLinks").classList.remove("open");
+      $("#menuBtn").classList.remove("open");
+      $("#menuBtn").setAttribute("aria-expanded","false");
+    }));
     $$(".nav-group-trigger").forEach(t=>t.addEventListener("click",e=>{
       e.stopPropagation();
       const g=t.closest(".nav-group"); if(!g) return;
