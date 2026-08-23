@@ -943,11 +943,14 @@ html[dir="rtl"] .project-popup button{text-align:right}
 <body>
   <!--
     HOME PAGE MOVIES:
-    Place your MP4 files in:
+    Desktop MP4 files:
     images/hero/hero-1.mp4
     images/hero/hero-2.mp4
     images/hero/hero-3.mp4
-    Recommended: MP4 H.264, 1920×1080, muted, compressed for web.
+    Mobile MP4 files:
+    images/hero/mobile/hero-mobile-1.mp4
+    images/hero/mobile/hero-mobile-2.mp4
+    images/hero/mobile/hero-mobile-3.mp4
   -->
   <header class="site-header">
     <div class="container nav">
@@ -981,19 +984,16 @@ html[dir="rtl"] .project-popup button{text-align:right}
     <section class="hero" id="home">
       <div class="hero-slides" id="heroSlides">
         <div class="hero-slide active">
-          <video class="hero-video" id="heroVideo0" muted playsinline autoplay preload="auto">
-            <source src="images/hero/hero-1.mp4" type="video/mp4">
-          </video>
+          <video class="hero-video" id="heroVideo0" muted playsinline autoplay preload="auto"
+            data-desktop-src="images/hero/hero-1.mp4" data-mobile-src="images/hero/mobile/hero-mobile-1.mp4"></video>
         </div>
         <div class="hero-slide">
-          <video class="hero-video" id="heroVideo1" muted playsinline preload="none">
-            <source src="images/hero/hero-2.mp4" type="video/mp4">
-          </video>
+          <video class="hero-video" id="heroVideo1" muted playsinline preload="none"
+            data-desktop-src="images/hero/hero-2.mp4" data-mobile-src="images/hero/mobile/hero-mobile-2.mp4"></video>
         </div>
         <div class="hero-slide">
-          <video class="hero-video" id="heroVideo2" muted playsinline preload="none">
-            <source src="images/hero/hero-3.mp4" type="video/mp4">
-          </video>
+          <video class="hero-video" id="heroVideo2" muted playsinline preload="none"
+            data-desktop-src="images/hero/hero-3.mp4" data-mobile-src="images/hero/mobile/hero-mobile-3.mp4"></video>
         </div>
       </div>
       <div class="hero-overlay"></div>
@@ -2083,6 +2083,17 @@ if (typeof L === "undefined") {
     const heroSlides = [...document.querySelectorAll(".hero-slide")];
     const heroDots = [...document.querySelectorAll(".hero-dot")];
     const heroVideos = heroSlides.map(slide=>slide.querySelector("video")).filter(Boolean);
+    const heroMobileMedia = window.matchMedia("(max-width: 640px)");
+    function applyHeroVideoSources(){
+      heroVideos.forEach(video=>{
+        const nextSource=heroMobileMedia.matches ? video.dataset.mobileSrc : video.dataset.desktopSrc;
+        if(!nextSource || video.getAttribute("src")===nextSource) return;
+        video.src=nextSource;
+        video.dataset.prepared="false";
+        video.load();
+      });
+    }
+    applyHeroVideoSources();
     const reduceHeroMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const HERO_DURATION_MS=4500;
     let heroTimer;
@@ -2181,6 +2192,10 @@ if (typeof L === "undefined") {
     heroDots.forEach((dot,index)=>dot.addEventListener("click",()=>showHeroSlide(index)));
     $("#heroPrev").addEventListener("click",()=>showHeroSlide(heroSlideIndex - 1));
     $("#heroNext").addEventListener("click",()=>showHeroSlide(heroSlideIndex + 1));
+    heroMobileMedia.addEventListener("change",()=>{
+      applyHeroVideoSources();
+      showHeroSlide(heroSlideIndex);
+    });
     // Load the opening film only; prepare the next film after the first view settles.
     heroVideos.forEach((video,index)=>{
       video.muted=true;
