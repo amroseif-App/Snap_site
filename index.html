@@ -1985,7 +1985,7 @@ if (typeof L === "undefined") {
     (function(){
       const btn=document.createElement("button");
       btn.id="floatingMapReturn";
-      btn.className="map-return-btn show";
+      btn.className="map-return-btn";
       btn.type="button";
       const listIsActive=$("#listBtn").classList.contains("active");
       btn.textContent=listIsActive
@@ -1996,6 +1996,24 @@ if (typeof L === "undefined") {
         target.click();
       });
       document.body.appendChild(btn);
+      const projectsSection=$("#projects");
+      if(projectsSection && "IntersectionObserver" in window){
+        const observer=new IntersectionObserver(entries=>{
+          const visible=entries.some(entry=>entry.isIntersecting);
+          btn.classList.toggle("show",visible);
+          btn.setAttribute("aria-hidden",String(!visible));
+        },{rootMargin:"-72px 0px -12% 0px",threshold:0});
+        observer.observe(projectsSection);
+      }else if(projectsSection){
+        const updateVisibility=()=>{
+          const rect=projectsSection.getBoundingClientRect();
+          const visible=rect.bottom>72 && rect.top<window.innerHeight*.88;
+          btn.classList.toggle("show",visible);
+          btn.setAttribute("aria-hidden",String(!visible));
+        };
+        window.addEventListener("scroll",updateVisibility,{passive:true});
+        updateVisibility();
+      }
     })();
 
     // Scrollspy: highlight nav link of the section in view
