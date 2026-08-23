@@ -222,7 +222,11 @@
       width:44px;height:44px;border:1px solid var(--paper-line);background:transparent;cursor:pointer;font-family:var(--font-mono);font-size:.78rem;
     }
     .lang-btn:hover,.menu-btn:hover{border-color:var(--ink)}
-    .menu-btn{display:none}
+    .menu-btn{display:none;border:0;background:transparent;padding:8px;width:44px;height:44px;gap:6px}
+    .menu-btn span{display:block;width:28px;height:2px;background:var(--ink);transition:transform .24s ease,opacity .2s ease}
+    .menu-btn.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+    .menu-btn.open span:nth-child(2){opacity:0}
+    .menu-btn.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
 
     /* signature device: registration marks on drawing 'plates' */
     .plate{position:relative}
@@ -517,7 +521,11 @@
     .modal-gallery img{width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--vellum-2)}
 
     @media (max-width:1160px){
+      .nav{direction:ltr;justify-content:flex-start;gap:12px}
+      .nav .brand{margin-right:auto}
+      .nav-actions{margin-left:auto}
       .nav-links{display:none;position:absolute;top:var(--nav-h);left:0;right:0;background:var(--vellum);padding:24px;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--paper-line)}
+      html[dir="rtl"] .nav-links{direction:rtl;align-items:flex-end}
       .nav-links.open{display:flex}
       .nav-links a{border-left:0;padding:10px 0;width:100%;white-space:normal}
       .nav-links a::after{left:0;right:auto;bottom:2px}
@@ -912,6 +920,23 @@ html[dir="rtl"] .featured-card:hover .featured-arrow{transform:scaleX(-1) transl
 .city-marker.visualization-marker{background:#789A9D;color:#10252E;border-color:#B5C9C8;box-shadow:0 7px 20px rgba(52,79,81,.34)}
 .city-marker{animation:marker-arrive .38s cubic-bezier(.2,.8,.2,1) both}
 @keyframes marker-arrive{from{opacity:0;transform:scale(.82)}to{opacity:1;transform:scale(1)}}
+.region-map-marker{
+  --marker-accent:var(--flare);width:96px;min-height:34px;padding:5px 5px 5px 8px;border:1px solid rgba(242,239,230,.58);border-left:2px solid var(--marker-accent);
+  background:rgba(16,39,49,.94);color:var(--white);display:flex;align-items:center;justify-content:space-between;gap:8px;
+  font-family:var(--font-mono);box-shadow:0 9px 24px rgba(7,19,28,.28);backdrop-filter:blur(5px);
+  animation:marker-arrive .38s cubic-bezier(.2,.8,.2,1) both;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.region-map-marker::before{content:"";position:absolute;left:45px;top:-8px;width:6px;height:6px;border-radius:50%;background:var(--marker-accent);border:2px solid var(--vellum);box-shadow:0 2px 8px rgba(0,0,0,.28)}
+.region-map-marker::after{content:"";position:absolute;left:49px;top:-1px;width:1px;height:5px;background:var(--marker-accent)}
+.region-marker-name{min-width:0;font-size:.5rem;line-height:1.15;white-space:normal;text-wrap:balance;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.region-marker-count{flex:none;min-width:23px;height:23px;padding:0 3px;display:grid;place-items:center;background:var(--flare);color:var(--blueprint);font-size:.6rem}
+.region-map-marker.visualization-marker{--marker-accent:#86A6A8}
+.region-map-marker:hover{transform:translateY(-2px);border-color:var(--flare);box-shadow:0 13px 30px rgba(7,19,28,.36)}
+html[dir="rtl"] .region-map-marker{padding:5px 8px 5px 5px;border-left:1px solid rgba(242,239,230,.58);border-right:2px solid var(--marker-accent)}
+@media(max-width:700px){.region-map-marker{width:88px;min-height:32px}.region-map-marker::before{left:41px}.region-map-marker::after{left:45px}.region-marker-name{font-size:.48rem}.region-marker-count{min-width:21px;height:21px}}
+.overview-map-marker{width:30px;height:30px;border:2px solid var(--vellum);border-radius:3px;background:#986049;color:#fff;display:grid;place-items:center;font-family:var(--font-mono);font-size:.66rem;font-weight:700;box-shadow:0 7px 18px rgba(7,19,28,.3);animation:marker-arrive .34s ease both;transition:transform .2s ease,box-shadow .2s ease}
+.overview-map-marker.visualization-marker{background:#86A6A8;color:var(--blueprint)}
+.overview-map-marker:hover{transform:translateY(-2px) scale(1.06);box-shadow:0 10px 24px rgba(7,19,28,.38)}
 html[dir="rtl"] .project-popup button{text-align:right}
 
 
@@ -926,14 +951,20 @@ html[dir="rtl"] .project-popup button{text-align:right}
 <body>
   <!--
     HOME PAGE MOVIES:
-    Place your MP4 files in:
+    Desktop MP4 files:
     images/hero/hero-1.mp4
     images/hero/hero-2.mp4
     images/hero/hero-3.mp4
-    Recommended: MP4 H.264, 1920×1080, muted, compressed for web.
+    Mobile MP4 files:
+    images/hero/mobile/hero-mobile-1.mp4
+    images/hero/mobile/hero-mobile-2.mp4
+    images/hero/mobile/hero-mobile-3.mp4
   -->
   <header class="site-header">
     <div class="container nav">
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
       <a href="#home" class="logo brand" aria-label="SNAP Saudi home">
         <img class="brand-logo" src="logo.png" alt="SNAP Saudi Architecture logo">
       </a>
@@ -954,7 +985,6 @@ html[dir="rtl"] .project-popup button{text-align:right}
       </nav>
       <div class="nav-actions">
         <button class="lang-btn" id="langBtn" aria-label="Switch language">AR</button>
-        <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
       </div>
     </div>
   </header>
@@ -964,19 +994,16 @@ html[dir="rtl"] .project-popup button{text-align:right}
     <section class="hero" id="home">
       <div class="hero-slides" id="heroSlides">
         <div class="hero-slide active">
-          <video class="hero-video" id="heroVideo0" muted playsinline autoplay preload="auto">
-            <source src="images/hero/hero-1.mp4" type="video/mp4">
-          </video>
+          <video class="hero-video" id="heroVideo0" muted playsinline autoplay preload="auto"
+            data-desktop-src="images/hero/hero-1.mp4" data-mobile-src="images/hero/mobile/hero-mobile-1.mp4"></video>
         </div>
         <div class="hero-slide">
-          <video class="hero-video" id="heroVideo1" muted playsinline preload="none">
-            <source src="images/hero/hero-2.mp4" type="video/mp4">
-          </video>
+          <video class="hero-video" id="heroVideo1" muted playsinline preload="none"
+            data-desktop-src="images/hero/hero-2.mp4" data-mobile-src="images/hero/mobile/hero-mobile-2.mp4"></video>
         </div>
         <div class="hero-slide">
-          <video class="hero-video" id="heroVideo2" muted playsinline preload="none">
-            <source src="images/hero/hero-3.mp4" type="video/mp4">
-          </video>
+          <video class="hero-video" id="heroVideo2" muted playsinline preload="none"
+            data-desktop-src="images/hero/hero-3.mp4" data-mobile-src="images/hero/mobile/hero-mobile-3.mp4"></video>
         </div>
       </div>
       <div class="hero-overlay"></div>
@@ -1214,7 +1241,7 @@ if (typeof L === "undefined") {
   document.write('<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"><\/script>');
 }
 </script>
-  <script src="data/projects-data.js"></script>
+  <script src="data/projects-data.js?v=20260823-ai2"></script>
   <script>
     const data = {
       stats:[
@@ -1568,17 +1595,17 @@ if (typeof L === "undefined") {
           group.lat/=group.projects.length;
           group.lon/=group.projects.length;
         }
+        const regionLabel=lang==="ar"?group.regionAr:group.region;
         const markerIcon=L.divIcon({
           className:"",
-          html:`<div class="city-marker ${activeDiscipline}-marker">${group.projects.length}</div>`,
-          iconSize:[34,34],
-          iconAnchor:[17,-13],
+          html:`<div class="overview-map-marker ${activeDiscipline}-marker">${group.projects.length}</div>`,
+          iconSize:[30,30],
+          iconAnchor:[15,-8],
           popupAnchor:[0,-18]
         });
 
         const marker=L.marker([group.lat,group.lon],{icon:markerIcon});
 
-        const regionLabel=lang==="ar"?group.regionAr:group.region;
         const projectCountLabel=lang==="ar"
           ? `${group.projects.length} مشروع`
           : `${group.projects.length} ${group.projects.length===1?"project":"projects"}`;
@@ -1701,7 +1728,6 @@ if (typeof L === "undefined") {
       activeDiscipline=discipline;
       $("#searchInput").value="";
       $("#categoryFilter").value="";
-      $("#countryFilter").value="";
       updateDisciplineTabs();
       setupFilters();
       filterProjects();
@@ -1906,8 +1932,16 @@ if (typeof L === "undefined") {
     }
 
     $("#langBtn").addEventListener("click",()=>{lang=lang==="en"?"ar":"en";applyLanguage();});
-    $("#menuBtn").addEventListener("click",()=>$("#navLinks").classList.toggle("open"));
-    $$("#navLinks a").forEach(a=>a.addEventListener("click",()=>$("#navLinks").classList.remove("open")));
+    $("#menuBtn").addEventListener("click",()=>{
+      const open=$("#navLinks").classList.toggle("open");
+      $("#menuBtn").classList.toggle("open",open);
+      $("#menuBtn").setAttribute("aria-expanded",String(open));
+    });
+    $$("#navLinks a").forEach(a=>a.addEventListener("click",()=>{
+      $("#navLinks").classList.remove("open");
+      $("#menuBtn").classList.remove("open");
+      $("#menuBtn").setAttribute("aria-expanded","false");
+    }));
     $$(".nav-group-trigger").forEach(t=>t.addEventListener("click",e=>{
       e.stopPropagation();
       const g=t.closest(".nav-group"); if(!g) return;
@@ -1985,7 +2019,7 @@ if (typeof L === "undefined") {
     (function(){
       const btn=document.createElement("button");
       btn.id="floatingMapReturn";
-      btn.className="map-return-btn show";
+      btn.className="map-return-btn";
       btn.type="button";
       const listIsActive=$("#listBtn").classList.contains("active");
       btn.textContent=listIsActive
@@ -1996,6 +2030,24 @@ if (typeof L === "undefined") {
         target.click();
       });
       document.body.appendChild(btn);
+      const projectsSection=$("#projects");
+      if(projectsSection && "IntersectionObserver" in window){
+        const observer=new IntersectionObserver(entries=>{
+          const visible=entries.some(entry=>entry.isIntersecting);
+          btn.classList.toggle("show",visible);
+          btn.setAttribute("aria-hidden",String(!visible));
+        },{rootMargin:"-72px 0px -12% 0px",threshold:0});
+        observer.observe(projectsSection);
+      }else if(projectsSection){
+        const updateVisibility=()=>{
+          const rect=projectsSection.getBoundingClientRect();
+          const visible=rect.bottom>72 && rect.top<window.innerHeight*.88;
+          btn.classList.toggle("show",visible);
+          btn.setAttribute("aria-hidden",String(!visible));
+        };
+        window.addEventListener("scroll",updateVisibility,{passive:true});
+        updateVisibility();
+      }
     })();
 
     // Scrollspy: highlight nav link of the section in view
@@ -2049,6 +2101,17 @@ if (typeof L === "undefined") {
     const heroSlides = [...document.querySelectorAll(".hero-slide")];
     const heroDots = [...document.querySelectorAll(".hero-dot")];
     const heroVideos = heroSlides.map(slide=>slide.querySelector("video")).filter(Boolean);
+    const heroMobileMedia = window.matchMedia("(max-width: 640px)");
+    function applyHeroVideoSources(){
+      heroVideos.forEach(video=>{
+        const nextSource=heroMobileMedia.matches ? video.dataset.mobileSrc : video.dataset.desktopSrc;
+        if(!nextSource || video.getAttribute("src")===nextSource) return;
+        video.src=nextSource;
+        video.dataset.prepared="false";
+        video.load();
+      });
+    }
+    applyHeroVideoSources();
     const reduceHeroMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const HERO_DURATION_MS=4500;
     let heroTimer;
@@ -2147,6 +2210,10 @@ if (typeof L === "undefined") {
     heroDots.forEach((dot,index)=>dot.addEventListener("click",()=>showHeroSlide(index)));
     $("#heroPrev").addEventListener("click",()=>showHeroSlide(heroSlideIndex - 1));
     $("#heroNext").addEventListener("click",()=>showHeroSlide(heroSlideIndex + 1));
+    heroMobileMedia.addEventListener("change",()=>{
+      applyHeroVideoSources();
+      showHeroSlide(heroSlideIndex);
+    });
     // Load the opening film only; prepare the next film after the first view settles.
     heroVideos.forEach((video,index)=>{
       video.muted=true;
