@@ -912,6 +912,20 @@ html[dir="rtl"] .featured-card:hover .featured-arrow{transform:scaleX(-1) transl
 .city-marker.visualization-marker{background:#789A9D;color:#10252E;border-color:#B5C9C8;box-shadow:0 7px 20px rgba(52,79,81,.34)}
 .city-marker{animation:marker-arrive .38s cubic-bezier(.2,.8,.2,1) both}
 @keyframes marker-arrive{from{opacity:0;transform:scale(.82)}to{opacity:1;transform:scale(1)}}
+.region-map-marker{
+  --marker-accent:var(--flare);width:150px;min-height:44px;padding:7px 7px 7px 11px;border:1px solid rgba(242,239,230,.58);border-left:3px solid var(--marker-accent);
+  background:rgba(16,39,49,.94);color:var(--white);display:flex;align-items:center;justify-content:space-between;gap:8px;
+  font-family:var(--font-mono);box-shadow:0 9px 24px rgba(7,19,28,.28);backdrop-filter:blur(5px);
+  animation:marker-arrive .38s cubic-bezier(.2,.8,.2,1) both;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.region-map-marker::before{content:"";position:absolute;left:72px;top:-9px;width:7px;height:7px;border-radius:50%;background:var(--marker-accent);border:2px solid var(--vellum);box-shadow:0 2px 8px rgba(0,0,0,.28)}
+.region-map-marker::after{content:"";position:absolute;left:76px;top:-2px;width:1px;height:7px;background:var(--marker-accent)}
+.region-marker-name{min-width:0;font-size:.62rem;line-height:1.2;white-space:normal;text-wrap:balance}
+.region-marker-count{flex:none;min-width:29px;height:29px;padding:0 5px;display:grid;place-items:center;background:var(--flare);color:var(--blueprint);font-size:.7rem}
+.region-map-marker.visualization-marker{--marker-accent:#86A6A8}
+.region-map-marker:hover{transform:translateY(-2px);border-color:var(--flare);box-shadow:0 13px 30px rgba(7,19,28,.36)}
+html[dir="rtl"] .region-map-marker{padding:7px 11px 7px 7px;border-left:1px solid rgba(242,239,230,.58);border-right:3px solid var(--marker-accent)}
+@media(max-width:700px){.region-map-marker{width:124px;min-height:40px}.region-map-marker::before{left:59px}.region-map-marker::after{left:63px}.region-marker-name{font-size:.56rem}.region-marker-count{min-width:26px;height:26px}}
 html[dir="rtl"] .project-popup button{text-align:right}
 
 
@@ -1568,17 +1582,17 @@ if (typeof L === "undefined") {
           group.lat/=group.projects.length;
           group.lon/=group.projects.length;
         }
+        const regionLabel=lang==="ar"?group.regionAr:group.region;
         const markerIcon=L.divIcon({
           className:"",
-          html:`<div class="city-marker ${activeDiscipline}-marker">${group.projects.length}</div>`,
-          iconSize:[34,34],
-          iconAnchor:[17,-13],
+          html:`<div class="region-map-marker ${activeDiscipline}-marker"><span class="region-marker-name">${regionLabel}</span><strong class="region-marker-count">${group.projects.length}</strong></div>`,
+          iconSize:[150,48],
+          iconAnchor:[75,-8],
           popupAnchor:[0,-18]
         });
 
         const marker=L.marker([group.lat,group.lon],{icon:markerIcon});
 
-        const regionLabel=lang==="ar"?group.regionAr:group.region;
         const projectCountLabel=lang==="ar"
           ? `${group.projects.length} مشروع`
           : `${group.projects.length} ${group.projects.length===1?"project":"projects"}`;
