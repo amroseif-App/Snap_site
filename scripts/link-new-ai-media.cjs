@@ -16,6 +16,12 @@ const mediaCounts = {
   "jeera": 4
 };
 
+const hiddenNearDuplicates = {
+  "katamia": new Set([4, 5]),
+  "the-shore": new Set([2, 3, 4, 5, 11]),
+  "the-view": new Set([3])
+};
+
 const root = path.resolve(__dirname, "..");
 const jsonPath = path.join(root, "data", "projects.json");
 const jsPath = path.join(root, "data", "projects-data.js");
@@ -26,9 +32,10 @@ for (const project of projects) {
   if (!count) continue;
   const base = `images/portfolio/${project.id}/ai-2026`;
   project.image = `${base}/01.jpeg`;
-  project.gallery = Array.from({ length: count }, (_, index) =>
-    `${base}/${String(index + 1).padStart(2, "0")}.jpeg`
-  );
+  const hidden = hiddenNearDuplicates[project.id] || new Set();
+  project.gallery = Array.from({ length: count }, (_, index) => index + 1)
+    .filter(number => !hidden.has(number))
+    .map(number => `${base}/${String(number).padStart(2, "0")}.jpeg`);
 }
 
 const json = `${JSON.stringify(projects, null, 2)}\n`;
