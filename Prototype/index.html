@@ -1,0 +1,2364 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <script>
+  (function(){
+    var v = new URLSearchParams(location.search).get("lang");
+    var lang = (v === "ar" || v === "en") ? v : (function(){ try { return localStorage.getItem("snapLang"); } catch(e){ return null; } })() || "en";
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    if(location.hash){
+      document.documentElement.style.scrollBehavior = "auto";
+      document.documentElement.style.visibility = "hidden";
+      var __targetId = location.hash.slice(1);
+      var __snapToHash = function(){
+        var el = document.getElementById(__targetId);
+        if(el) el.scrollIntoView();
+      };
+      var __reveal = function(){ document.documentElement.style.visibility = ""; };
+      window.addEventListener("load", function(){
+        __snapToHash();
+        if(document.fonts && document.fonts.ready){ document.fonts.ready.then(__snapToHash); }
+        setTimeout(function(){ __snapToHash(); __reveal(); }, 120);
+        setTimeout(__snapToHash, 400);
+        setTimeout(function(){ document.documentElement.style.scrollBehavior = ""; }, 600);
+      });
+      setTimeout(__reveal, 2000);
+    }
+  })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SNAP Saudi — Architecture, visualization, interiors, urban development and real-estate presentation." />
+  <title>SNAP Saudi — Architecture & Visualization</title>
+  <link rel="canonical" href="https://www.snaparc.com/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SNAP Saudi" />
+  <meta property="og:title" content="SNAP Saudi — Architecture & Visualization" />
+  <meta property="og:description" content="Multidisciplinary architecture, urban design, interior design, CGI, animation and real-estate visualization consultancy operating across Egypt, Saudi Arabia and the Gulf since 1993." />
+  <meta property="og:image" content="https://www.snaparc.com/logo.png" />
+  <meta property="og:url" content="https://www.snaparc.com/" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ar_SA" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SNAP Saudi — Architecture & Visualization" />
+  <meta name="twitter:description" content="Multidisciplinary architecture, urban design, interior design, CGI, animation and real-estate visualization consultancy operating across Egypt, Saudi Arabia and the Gulf since 1993." />
+  <meta name="twitter:image" content="https://www.snaparc.com/logo.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "SNAP Saudi",
+    "alternateName": "SNAP Architecture",
+    "url": "https://www.snaparc.com/",
+    "logo": "https://www.snaparc.com/logo.png",
+    "image": "https://www.snaparc.com/logo.png",
+    "description": "Multidisciplinary architecture, urban design, interior design, CGI, animation and real-estate visualization consultancy operating across Egypt, Saudi Arabia and the Gulf since 1993.",
+    "areaServed": ["Egypt","Saudi Arabia","United Arab Emirates","Qatar","Kuwait","Oman","Libya","Yemen","Sudan"],
+    "sameAs": [],
+    "department": [
+      {
+        "@type": "ProfessionalService",
+        "name": "SNAP Saudi — Cairo Office",
+        "url": "https://www.snaparc.com/",
+        "email": "snap@snaparc.com",
+        "telephone": "+20223516183",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "8 Hob Eldin St., Sefarat, Nasr City",
+          "addressLocality": "Cairo",
+          "addressCountry": "EG"
+        }
+      },
+      {
+        "@type": "ProfessionalService",
+        "name": "SNAP Saudi — Riyadh Office",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Riyadh",
+          "addressCountry": "SA"
+        }
+      }
+    ],
+    "makesOffer": [
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Architectural Design"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Interior Design"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Urban Design & Master Planning"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Landscape Design"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Architectural Visualization"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"CGI & Animation"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"VR & Interactive Experiences"}},
+      {"@type":"Offer","itemOffered":{"@type":"Service","name":"Real-Estate Presentation"}}
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Tajawal:wght@400;500;700;800&family=Zain:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#202622;
+      --ink-soft:#303833;
+      --muted:#535E57;
+      --vellum:#F4F1E8;
+      --vellum-2:#EAE5D9;
+      --paper-line:#C5BAA6;
+      --blueprint:#152B36;
+      --blueprint-2:#1D3A47;
+      --redline:#864C35;
+      --redline-2:#A45F42;
+      --flare:#BF9551;
+      --white:#FFFFFF;
+      --shadow:0 24px 60px rgba(17,32,38,.14);
+      --font-display:'Fraunces',Georgia,serif;
+      --font-body:'Archivo',Arial,sans-serif;
+      --font-mono:'JetBrains Mono','Courier New',monospace;
+      --font-ar:'Tajawal',Arial,sans-serif;
+      --font-ar-display:'Zain','Tajawal',sans-serif;
+      --nav-h:78px;
+      --radius:1px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:var(--font-body);
+      color:var(--ink);
+      background:var(--vellum);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+    html[dir="rtl"]{font-family:var(--font-ar)}
+    h1,h2,h3,h4{font-family:var(--font-display); line-height:1.04; margin:0; font-weight:500; letter-spacing:-.01em}
+    html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3,html[dir="rtl"] h4{font-family:var(--font-ar-display);font-weight:700;letter-spacing:0}
+    a{color:inherit;text-decoration:none}
+    button,input,select,textarea{font:inherit}
+    img{max-width:100%;display:block}
+    :focus-visible{outline:2px solid var(--redline);outline-offset:3px}
+    .container{width:min(1200px,calc(100% - 96px));margin:auto}
+    .eyebrow{
+      font-family:var(--font-mono);
+      font-size:.82rem;letter-spacing:.13em;text-transform:uppercase;color:var(--redline);font-weight:700;
+      display:inline-flex;align-items:center;gap:.6em;
+    }
+    .eyebrow::before{content:"";width:16px;height:1px;background:var(--redline)}
+    .section{padding:128px 0}
+    .projects-area{position:relative;z-index:1;overflow:hidden}
+    #contact{position:relative;z-index:2;background:var(--vellum)}
+    .section-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:56px;padding-bottom:28px;border-bottom:1px solid var(--paper-line)}
+    .section-head h2{font-size:clamp(2.1rem,4.4vw,3.6rem);max-width:760px}
+    html[dir="rtl"] .section-head h2{font-size:calc(.64 * clamp(2.1rem,4.4vw,3.6rem))}
+    .section-head p{max-width:420px;color:var(--muted);font-size:.94rem;padding-bottom:4px}
+    .btn{
+      font-family:var(--font-mono);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;
+      border:1px solid var(--ink);
+      border-radius:var(--radius);
+      padding:14px 24px;
+      min-height:48px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      cursor:pointer;
+      background:transparent;
+      transition:.2s ease;
+    }
+    .btn:hover{transform:translateY(-2px);box-shadow:0 6px 0 0 var(--ink)}
+    .btn-primary{background:var(--ink);color:var(--vellum);border-color:var(--ink)}
+    .btn-gold{background:var(--flare);border-color:var(--flare);color:var(--blueprint);font-weight:700}
+    .btn-gold:hover{background:#D2B47F;border-color:#D2B47F;box-shadow:0 6px 0 0 var(--ink)}
+    .btn-ghost{border-color:var(--paper-line)}
+    .site-header{
+      position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:50;
+      background:var(--vellum);
+      border-bottom:1px solid var(--paper-line);
+    }
+    .nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .logo{font-weight:800;letter-spacing:.12em;font-size:1.05rem}
+    .logo span{color:var(--redline)}
+
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand-logo{
+      height:62px;width:auto;max-width:min(70vw,360px);display:block;object-fit:contain;
+      mix-blend-mode:multiply;
+    }
+    .brand-text{font-family:var(--font-mono);font-weight:600;letter-spacing:.16em;font-size:.86rem}
+    .site-header .logo{display:flex;align-items:center}
+    footer .footer-brand-mark{
+      height:60px;width:auto;max-width:280px;display:block;margin-bottom:20px;
+      background:var(--vellum);padding:12px 16px;border-radius:4px;
+    }
+    @media (max-width:640px){
+      .brand-logo{height:54px;max-width:66vw}
+      .brand-text{font-size:.72rem}
+    }
+    .nav-links{display:flex;align-items:center;gap:0;font-family:var(--font-mono);font-size:.8rem;font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+    .nav-links a{position:relative;padding:0 15px;border-left:1px solid var(--paper-line);white-space:nowrap}
+    .nav-links a:first-child{border-left:0}
+    .nav-links a::after{content:"";position:absolute;left:18px;right:18px;bottom:-27px;height:2px;background:var(--redline);transform:scaleX(0);transform-origin:left;transition:.2s}
+    .nav-links a:hover::after,.nav-links a.current::after{transform:scaleX(1)}
+    .nav-links a.current{color:var(--redline)}
+    html[dir="rtl"] .nav-links a{border-left:0;border-right:1px solid var(--paper-line)}
+    html[dir="rtl"] .nav-links a:first-child{border-right:0}
+    .nav-group{position:relative;display:flex;align-items:center}
+    .nav-group-trigger{appearance:none;border:0;background:transparent;font-family:var(--font-mono);font-size:.8rem;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:inherit;cursor:pointer;padding:0 15px;border-left:1px solid var(--paper-line);display:inline-flex;align-items:center;gap:6px}
+    html[dir="rtl"] .nav-group-trigger{border-left:0;border-right:1px solid var(--paper-line)}
+    .nav-group-trigger::after{content:"\25BE";font-size:.7em;opacity:.65;transition:transform .2s ease}
+    .nav-group:hover .nav-group-trigger::after,.nav-group.open .nav-group-trigger::after{transform:rotate(180deg)}
+    .nav-group-trigger.current{color:var(--redline)}
+    .nav-group-menu{position:absolute;top:calc(100% + 14px);left:0;min-width:190px;background:var(--vellum);border:1px solid var(--paper-line);box-shadow:0 18px 40px rgba(15,25,35,.12);display:flex;flex-direction:column;padding:6px 0;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility .18s;z-index:60}
+    html[dir="rtl"] .nav-group-menu{left:auto;right:0}
+    .nav-group:hover .nav-group-menu,.nav-group.open .nav-group-menu,.nav-group:focus-within .nav-group-menu{opacity:1;visibility:visible;transform:translateY(0)}
+    .nav-group-menu a{padding:9px 18px;border-left:0;width:auto;white-space:nowrap}
+    html[dir="rtl"] .nav-group-menu a{border-right:0}
+    .nav-group-menu a::after{display:none}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .lang-btn,.menu-btn{
+      width:44px;height:44px;border:1px solid var(--paper-line);background:transparent;cursor:pointer;font-family:var(--font-mono);font-size:.78rem;
+    }
+    .lang-btn:hover,.menu-btn:hover{border-color:var(--ink)}
+    .menu-btn{display:none;border:0;background:transparent;padding:8px;width:44px;height:44px;gap:6px}
+    .menu-btn span{display:block;width:28px;height:2px;background:var(--ink);transition:transform .24s ease,opacity .2s ease}
+    .menu-btn.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+    .menu-btn.open span:nth-child(2){opacity:0}
+    .menu-btn.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+    /* signature device: registration marks on drawing 'plates' */
+    .plate{position:relative}
+    .plate::before,.plate::after{content:"";position:absolute;width:20px;height:20px;pointer-events:none;z-index:4}
+    .plate::before{top:16px;left:16px;border-top:1px solid var(--mark,rgba(242,239,230,.55));border-left:1px solid var(--mark,rgba(242,239,230,.55))}
+    .plate::after{bottom:16px;right:16px;border-bottom:1px solid var(--mark,rgba(242,239,230,.55));border-right:1px solid var(--mark,rgba(242,239,230,.55))}
+    html[dir="rtl"] .plate::before{left:auto;right:16px;border-left:0;border-right:1px solid var(--mark,rgba(242,239,230,.55))}
+    html[dir="rtl"] .plate::after{right:auto;left:16px;border-right:0;border-left:1px solid var(--mark,rgba(242,239,230,.55))}
+
+    .hero{
+      min-height:100vh;padding-top:var(--nav-h);display:flex;align-items:center;
+      position:relative;overflow:hidden;background:var(--blueprint);
+    }
+    .hero::after{
+      content:"";position:absolute;inset:var(--nav-h) 0 0;z-index:1;pointer-events:none;
+      background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+      background-size:72px 72px;
+      -webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.65),transparent 72%);
+      mask-image:linear-gradient(90deg,rgba(0,0,0,.65),transparent 72%);
+    }
+    html[dir="rtl"] .hero::after{-webkit-mask-image:linear-gradient(270deg,rgba(0,0,0,.65),transparent 72%);mask-image:linear-gradient(270deg,rgba(0,0,0,.65),transparent 72%)}
+    .hero-slides{position:absolute;inset:0;z-index:0}
+    .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.1s ease}
+    .hero-slide.active{opacity:1}
+    .hero-video{
+      width:100%;height:100%;object-fit:cover;display:block;
+      filter:brightness(.72) saturate(.9) contrast(1.04);
+      background:var(--blueprint);
+    }
+    .hero-overlay{
+      position:absolute;inset:0;z-index:1;
+      background:
+        linear-gradient(100deg,rgba(7,18,31,.92) 0%,rgba(7,18,31,.74) 36%,rgba(7,18,31,.28) 67%,rgba(7,18,31,.06) 100%),
+        radial-gradient(circle at 26% 48%,rgba(7,18,31,.34),transparent 48%),
+        linear-gradient(0deg,rgba(7,18,31,.56) 0%,rgba(7,18,31,.08) 44%,rgba(7,18,31,.16) 100%);
+    }
+    html[dir="rtl"] .hero-overlay{
+      background:
+        linear-gradient(260deg,rgba(7,18,31,.92) 0%,rgba(7,18,31,.74) 36%,rgba(7,18,31,.28) 67%,rgba(7,18,31,.06) 100%),
+        radial-gradient(circle at 74% 48%,rgba(7,18,31,.34),transparent 48%),
+        linear-gradient(0deg,rgba(7,18,31,.56) 0%,rgba(7,18,31,.08) 44%,rgba(7,18,31,.16) 100%);
+    }
+    .hero-inner{
+      width:100%;min-width:0;padding:80px 0 116px;position:relative;z-index:2;
+    }
+    .hero-copy{max-width:820px;color:var(--vellum);position:relative;padding-inline-start:28px}
+    .hero-copy::before{content:"";position:absolute;inset:4px auto 4px 0;width:1px;background:linear-gradient(var(--flare),rgba(227,181,89,0))}
+    html[dir="rtl"] .hero-copy{margin-left:auto;text-align:right}
+    html[dir="rtl"] .hero-copy::before{left:auto;right:0}
+    .hero .eyebrow{color:var(--flare)}
+    .hero .eyebrow::before{background:var(--flare)}
+    .hero-copy h1{font-size:clamp(3.25rem,6.25vw,6.25rem);letter-spacing:-.042em;margin:22px 0 26px;color:var(--white);max-width:820px;text-wrap:balance;text-shadow:0 3px 30px rgba(0,0,0,.16)}
+    html[dir="rtl"] .hero-copy h1{font-size:calc(.82 * clamp(3.25rem,6.25vw,6.25rem));line-height:1.12}
+    .hero-copy p[data-i18n="heroText"]{font-size:clamp(1rem,1.25vw,1.12rem);line-height:1.72;color:rgba(242,239,230,.82);max-width:610px;margin:0}
+    html[dir="rtl"] .hero-copy p[data-i18n="heroText"]{margin-left:auto}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin:32px 0 44px}
+    .hero .btn{min-width:166px;border-radius:0;font-weight:600;letter-spacing:.08em}
+    .hero .btn-ghost{border-color:rgba(242,239,230,.4);color:var(--vellum)}
+    .hero .btn-ghost:hover{box-shadow:0 6px 0 0 var(--redline-2);border-color:var(--redline-2)}
+
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);max-width:760px;border-top:1px solid rgba(242,239,230,.24)}
+    .stat{padding:16px 18px 0 0;border-left:1px solid rgba(242,239,230,.14)}
+    .stat:first-child{border-left:0;padding-left:0}
+    .stat strong{display:block;font-family:var(--font-display);font-size:clamp(1.55rem,2.1vw,2rem);line-height:1.1;color:rgba(255,255,255,.9);font-weight:500}
+    .stat span{color:rgba(242,239,230,.52);font-size:.7rem;font-family:var(--font-mono);letter-spacing:.03em;text-transform:uppercase}
+    html[dir="rtl"] .stat{border-left:0;border-right:1px solid rgba(242,239,230,.2);padding-right:18px;padding-left:0}
+    html[dir="rtl"] .stat:first-child{border-right:0;padding-right:0}
+
+    .hero-titleblock{position:absolute;inset:auto 0 0 0;z-index:3;border-top:1px solid rgba(242,239,230,.28);background:rgba(7,18,31,.76);backdrop-filter:blur(12px)}
+    .tb-row{display:flex;flex-wrap:wrap}
+    .tb-cell{flex:0 1 auto;min-width:88px;padding:16px 22px;border-left:1px solid rgba(242,239,230,.18);font-family:var(--font-mono)}
+    .tb-cell:first-child{border-left:0}
+    .tb-project{flex:1 1 auto;min-width:260px}
+    .tb-location{flex:0 1 320px;min-width:220px}
+    .tb-label{display:block;font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--flare);margin-bottom:5px}
+    .tb-value{display:block;font-size:.82rem;color:var(--white);letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .tb-value.meta-change{animation:hero-meta-in .42s ease both}
+    @keyframes hero-meta-in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+    .tb-controls{flex:0 0 auto;display:flex;align-items:center;gap:18px;margin-left:auto}
+    html[dir="rtl"] .tb-controls{margin-left:0;margin-right:auto}
+    html[dir="rtl"] .tb-cell{border-left:0;border-right:1px solid rgba(242,239,230,.18)}
+    html[dir="rtl"] .tb-cell:first-child{border-right:0}
+    .hero-dots{display:flex;gap:8px}
+    .hero-dot{width:26px;height:2px;border:0;background:rgba(242,239,230,.3);cursor:pointer;padding:0}
+    .hero-dot.active{background:var(--redline-2)}
+    .hero-arrows{display:flex;gap:6px}
+    .hero-arrow{
+      width:36px;height:36px;border:1px solid rgba(242,239,230,.3);
+      background:transparent;color:var(--vellum);cursor:pointer;font-family:var(--font-mono);
+    }
+    .hero-arrow:hover{background:var(--redline);border-color:var(--redline)}
+
+    @keyframes riseIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    .hero-copy .eyebrow{animation:riseIn .7s ease both}
+    .hero-copy h1{animation:riseIn .8s ease .08s both}
+    .hero-copy p[data-i18n="heroText"]{animation:riseIn .8s ease .16s both}
+    .hero-actions{animation:riseIn .8s ease .24s both}
+    .stats{animation:riseIn .8s ease .32s both}
+
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    #about,#contact{min-height:calc(100svh - var(--nav-h));padding:56px 0 36px;display:flex;align-items:center;scroll-margin-top:var(--nav-h)}
+    #about .about-card{height:min(66svh,620px);aspect-ratio:auto}
+    .about-card{
+      aspect-ratio:4/5;overflow:hidden;position:relative;border:1px solid var(--paper-line);
+      background:url('images/about-workspace.jpg') center/cover;
+    }
+    .about-badge{
+      position:absolute;
+      left:24px;
+      bottom:24px;
+      max-width:280px;
+      color:#fff;
+      z-index:2;
+    }
+    .about-compass{position:absolute;top:22px;right:22px;z-index:2;width:56px;height:56px;color:var(--vellum);opacity:.92;filter:drop-shadow(0 1px 2px rgba(0,0,0,.85)) drop-shadow(0 0 5px rgba(0,0,0,.5))}
+    html[dir="rtl"] .about-compass{right:auto;left:22px}
+    .about-copy .eyebrow{margin-bottom:18px}
+    .about-copy h2{font-size:clamp(2.2rem,4.4vw,3.8rem);margin:0 0 26px}
+    .about-copy > p{color:var(--ink-soft);font-size:1.02rem;max-width:520px}
+    .about-pull{
+      margin:26px 0;padding-left:18px;border-left:2px solid var(--redline);
+      font-family:var(--font-display);font-size:1.24rem;font-style:italic;color:var(--ink);max-width:460px;
+    }
+    html[dir="rtl"] .about-pull{padding-left:0;padding-right:18px;border-left:0;border-right:2px solid var(--redline)}
+    .about-points{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:32px;background:var(--paper-line);border:1px solid var(--paper-line)}
+    .about-point{background:var(--vellum);padding:18px 20px}
+    .about-point strong{display:block;margin-bottom:6px;font-size:.98rem;font-weight:600}
+    .about-point span{color:var(--muted);font-size:.86rem}
+    .services{background:var(--vellum-2);min-height:calc(100svh - var(--nav-h));padding:56px 0 36px;display:flex;align-items:center;scroll-margin-top:var(--nav-h)}
+    .services .container{width:min(1200px,calc(100% - 96px))}
+    .services .section-head{margin-bottom:24px;padding-bottom:18px}
+    #servicesGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:42px;border-top:1px solid var(--paper-line)}
+    .service-row{
+      display:grid;grid-template-columns:44px 30px minmax(0,1fr);gap:12px;align-items:start;
+      padding:13px 0;border-bottom:1px solid var(--paper-line);position:relative;transition:.2s ease;
+    }
+    .service-row::before{content:"";position:absolute;left:-24px;top:0;bottom:0;width:3px;background:var(--redline);transform:scaleY(0);transform-origin:top;transition:.2s}
+    .service-row:hover::before{transform:scaleY(1)}
+    .service-row:hover{background:rgba(168,52,30,.045)}
+    .service-code{font-family:var(--font-mono);font-size:.78rem;color:var(--redline);padding-top:5px}
+    .service-icon{font-size:1.35rem;color:var(--ink);padding-top:2px}
+    .service-row h3{font-size:1.08rem;font-weight:500;line-height:1.25}
+    .service-row p{grid-column:3;color:var(--muted);margin:-4px 0 0;font-size:.78rem;line-height:1.45}
+    html[dir="rtl"] .service-row::before{left:auto;right:-24px}
+
+    .projects-area{background:var(--blueprint);color:var(--vellum);padding:64px 0 36px;min-height:calc(100svh - var(--nav-h));scroll-margin-top:var(--nav-h)}
+    .projects-area .section-head{border-bottom-color:rgba(242,239,230,.2);margin-bottom:28px;padding-bottom:20px}
+    .projects-area .section-head h2{color:var(--white)}
+    .projects-area .eyebrow{color:var(--flare)}
+    .projects-area .eyebrow::before{background:var(--flare)}
+    .projects-area .section-head p{color:rgba(242,239,230,.65)}
+    .project-disciplines{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;margin-bottom:18px;background:rgba(242,239,230,.18);border:1px solid rgba(242,239,230,.18)}
+    .discipline-tab{appearance:none;border:0;background:#1B3440;color:rgba(244,241,232,.78);padding:18px 22px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:18px;font-family:var(--font-display);font-size:clamp(1rem,1.8vw,1.3rem);transition:background .24s ease,color .24s ease,transform .24s ease,box-shadow .24s ease}
+    .discipline-tab span{display:flex;align-items:center;gap:10px}
+    .discipline-tab span::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--discipline-color);box-shadow:0 0 0 4px color-mix(in srgb,var(--discipline-color) 18%,transparent)}
+    .discipline-tab strong{font-family:var(--font-mono);font-size:.72rem;font-weight:500;padding:5px 8px;border:1px solid rgba(242,239,230,.2);min-width:34px;text-align:center}
+    .discipline-tab[data-discipline="design"]{--discipline-color:#A56A52}
+    .discipline-tab[data-discipline="visualization"]{--discipline-color:#86A6A8}
+    .discipline-tab:hover:not(.active){background:#25434E;color:#fff;box-shadow:inset 0 -2px 0 var(--flare);transform:translateY(-1px)}
+    .discipline-tab.active{background:var(--discipline-color);color:#10252E;box-shadow:inset 0 -3px 0 rgba(255,255,255,.28)}
+    .discipline-tab.active span::before{background:#10252E;box-shadow:0 0 0 4px rgba(16,37,46,.14)}
+    .discipline-tab.active strong{border-color:rgba(7,19,33,.25)}
+    .discipline-tab[data-discipline="design"].active{color:#fff}
+    .discipline-tab[data-discipline="design"].active span::before{background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.16)}
+    .discipline-tab[data-discipline="design"].active strong{border-color:rgba(255,255,255,.35)}
+    .discipline-tab:focus-visible,.view-toggle button:focus-visible,.map-return-btn:focus-visible{outline:2px solid var(--flare);outline-offset:3px}
+    .projects-toolbar{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:12px;margin-bottom:28px}
+    .control{
+      min-height:50px;padding:0 16px;border:1px solid rgba(242,239,230,.22);border-radius:var(--radius);
+      background:rgba(242,239,230,.055);color:#fff;outline:none;font-family:var(--font-body);
+      transition:background .2s ease,border-color .2s ease,color .2s ease,box-shadow .2s ease;
+    }
+    select.control{color-scheme:dark}
+    select.control:hover{background:rgba(227,181,89,.11);border-color:rgba(227,181,89,.72)}
+    .control:focus{border-color:var(--flare);box-shadow:0 0 0 2px rgba(227,181,89,.12)}
+    select.control.filter-active{background:var(--flare);border-color:var(--flare);color:var(--blueprint);font-weight:600}
+    .control option{background:#1B3440;color:var(--vellum)}
+    .control option:checked{background:var(--flare);color:var(--blueprint)}
+    .view-toggle{display:flex;border:1px solid rgba(242,239,230,.22);position:relative}
+    .view-toggle button{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:11px 16px;border:0;border-left:1px solid rgba(242,239,230,.22);background:#1B3440;color:rgba(242,239,230,.78);cursor:pointer;font-family:var(--font-mono);font-size:.78rem;transition:background .2s ease,color .2s ease,transform .2s ease}
+    .view-toggle button svg{width:15px;height:15px;flex:none}
+    .view-toggle button:first-child{border-left:0}
+    .view-toggle button.active{background:var(--flare);color:var(--blueprint);font-weight:700}
+    .view-toggle button:not(.active):hover{background:#25434E;color:#fff;transform:translateY(-1px)}
+    html[dir="rtl"] .view-toggle button{border-left:0;border-right:1px solid rgba(242,239,230,.22)}
+    html[dir="rtl"] .view-toggle button:first-child{border-right:0}
+    .view-hint{position:absolute;top:calc(100% + 10px);right:0;background:var(--blueprint);color:var(--vellum);border:1px solid var(--flare);padding:8px 12px;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.02em;white-space:nowrap;z-index:600;box-shadow:0 14px 34px rgba(0,0,0,.28);display:none}
+    .view-hint::before{content:"";position:absolute;top:-6px;right:20px;width:10px;height:10px;background:var(--blueprint);border-left:1px solid var(--flare);border-top:1px solid var(--flare);transform:rotate(45deg)}
+    html[dir="rtl"] .view-hint{right:auto;left:0}
+    html[dir="rtl"] .view-hint::before{right:auto;left:20px}
+    .view-toggle.hint-on .view-hint{display:block}
+    .view-toggle.hint-on #listBtn{position:relative;z-index:1;animation:viewpulse 1.6s ease-out infinite}
+    @keyframes viewpulse{0%{box-shadow:0 0 0 0 rgba(227,181,89,.65)}70%,100%{box-shadow:0 0 0 9px rgba(227,181,89,0)}}
+    .view-toggle.hint-on .view-hint{animation:hintbob 1.6s ease-in-out infinite}
+    @keyframes hintbob{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+    @media (prefers-reduced-motion:reduce){.view-toggle.hint-on #listBtn{animation:none;box-shadow:0 0 0 3px rgba(227,181,89,.7)}.view-toggle.hint-on .view-hint{animation:none}.discipline-tab,.view-toggle button,.control,.map-return-btn{transition:none!important;transform:none!important}}
+    .map-shell{
+      height:560px;min-height:320px;border:1px solid rgba(242,239,230,.16);position:relative;overflow:hidden;
+      background:#102731;
+    }
+    .map-title{position:absolute;left:34px;top:26px;font-family:var(--font-display);font-size:clamp(1.8rem,3.6vw,3.6rem);z-index:3;color:var(--vellum)}
+    html[dir="rtl"] .map-title{font-size:calc(.64 * clamp(1.8rem,3.6vw,3.6rem))}
+    .map-loading{position:absolute;inset:0;z-index:400;display:flex;align-items:center;justify-content:center;gap:12px;background:var(--blueprint);color:rgba(242,239,230,.72);font-family:var(--font-mono);font-size:.8rem;letter-spacing:.04em;transition:opacity .4s ease;pointer-events:none}
+    .map-loading.hidden{opacity:0}
+    .map-spinner{width:20px;height:20px;border:2px solid rgba(242,239,230,.25);border-top-color:var(--flare);border-radius:50%;animation:mapspin .8s linear infinite}
+    @keyframes mapspin{to{transform:rotate(360deg)}}
+    .list-view{display:none}
+    .list-view.active{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(242,239,230,.14);border:1px solid rgba(242,239,230,.14)}
+    .map-return-btn{position:fixed;bottom:24px;right:82px;z-index:45;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.04em;color:var(--blueprint);background:var(--flare);border:1px solid var(--flare);height:46px;padding:0 16px;cursor:pointer;box-shadow:0 10px 30px rgba(15,25,35,.18);opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .25s ease,transform .25s ease,visibility .25s,background .2s}
+    .map-return-btn.show{opacity:1;visibility:visible;transform:translateY(0)}
+    .map-return-btn:hover{background:var(--vellum);border-color:var(--vellum)}
+    html[dir="rtl"] .map-return-btn{right:auto;left:82px}
+    .list-item{background:#102731;padding:0;cursor:pointer;transition:.2s;display:flex;flex-direction:column;overflow:hidden}
+    .list-item:hover{background:rgba(168,52,30,.14)}
+    .list-item-thumb{position:relative;height:170px;background:linear-gradient(150deg,#25434E,#102731);overflow:hidden}
+    .list-item-thumb img{position:relative;z-index:2;width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .5s ease,filter .5s ease;filter:grayscale(.25) contrast(1.05)}
+    .list-item:hover .list-item-thumb img{transform:scale(1.045);filter:grayscale(0) contrast(1.05)}
+    .list-item-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:rgba(242,239,230,.28);font-family:var(--font-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:0 16px}
+    .list-item-body{padding:20px 22px}
+    .list-item span{color:rgba(242,239,230,.55);font-size:.72rem;font-family:var(--font-mono);letter-spacing:.03em;text-transform:uppercase}
+    .list-item h3{font-size:1.24rem;margin:10px 0 6px;color:var(--white)}
+    html[dir="rtl"] .list-item h3{font-size:.79rem}
+    .list-item-meta{margin-top:12px;display:flex;flex-direction:column;gap:5px}
+    .list-item-meta .list-item-row{font-family:var(--font-mono);font-size:.76rem;line-height:1.5;color:rgba(242,239,230,.8)}
+    .list-item-meta .list-item-label{color:var(--flare);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-inline-end:8px}
+    .result-count{margin-top:16px;color:rgba(242,239,230,.55);font-family:var(--font-mono);font-size:.8rem;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.clear-filters{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;color:var(--vellum);background:transparent;border:1px solid var(--redline);padding:7px 14px;cursor:pointer;transition:.2s}
+.clear-filters:hover{background:var(--redline);color:#fff}
+.list-empty{grid-column:1/-1;background:#102731;padding:64px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px}
+.list-empty-mark{font-family:var(--font-mono);font-size:2.4rem;color:var(--flare);line-height:1}
+.list-empty h3{color:var(--white);font-size:1.4rem}
+.list-empty p{color:rgba(242,239,230,.6);max-width:360px;font-size:.95rem}
+.list-empty .clear-filters{margin-top:6px}
+.gallery-empty{grid-column:1/-1;padding:40px 20px;text-align:center;color:var(--muted);font-family:var(--font-mono);font-size:.82rem;letter-spacing:.03em;border:1px dashed var(--paper-line)}
+    .list-view.active .list-item{animation:project-fade-in .42s ease both}
+    .list-view.active .list-item:nth-child(3n+2){animation-delay:.04s}
+    .list-view.active .list-item:nth-child(3n+3){animation-delay:.08s}
+    @keyframes project-fade-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+    .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px}
+    .contact-copy .eyebrow{margin-bottom:18px}
+    .contact-copy h2{font-size:clamp(2.4rem,4.6vw,4.2rem);margin:0 0 22px}
+    .contact-copy p{color:var(--muted);max-width:440px}
+    .contact-details{margin-top:32px}
+    .contact-general{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;padding-bottom:22px;border-bottom:1px solid var(--paper-line);font-family:var(--font-mono);font-size:.88rem}
+    .contact-general a{text-decoration:underline;text-decoration-color:var(--paper-line);text-underline-offset:3px}
+    .contact-general a:hover{color:var(--redline);text-decoration-color:var(--redline)}
+    .office-cards{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--paper-line);border:1px solid var(--paper-line);margin-top:22px}
+    .office-card{background:var(--vellum);padding:20px 22px}
+    .office-card .office-tag{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--redline);display:block;margin-bottom:8px}
+    .office-card strong{display:block;font-family:var(--font-display);font-size:1.14rem;font-weight:500;color:var(--ink);margin-bottom:10px}
+    .office-card address,.office-card p{font-style:normal;margin:0 0 6px;font-size:.82rem;color:var(--muted);line-height:1.6}
+    .office-card p:last-child{margin-bottom:0}
+    .office-card a{text-decoration:underline;text-decoration-color:var(--paper-line);text-underline-offset:2px}
+    .office-card a:hover{color:var(--redline);text-decoration-color:var(--redline)}
+    @media (max-width:640px){.office-cards{grid-template-columns:1fr}}
+    .contact-form{background:var(--white);border:1px solid var(--paper-line);padding:36px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .field{display:grid;gap:8px}
+    .field.full{grid-column:1/-1}
+    .field span{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+    .field input,.field select,.field textarea{
+      border:1px solid var(--paper-line);border-radius:var(--radius);background:var(--vellum);padding:13px 14px;min-height:48px;outline:none;font-family:var(--font-body);
+    }
+    .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--redline)}
+    .field textarea{min-height:130px;resize:vertical}
+    .form-note{grid-column:1/-1;margin:0;font-family:var(--font-mono);font-size:.78rem;line-height:1.55;color:var(--redline);background:rgba(168,52,30,.07);border:1px solid rgba(168,52,30,.22);padding:12px 14px;display:none}
+    .form-note.show{display:block}
+    .back-to-top{position:fixed;bottom:24px;right:24px;width:46px;height:46px;border:1px solid var(--paper-line);background:var(--vellum);color:var(--ink);cursor:pointer;display:grid;place-items:center;font-size:1.2rem;z-index:45;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .25s ease,transform .25s ease,visibility .25s;box-shadow:0 10px 30px rgba(15,25,35,.14)}
+    .back-to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+    .back-to-top:hover{border-color:var(--ink)}
+    html[dir="rtl"] .back-to-top{right:auto;left:24px}
+    footer{background:var(--blueprint);color:rgba(242,239,230,.7);padding:64px 0 40px}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+    footer strong{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--vellum);display:block;margin-bottom:14px}
+    footer p,footer a{color:rgba(242,239,230,.62);font-size:.92rem;line-height:1.8}
+    footer a:hover{color:var(--redline-2)}
+    .copyright{border-top:1px solid rgba(242,239,230,.14);margin-top:44px;padding-top:22px;color:rgba(242,239,230,.4);font-family:var(--font-mono);font-size:.76rem}
+
+    .modal{position:fixed;inset:0;background:rgba(11,20,30,.82);z-index:5000;display:none;padding:32px;overflow:auto;isolation:isolate}
+    .modal.show{display:grid;place-items:center}
+    .modal-card{background:var(--vellum);width:min(1080px,100%);max-height:92vh;overflow:auto;position:relative;z-index:5001;border:1px solid var(--paper-line)}
+    .modal-close{position:sticky;top:16px;float:right;margin:16px;z-index:3;width:44px;height:44px;border:1px solid rgba(242,239,230,.3);background:var(--blueprint);color:var(--vellum);cursor:pointer;font-family:var(--font-mono)}
+    .modal-close:hover{background:var(--redline);border-color:var(--redline)}
+    .modal-hero{height:380px;background:var(--vellum-2);clear:both}
+    .modal-hero img{width:100%;height:100%;object-fit:cover}
+    .modal-content{padding:40px}
+    .modal-content h2{font-size:clamp(2.1rem,4.4vw,3.6rem);margin:12px 0}
+    .modal-meta{display:flex;flex-wrap:wrap;gap:10px 24px;color:var(--muted);font-family:var(--font-mono);font-size:.8rem;text-transform:uppercase;padding-bottom:20px;border-bottom:1px solid var(--paper-line)}
+    #modalDescription{margin-top:22px;font-size:1rem;max-width:640px}
+    .modal-gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:32px;background:var(--paper-line);border:1px solid var(--paper-line)}
+    .modal-gallery img{width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--vellum-2)}
+
+    @media (max-width:1160px){
+      .nav{direction:ltr;justify-content:flex-start;gap:12px}
+      .nav .brand{margin-right:auto}
+      .nav-actions{margin-left:auto}
+      .nav-links{display:none;position:absolute;top:var(--nav-h);left:0;right:0;background:var(--vellum);padding:24px;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--paper-line)}
+      html[dir="rtl"] .nav-links{direction:rtl;align-items:flex-end}
+      .nav-links.open{display:flex}
+      .nav-links a{border-left:0;padding:10px 0;width:100%;white-space:normal}
+      .nav-links a::after{left:0;right:auto;bottom:2px}
+      .menu-btn{display:inline-grid;place-items:center}
+      .nav-group{flex-direction:column;align-items:flex-start;width:100%}
+      .nav-group-trigger{padding:10px 0;border-left:0;width:100%;text-align:start}
+      html[dir="rtl"] .nav-group-trigger{border-right:0}
+      .nav-group-trigger::after{display:none}
+      .nav-group-menu{position:static;opacity:1;visibility:visible;transform:none;border:0;background:transparent;padding:0;box-shadow:none;min-width:0}
+      .nav-group-menu a{padding:8px 0 8px 14px}
+      html[dir="rtl"] .nav-group-menu a{padding:8px 14px 8px 0}
+    }
+    @media (max-width:960px){
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .about-grid,.contact-grid{grid-template-columns:1fr;gap:48px}
+      #servicesGrid{grid-template-columns:1fr}
+      .services{display:block;min-height:0;padding:80px 0}
+      #about,#contact{display:block;min-height:0;padding:80px 0}
+      #about .about-card{height:auto;aspect-ratio:4/5}
+      .service-row{grid-template-columns:44px 34px 1fr}
+      .service-row p{grid-column:1/-1;padding-left:78px}
+      html[dir="rtl"] .service-row p{padding-left:0;padding-right:78px}
+      .featured-grid,.list-view.active{grid-template-columns:repeat(2,1fr)}
+      .projects-toolbar{grid-template-columns:1fr 1fr}
+      .tb-location{flex:1 1 auto}
+    }
+    @media (max-width:700px){
+      .map-shell,#realMap{min-height:560px}
+      .map-title{left:18px;top:18px;font-size:1.6rem}
+      html[dir="rtl"] .map-title{font-size:1.02rem}
+    }
+    @media (max-width:640px){
+      .map-return-btn{display:none!important}
+      .container{width:min(100% - 48px,1200px)}
+      .section{padding:80px 0}
+      .section-head{display:block}
+      .section-head p{margin-top:14px}
+      .hero{display:block;min-height:100svh}
+      .hero-inner{padding:72px 0 38px}
+      .hero-titleblock{position:relative;inset:auto}
+      .hero-copy{padding-inline-start:18px}
+      .hero-copy h1{font-size:clamp(2.65rem,13vw,3.7rem);line-height:1.02}
+      html[dir="rtl"] .hero-copy h1{font-size:clamp(2.15rem,10.5vw,3rem);line-height:1.12}
+      .hero-copy p[data-i18n="heroText"]{font-size:.95rem;line-height:1.65}
+      .hero-actions{margin:28px 0 36px}
+      .hero .btn{flex:1 1 150px;min-width:0;padding-inline:14px}
+      .stats{grid-template-columns:1fr 1fr}
+      .about-points,.form-grid{grid-template-columns:1fr}
+      .projects-toolbar{grid-template-columns:1fr}
+      #featuredProjects{display:block;min-height:0}
+      .footer-grid{grid-template-columns:1fr;gap:32px}
+      .modal{padding:0}
+      .modal-card{min-height:100vh}
+      .modal-gallery{grid-template-columns:1fr}
+      .tb-row{flex-wrap:wrap}
+      .tb-cell{border-left:0!important;border-right:0!important;flex:1 1 50%;border-top:1px solid rgba(242,239,230,.18)}
+      .tb-controls{flex:1 1 100%;justify-content:space-between;border-top:1px solid rgba(242,239,230,.18);padding-top:14px}
+    }
+    @media (prefers-reduced-motion:reduce){
+      *{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+    }
+
+    .about-card::after{
+      content:"";
+      position:absolute;
+      inset:auto 0 0 0;
+      height:42%;
+      background:linear-gradient(to top,rgba(9,22,38,.7),transparent);
+      pointer-events:none;
+    }
+    .about-badge strong{
+      display:block;
+      font-family:var(--font-mono);
+      font-size:.7rem;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+      margin-bottom:6px;
+      color:#fff;
+    }
+    .about-badge span{
+      color:rgba(242,239,230,.85);
+      font-size:.9rem;
+      line-height:1.55;
+    }
+    html[dir="rtl"] .about-badge{
+      left:auto;
+      right:24px;
+      text-align:right;
+    }
+
+    /* section reveal on scroll */
+    .section-head,#featuredProjects .featured-head{
+      opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;
+    }
+    .section-head.in-view,#featuredProjects .featured-head.in-view{
+      opacity:1;transform:translateY(0);
+    }
+
+
+/* Clients preview */
+.clients-preview{padding:76px 0;background:var(--vellum-2);border-top:1px solid var(--paper-line);border-bottom:1px solid var(--paper-line)}
+.clients-preview-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(420px,.85fr);gap:64px;align-items:center}
+.clients-preview-copy h2{font-size:clamp(2.2rem,4vw,3.5rem);max-width:720px;margin:12px 0 18px}
+.clients-preview-copy p{max-width:650px;color:var(--muted);font-size:1rem;line-height:1.75;margin-bottom:28px}
+.clients-preview-logos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.clients-preview-logo{height:108px;background:#fff;border:1px solid var(--paper-line);display:grid;place-items:center;padding:18px;transition:.2s ease}
+.clients-preview-logo:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 10px 24px rgba(15,25,35,.07)}
+.clients-preview-logo img{display:block;width:100%;height:68px;object-fit:contain;filter:saturate(.88)}
+.clients-preview-logo:hover img{filter:saturate(1)}
+@media(max-width:900px){.clients-preview-grid{grid-template-columns:1fr;gap:36px}.clients-preview-logos{max-width:680px}}
+@media(max-width:520px){.clients-preview{padding:56px 0}.clients-preview-logos{grid-template-columns:repeat(2,minmax(0,1fr))}.clients-preview-logo{height:94px;padding:13px}.clients-preview-logo img{height:60px}}
+
+/* Featured Projects — fixed six */
+#featuredProjects{
+  width:min(1200px,calc(100% - 96px));
+  margin:0 auto;
+  min-height:calc(100svh - var(--nav-h));
+  padding:50px 0 34px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  scroll-margin-top:var(--nav-h);
+}
+.featured-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:1.5rem;
+  margin-bottom:1.4rem;
+  padding-bottom:1rem;
+  border-bottom:1px solid var(--paper-line);
+}
+.featured-kicker{
+  font-family:var(--font-mono);
+  font-size:.68rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--redline);
+  margin-bottom:.5rem;
+}
+.featured-title{
+  font-family:var(--font-display);
+  font-size:clamp(2rem,3.6vw,3.4rem);
+  line-height:1.05;
+  font-weight:500;
+  color:var(--ink);
+}
+html[dir="rtl"] .featured-title{font-size:calc(.64 * clamp(2rem,3.6vw,3.4rem))}
+.featured-desc{
+  max-width:400px;
+  font-size:.9rem;
+  color:var(--muted);
+  line-height:1.7;
+}
+.featured-head-side{display:flex;flex-direction:column;align-items:flex-end;gap:14px}
+html[dir="rtl"] .featured-head-side{align-items:flex-start}
+.featured-portfolio-cta{display:flex;justify-content:center;margin-top:24px}
+.featured-portfolio-cta .btn{min-width:250px}
+.featured-portfolio-cta .link-arrow{transition:transform .2s ease}
+.featured-portfolio-cta .btn:hover .link-arrow{transform:translateX(5px)}
+html[dir="rtl"] .featured-portfolio-cta .link-arrow{transform:scaleX(-1)}
+html[dir="rtl"] .featured-portfolio-cta .btn:hover .link-arrow{transform:scaleX(-1) translateX(5px)}
+.featured-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--paper-line);
+  border:1px solid var(--paper-line);
+  align-items:stretch;
+}
+.featured-card{
+  appearance:none;
+  border:0;
+  padding:0;
+  margin:0;
+  text-align:left;
+  cursor:pointer;
+  display:grid;
+  grid-template-rows:145px 1fr;
+  min-height:255px;
+  height:100%;
+  background:var(--vellum);
+  position:relative;
+  overflow:hidden;
+  color:inherit;
+}
+.featured-card::before{content:"";position:absolute;top:10px;left:10px;width:14px;height:14px;border-top:1px solid var(--redline);border-left:1px solid var(--redline);opacity:0;transition:.2s;pointer-events:none}
+.featured-card:hover::before{opacity:1}
+html[dir="rtl"] .featured-card::before{left:auto;right:10px;border-left:0;border-right:1px solid var(--redline)}
+.featured-thumb{
+  height:145px;
+  position:relative;
+  background:linear-gradient(150deg,var(--vellum-2),var(--vellum));
+  overflow:hidden;
+}
+.featured-thumb img{
+  position:relative;
+  z-index:2;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+  transition:transform .5s ease,filter .5s ease;
+  filter:grayscale(.3) contrast(1.05);
+}
+.featured-card:hover .featured-thumb img{transform:scale(1.045);filter:grayscale(0) contrast(1.05)}
+.featured-placeholder{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:rgba(168,52,30,.4);
+  font-family:var(--font-mono);
+  font-size:.6rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.featured-body{
+  display:grid;
+  grid-template-rows:minmax(40px,auto) auto auto;
+  align-content:start;
+  padding:.8rem 1rem 1.9rem;
+  min-height:110px;
+}
+.featured-meta{display:flex;flex-direction:column;gap:3px;margin:.45rem 0 .55rem}
+.featured-meta-row{font-family:var(--font-mono);font-size:.64rem;line-height:1.4;color:var(--muted)}
+.featured-meta-label{color:var(--redline);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-inline-end:6px}
+.featured-name{
+  font-family:var(--font-display);
+  font-size:1.08rem;
+  line-height:1.14;
+  font-weight:500;
+  color:var(--ink);
+  margin-bottom:.4rem;
+  min-height:40px;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  overflow:hidden;
+}
+.featured-location{font-size:.76rem;color:var(--muted);align-self:end}
+.featured-coords{font-family:var(--font-mono);font-size:.62rem;color:var(--muted);letter-spacing:.02em;margin-top:3px;opacity:.75}
+.featured-arrow{
+  position:absolute;
+  right:1.1rem;
+  bottom:1rem;
+  color:var(--redline);
+  font-family:var(--font-mono);
+  transition:transform .2s ease;
+}
+.featured-card:hover .featured-arrow{transform:translateX(4px)}
+html[dir="rtl"] .featured-card{text-align:right}
+html[dir="rtl"] .featured-arrow{right:auto;left:1.1rem;transform:scaleX(-1)}
+html[dir="rtl"] .featured-card:hover .featured-arrow{transform:scaleX(-1) translateX(4px)}
+@media(max-width:800px){
+  .featured-grid{grid-template-columns:repeat(2,1fr)}
+  .featured-card{grid-template-rows:210px 1fr;min-height:350px}
+  .featured-thumb{height:210px}
+}
+@media(max-width:650px){
+  #featuredProjects{
+    width:min(100% - 48px,1200px);
+    padding:80px 0;
+    min-height:0;
+    display:block;
+  }
+  .featured-head{display:block}
+  .featured-desc{margin-top:.9rem}
+  .featured-head-side{align-items:flex-start;margin-top:.9rem}
+  .featured-grid{grid-template-columns:1fr}
+  .featured-card{grid-template-rows:220px 1fr;min-height:360px}
+  .featured-thumb{height:220px}
+}
+
+
+/* Project video */
+.modal-video-wrap{
+  margin-top:24px;
+  display:none;
+}
+.modal-video-wrap.show{display:block}
+.modal-video-title{
+  font-family:var(--font-mono);
+  font-size:.7rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--redline);
+  margin-bottom:12px;
+}
+.modal-video-frame{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  background:#102731;
+  overflow:hidden;
+}
+.modal-video-frame iframe,
+.modal-video-frame video{
+  width:100%;
+  height:100%;
+  border:0;
+  display:block;
+  object-fit:cover;
+}
+.modal-video-link{
+  margin-top:12px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:var(--redline);
+  font-family:var(--font-mono);
+  font-size:.82rem;
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+
+
+
+/* ══ REAL INTERACTIVE MAP — LEAFLET ══ */
+#realMap{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  min-height:0;
+  background:#d9d3c8;
+}
+.leaflet-container{
+  font-family:var(--font-body);
+}
+.leaflet-control-zoom a{
+  color:var(--ink)!important;
+  font-family:var(--font-mono);
+}
+.leaflet-popup-content-wrapper{
+  border-radius:0;
+  box-shadow:0 18px 50px rgba(0,0,0,.22);
+  border-top:3px solid var(--redline);
+}
+.leaflet-popup-content{
+  margin:16px 18px;
+  min-width:240px;
+}
+.project-popup h4{
+  margin:0 0 3px;
+  font-family:var(--font-display);
+  font-size:1.2rem;
+  font-weight:500;
+  color:var(--ink);
+}
+.project-popup .popup-sub{
+  font-family:var(--font-mono);
+  font-size:.7rem;
+  text-transform:uppercase;
+  letter-spacing:.03em;
+  color:var(--muted);
+  margin-bottom:10px;
+}
+.project-popup button{
+  width:100%;
+  border:0;
+  border-top:1px solid var(--paper-line);
+  background:transparent;
+  padding:10px 0;
+  text-align:left;
+  cursor:pointer;
+  color:var(--ink);
+  font-size:.92rem;
+}
+.project-popup button:hover{color:var(--redline)}
+.project-popup small{
+  display:block;
+  color:var(--muted);
+  font-family:var(--font-mono);
+  font-size:.7rem;
+  margin-top:2px;
+}
+.city-marker{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:var(--redline);
+  border:3px solid var(--vellum);
+  color:var(--white);
+  display:grid;
+  place-items:center;
+  font-family:var(--font-mono);
+  font-size:.76rem;
+  font-weight:700;
+  box-shadow:0 0 0 7px rgba(168,52,30,.2),0 8px 18px rgba(0,0,0,.3);
+}
+.city-marker.design-marker{background:#986049;color:#fff;border-color:#C6A18F;box-shadow:0 7px 20px rgba(74,47,36,.36)}
+.city-marker.visualization-marker{background:#789A9D;color:#10252E;border-color:#B5C9C8;box-shadow:0 7px 20px rgba(52,79,81,.34)}
+.city-marker{animation:marker-arrive .38s cubic-bezier(.2,.8,.2,1) both}
+@keyframes marker-arrive{from{opacity:0;transform:scale(.82)}to{opacity:1;transform:scale(1)}}
+.region-map-marker{
+  --marker-accent:var(--flare);width:96px;min-height:34px;padding:5px 5px 5px 8px;border:1px solid rgba(242,239,230,.58);border-left:2px solid var(--marker-accent);
+  background:rgba(16,39,49,.94);color:var(--white);display:flex;align-items:center;justify-content:space-between;gap:8px;
+  font-family:var(--font-mono);box-shadow:0 9px 24px rgba(7,19,28,.28);backdrop-filter:blur(5px);
+  animation:marker-arrive .38s cubic-bezier(.2,.8,.2,1) both;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.region-map-marker::before{content:"";position:absolute;left:45px;top:-8px;width:6px;height:6px;border-radius:50%;background:var(--marker-accent);border:2px solid var(--vellum);box-shadow:0 2px 8px rgba(0,0,0,.28)}
+.region-map-marker::after{content:"";position:absolute;left:49px;top:-1px;width:1px;height:5px;background:var(--marker-accent)}
+.region-marker-name{min-width:0;font-size:.5rem;line-height:1.15;white-space:normal;text-wrap:balance;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.region-marker-count{flex:none;min-width:23px;height:23px;padding:0 3px;display:grid;place-items:center;background:var(--flare);color:var(--blueprint);font-size:.6rem}
+.region-map-marker.visualization-marker{--marker-accent:#86A6A8}
+.region-map-marker:hover{transform:translateY(-2px);border-color:var(--flare);box-shadow:0 13px 30px rgba(7,19,28,.36)}
+html[dir="rtl"] .region-map-marker{padding:5px 8px 5px 5px;border-left:1px solid rgba(242,239,230,.58);border-right:2px solid var(--marker-accent)}
+@media(max-width:700px){.region-map-marker{width:88px;min-height:32px}.region-map-marker::before{left:41px}.region-map-marker::after{left:45px}.region-marker-name{font-size:.48rem}.region-marker-count{min-width:21px;height:21px}}
+.overview-map-marker{width:30px;height:30px;border:2px solid var(--vellum);border-radius:3px;background:#986049;color:#fff;display:grid;place-items:center;font-family:var(--font-mono);font-size:.66rem;font-weight:700;box-shadow:0 7px 18px rgba(7,19,28,.3);animation:marker-arrive .34s ease both;transition:transform .2s ease,box-shadow .2s ease}
+.overview-map-marker.visualization-marker{background:#86A6A8;color:var(--blueprint)}
+.overview-map-marker:hover{transform:translateY(-2px) scale(1.06);box-shadow:0 10px 24px rgba(7,19,28,.38)}
+html[dir="rtl"] .project-popup button{text-align:right}
+
+
+/* Keep Leaflet layers below project details */
+#projectModal{z-index:5000!important}
+#projectModal .modal-card{z-index:5001}
+#projectModal .modal-hero,#projectModal .modal-gallery,#projectModal .modal-video-wrap{position:relative;z-index:1}
+
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+</head>
+<body>
+  <!--
+    HOME PAGE MOVIES:
+    Desktop MP4 files:
+    images/hero/hero-1.mp4
+    images/hero/hero-2.mp4
+    images/hero/hero-3.mp4
+    Mobile MP4 files:
+    images/hero/mobile/hero-mobile-1.mp4
+    images/hero/mobile/hero-mobile-2.mp4
+    images/hero/mobile/hero-mobile-3.mp4
+  -->
+  <header class="site-header">
+    <div class="container nav">
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="#home" class="logo brand" aria-label="SNAP Saudi home">
+        <img class="brand-logo" src="logo.png" alt="SNAP Saudi Architecture logo">
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" data-i18n="navHome">Home</a>
+        <a href="#projects" data-i18n="navProjects">Projects</a>
+        <a href="#services" data-i18n="navServices">Services</a>
+        <a href="#about" data-i18n="navAbout">About</a>
+        <div class="nav-group">
+          <button class="nav-group-trigger" type="button" aria-haspopup="true" aria-expanded="false" data-i18n="navStudio">Studio</button>
+          <div class="nav-group-menu">
+            <a href="how-we-work.html" data-i18n="navHowWeWork">How We Work</a>
+            <a href="leadership.html" data-i18n="navLeadership">Leadership</a>
+            <a href="clients.html" data-i18n="navClients">Clients</a>
+          </div>
+        </div>
+        <a href="#contact" data-i18n="navContact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="lang-btn" id="langBtn" aria-label="Switch language">AR</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+    <section class="hero" id="home">
+      <div class="hero-slides" id="heroSlides">
+        <div class="hero-slide active">
+          <video class="hero-video" id="heroVideo0" muted playsinline autoplay preload="auto"
+            data-desktop-src="images/hero/hero-1.mp4" data-mobile-src="images/hero/mobile/hero-mobile-1.mp4"></video>
+        </div>
+        <div class="hero-slide">
+          <video class="hero-video" id="heroVideo1" muted playsinline preload="none"
+            data-desktop-src="images/hero/hero-2.mp4" data-mobile-src="images/hero/mobile/hero-mobile-2.mp4"></video>
+        </div>
+        <div class="hero-slide">
+          <video class="hero-video" id="heroVideo2" muted playsinline preload="none"
+            data-desktop-src="images/hero/hero-3.mp4" data-mobile-src="images/hero/mobile/hero-mobile-3.mp4"></video>
+        </div>
+      </div>
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <div class="eyebrow" data-i18n="heroEyebrow">Architecture · Visualization · Urban Development</div>
+          <h1 data-i18n="heroTitle">Architecture that shapes places, experiences and value.</h1>
+          <p data-i18n="heroText">Architecture, urban design and visual storytelling across Saudi Arabia, Egypt and the Gulf.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#projects" data-i18n="exploreProjects">View Projects</a>
+            <a class="btn btn-ghost" href="#contact" data-i18n="contactUs">Start a Project</a>
+          </div>
+          <div class="stats" id="stats"></div>
+        </div>
+      </div>
+
+      <div class="hero-titleblock">
+        <div class="container tb-row">
+          <div class="tb-cell tb-project"><span class="tb-label" data-i18n="projectName">Project Name</span><span class="tb-value" id="heroProjectName">Jeddah Center Development</span></div>
+          <div class="tb-cell tb-location"><span class="tb-label" data-i18n="projectLocation">Location</span><span class="tb-value" id="heroProjectLocation">Jeddah, KSA</span></div>
+          <div class="tb-cell tb-controls">
+            <div class="hero-dots" id="heroDots">
+              <button class="hero-dot active" data-slide="0" aria-label="Video 1"></button>
+              <button class="hero-dot" data-slide="1" aria-label="Video 2"></button>
+              <button class="hero-dot" data-slide="2" aria-label="Video 3"></button>
+            </div>
+            <div class="hero-arrows">
+              <button class="hero-arrow" id="heroPrev" aria-label="Previous video">←</button>
+              <button class="hero-arrow" id="heroNext" aria-label="Next video">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-card" role="img" aria-label="SNAP Saudi architectural workspace">
+          <svg class="about-compass" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true">
+            <circle cx="32" cy="32" r="25"></circle>
+            <path d="M32 8 L32 16 M32 48 L32 56 M8 32 L16 32 M48 32 L56 32"></path>
+            <path d="M32 12 L36 30 L32 34 L28 30 Z" fill="currentColor" stroke="none"></path>
+            <text x="32" y="10" font-size="7" text-anchor="middle" fill="currentColor" stroke="none" font-family="'JetBrains Mono',monospace">N</text>
+          </svg>
+          <div class="about-badge"><strong data-i18n="regionalPresence">Regional Presence</strong><br><span data-i18n="regionalOffices">Cairo & Riyadh offices serving the Gulf and MENA region.</span></div>
+        </div>
+        <div class="about-copy">
+          <div class="eyebrow" data-i18n="aboutEyebrow">About SNAP Saudi</div>
+          <h2 data-i18n="aboutTitle">Three decades of architecture, storytelling and place-making.</h2>
+          <p data-i18n="aboutText">Built on more than three decades of architectural practice, SNAP Saudi brings architecture, interiors, urban development, CGI, animation, virtual reality and real-estate presentation together under one integrated consultancy.</p>
+          <p class="about-pull" data-i18n="aboutPull">Every project begins as a drawing before it becomes a place.</p>
+          <div class="about-points">
+            <div class="about-point"><strong data-i18n="point1Title">Design-led</strong><span data-i18n="point1Text">Concept to delivery.</span></div>
+            <div class="about-point"><strong data-i18n="point2Title">Regionally focused</strong><span data-i18n="point2Text">Saudi Arabia, Egypt and the Gulf.</span></div>
+            <div class="about-point"><strong data-i18n="point3Title">Multidisciplinary</strong><span data-i18n="point3Text">Architecture, interiors and visualization.</span></div>
+            <div class="about-point"><strong data-i18n="point4Title">Future-ready</strong><span data-i18n="point4Text">AI, VR and interactive media.</span></div>
+          </div>
+          <div class="hero-actions" style="margin-top:32px">
+            <a class="btn btn-ghost" href="about.html" data-i18n="aboutFullStory">Our full story</a>
+            <a class="btn btn-ghost" href="leadership.html" data-i18n="aboutMeetTeam">Meet the team</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow" data-i18n="servicesEyebrow">Capabilities</div><h2 data-i18n="servicesTitle">Integrated services for ambitious places and brands.</h2></div>
+          <p data-i18n="servicesText">From early strategy to final visualization, our teams shape the complete spatial and visual narrative.</p>
+        </div>
+        <div class="service-grid" id="servicesGrid"></div>
+        <div style="margin-top:32px">
+          <a class="btn btn-ghost" href="services.html" data-i18n="servicesFullPage">See all services in detail</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="clients-preview" aria-labelledby="clientsPreviewTitle">
+      <div class="container clients-preview-grid">
+        <div class="clients-preview-copy">
+          <div class="eyebrow" data-i18n="clientsPreviewEyebrow">Clients &amp; Partners</div>
+          <h2 id="clientsPreviewTitle" data-i18n="clientsPreviewTitle">Trusted by institutions, developers and regional leaders.</h2>
+          <p data-i18n="clientsPreviewText">Across government, real estate, hospitality and investment, SNAP has built lasting relationships through design, visualization and reliable project delivery.</p>
+          <a class="btn btn-primary" href="clients.html"><span data-i18n="clientsPreviewButton">Explore our clients</span><span aria-hidden="true">→</span></a>
+        </div>
+        <div class="clients-preview-logos" aria-label="Selected client logos">
+          <div class="clients-preview-logo"><img src="images/clients/cabinet.png" alt="Council of Ministers Presidency"></div>
+          <div class="clients-preview-logo"><img src="images/clients/regional/alfuttaim.svg" alt="Al-Futtaim Group"></div>
+          <div class="clients-preview-logo"><img src="images/clients/regional/jafza.svg" alt="JAFZA"></div>
+          <div class="clients-preview-logo"><img src="images/clients/regional/sidco-holding.png" alt="Sidco Holding"></div>
+          <div class="clients-preview-logo"><img src="images/clients/regional/saudi-oger-official.png" alt="Saudi Oger"></div>
+          <div class="clients-preview-logo"><img src="images/clients/real-estate/tatweer-misr-user.png" alt="Tatweer Misr"></div>
+        </div>
+      </div>
+    </section>
+
+<section id="featuredProjects">
+  <div class="featured-head">
+    <div>
+      <div class="featured-kicker" data-i18n="featuredEyebrow">Selected Work</div>
+      <h2 class="featured-title" data-i18n="featuredTitle">Featured Projects</h2>
+    </div>
+    <div class="featured-head-side">
+      <p class="featured-desc" data-i18n="featuredText">
+        Six projects drawn from the current portfolio, spanning urban development, hospitality and residential work.
+      </p>
+    </div>
+  </div>
+  <div class="featured-grid" id="featuredGrid"></div>
+  <div class="featured-portfolio-cta">
+    <a class="btn btn-primary" href="#projects"><span data-i18n="viewFullPortfolio">View full portfolio</span><span class="link-arrow" aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+
+    <section class="section projects-area" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div><div class="eyebrow" data-i18n="projectsEyebrow">Regional Portfolio</div><h2 data-i18n="projectsTitle">Our Projects</h2></div>
+          <p data-i18n="projectsText">Search the portfolio by project name, country, city or category.</p>
+        </div>
+
+        <div class="project-disciplines" role="tablist" aria-label="Project discipline">
+          <button class="discipline-tab active" id="designTab" data-discipline="design" role="tab" aria-selected="true">
+            <span data-i18n="designProjects">Design</span><strong id="designCount">0</strong>
+          </button>
+          <button class="discipline-tab" id="visualizationTab" data-discipline="visualization" role="tab" aria-selected="false">
+            <span data-i18n="visualizationProjects">Visualization</span><strong id="visualizationCount">0</strong>
+          </button>
+        </div>
+
+        <div class="projects-toolbar">
+          <input class="control" id="searchInput" type="search" placeholder="Search projects…" aria-label="Search projects">
+          <select class="control" id="categoryFilter" aria-label="Filter by category"></select>
+          <select class="control" id="countryFilter" aria-label="Filter by country"></select>
+          <div class="view-toggle" id="viewToggle">
+            <button id="mapBtn" class="active" aria-label="Map view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.5 7-11a7 7 0 1 0-14 0c0 4.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span data-i18n="viewMap">Map</span></button>
+            <button id="listBtn" aria-label="List view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="9" y1="7" x2="20" y2="7"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="17" x2="20" y2="17"/><circle cx="4.5" cy="7" r="1.2"/><circle cx="4.5" cy="12" r="1.2"/><circle cx="4.5" cy="17" r="1.2"/></svg><span data-i18n="viewList">List</span></button>
+            <div class="view-hint" data-i18n="viewHint">See every project as an image list</div>
+          </div>
+        </div>
+
+        <div class="map-shell" id="mapShell">
+          <div class="map-title" data-i18n="projectsTitle">Our Projects</div>
+          <div id="realMap" aria-label="Interactive real map of SNAP Saudi projects"></div>
+          <div class="map-loading" id="mapLoading"><span class="map-spinner" aria-hidden="true"></span><span data-i18n="mapLoading">Loading map…</span></div>
+        </div>
+        <div class="list-view" id="listView"></div>
+        <div class="result-count" id="resultCount"></div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <div class="eyebrow" data-i18n="contactEyebrow">Contact</div>
+          <h2 data-i18n="contactTitle">Start a Project</h2>
+          <p data-i18n="contactText">Tell us about your project, location and goals. We will prepare the right architectural and visualization approach for your brief.</p>
+          <div class="contact-details">
+            <div class="contact-general">
+              <a href="mailto:snap@snaparc.com">snap@snaparc.com</a>
+              <span>LinkedIn · Instagram · WhatsApp</span>
+            </div>
+            <div class="office-cards">
+              <div class="office-card">
+                <span class="office-tag" data-i18n="officeTag01">Office 01</span>
+                <strong data-i18n="cairoOffice">Cairo Office — Egypt</strong>
+                <address data-i18n="cairoAddress">8 Hob Eldin St., Sefarat, Nasr City, Cairo</address>
+                <p><a href="tel:+20223516183">(02) 2351 6183</a> · <a href="tel:+20223516946">2351 6946</a> · <a href="tel:+201222299637">012 2229 9637</a></p>
+                <p><a href="mailto:snap@snaparc.com">snap@snaparc.com</a> · <a href="https://www.snaparc.com" target="_blank" rel="noopener">snaparc.com</a></p>
+              </div>
+              <div class="office-card">
+                <span class="office-tag" data-i18n="officeTag02">Office 02</span>
+                <strong data-i18n="riyadhOffice">Riyadh Office — Saudi Arabia</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <div class="form-grid">
+            <label class="field"><span data-i18n="name">Name</span><input required name="name"></label>
+            <label class="field"><span data-i18n="company">Company</span><input name="company"></label>
+            <label class="field"><span data-i18n="email">Email</span><input required type="email" name="email"></label>
+            <label class="field"><span data-i18n="phone">Phone</span><input name="phone"></label>
+            <label class="field"><span data-i18n="country">Country</span><input name="country"></label>
+            <label class="field"><span data-i18n="projectType">Project Type</span><input name="projectType"></label>
+            <label class="field full"><span data-i18n="message">Message</span><textarea required name="message"></textarea></label>
+            <div class="field full"><button class="btn btn-gold" type="submit" data-i18n="sendInquiry">Send Inquiry</button></div>
+            <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img class="footer-brand-mark" src="logo.png" alt="SNAP Saudi logo">
+          <p data-i18n="footerText">Architecture, interiors, urban development and visual storytelling across Egypt, Saudi Arabia and the Gulf.</p>
+        </div>
+        <div><strong data-i18n="footerNav">Navigation</strong><p><a href="#projects" data-i18n="navProjects">Projects</a><br><a href="services.html" data-i18n="navServices">Services</a><br><a href="about.html" data-i18n="navAbout">About</a><br><a href="how-we-work.html" data-i18n="navHowWeWork">How We Work</a><br><a href="leadership.html" data-i18n="navLeadership">Leadership</a><br><a href="clients.html" data-i18n="navClients">Clients</a></p></div>
+        <div><strong data-i18n="footerMarkets">Markets</strong><p><a href="saudi-arabia.html" data-i18n="marketSaudi">Saudi Arabia</a><br><a href="egypt.html" data-i18n="marketEgypt">Egypt</a><br><a href="gulf-arab-states.html" data-i18n="marketGulf">Gulf &amp; Arab States</a></p></div>
+        <div><strong data-i18n="footerOffices">Offices</strong><p>Cairo, Egypt<br>Riyadh, Saudi Arabia</p></div>
+      </div>
+      <div class="copyright">© 2026 SNAP Saudi. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <div class="modal" id="projectModal" aria-hidden="true">
+    <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+      <div class="modal-hero"><img id="modalHero" alt=""></div>
+      <div class="modal-content">
+        <div class="eyebrow" id="modalCategory"></div>
+        <h2 id="modalTitle"></h2>
+        <div class="modal-meta" id="modalMeta"></div>
+        <p id="modalDescription"></p>
+        <div class="modal-gallery" id="modalGallery"></div>
+        <div class="modal-video-wrap" id="modalVideoWrap">
+          <div class="modal-video-title">Project Video</div>
+          <div class="modal-video-frame" id="modalVideoFrame"></div>
+          <a class="modal-video-link" id="modalVideoLink" href="#" target="_blank" rel="noopener">Open video ↗</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+if (typeof L === "undefined") {
+  document.write('<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"><\/script>');
+}
+</script>
+  <script src="data/projects-data.js?v=20260823-ai2"></script>
+  <script>
+    const data = {
+      stats:[
+        {value:"30+",en:"Years of Experience",ar:"عامًا من الخبرة"},
+        {value:"240+",en:"Projects",ar:"مشروع"},
+        {value:"9",en:"Countries",ar:"دول"},
+        {value:"2",en:"Cairo & Riyadh",ar:"القاهرة والرياض"}
+      ],
+      services:[
+        ["⌂","Architectural Design","التصميم المعماري","Concept, design development and delivery.","من الفكرة والتطوير حتى مراحل التنفيذ."],
+        ["◫","Interior Design","التصميم الداخلي","Refined, functional interiors with a clear identity.","تصميمات داخلية راقية وعملية بهوية واضحة."],
+        ["◇","Urban Design & Master Planning","التصميم العمراني والمخططات العامة","Connected districts, public spaces and destinations.","تصميم أحياء ومساحات عامة ووجهات مترابطة."],
+        ["✦","Landscape Design","تصميم اللاندسكيب","Climate-aware outdoor experiences and planting strategies.","تجارب خارجية مناسبة للمناخ واستراتيجيات زراعة متكاملة."],
+        ["◉","Architectural Visualization","الإظهار المعماري","High-end CGI imagery for design and marketing.","صور CGI احترافية للتصميم والتسويق."],
+        ["▶","CGI & Animation","التحريك المعماري","Cinematic films, storytelling and launch content.","أفلام معمارية ومحتوى بصري سينمائي."],
+        ["◎","VR & Interactive Experiences","الواقع الافتراضي والتجارب التفاعلية","Immersive digital experiences for projects and exhibitions.","تجارب رقمية غامرة للمشروعات والمعارض."],
+        ["▦","Real-Estate Presentation","العروض العقارية","Sales-focused presentations for off-plan developments.","عروض بيع وتسويق للمشروعات تحت التطوير."],
+        ["⚡","AI-Powered Video","فيديوهات عقارية بالذكاء الاصطناعي","Fast, premium property content for launches and campaigns.","محتوى عقاري سريع واحترافي للإطلاقات والحملات."],
+        ["↗","Gulf Market Consultancy","استشارات السوق الخليجي","Positioning, partnerships and market-entry support.","دعم التمركز والشراكات ودخول السوق الخليجي."]
+      ],
+
+      /*
+        Add a video to any project using one of these examples:
+
+        video: "https://www.youtube.com/watch?v=VIDEO_ID"
+        video: "https://vimeo.com/VIDEO_ID"
+        video: "videos/portfolio/project-id.mp4"
+
+        Leave video: "" to hide the video section.
+      */
+      projects: window.SNAP_PROJECTS || []
+    };
+
+    const translations = {
+      en:{
+        navHome:"Home",navAbout:"About",navHowWeWork:"How We Work",navLeadership:"Leadership",navServices:"Services",navProjects:"Projects",navFeatured:"Featured",navClients:"Clients",navStudio:"Studio",navContact:"Contact",
+        heroEyebrow:"Architecture · Visualization · Urban Development",heroTitle:"Architecture that shapes places, experiences and value.",
+        heroText:"Architecture, urban design and visual storytelling across Saudi Arabia, Egypt and the Gulf.",
+        exploreProjects:"View Projects",contactUs:"Start a Project",regionalPresence:"Regional Presence",regionalOffices:"Cairo & Riyadh offices serving the Gulf and MENA region.",
+        aboutEyebrow:"About SNAP Saudi",aboutTitle:"Three decades of architecture, storytelling and place-making.",
+        aboutText:"Built on more than three decades of architectural practice, SNAP Saudi brings architecture, interiors, urban development, CGI, animation, virtual reality and real-estate presentation together under one integrated consultancy.",
+        aboutPull:"Every project begins as a drawing before it becomes a place.",
+        point1Title:"Design-led",point1Text:"Concept to delivery.",point2Title:"Regionally focused",point2Text:"Saudi Arabia, Egypt and the Gulf.",
+        point3Title:"Multidisciplinary",point3Text:"Architecture, interiors and visualization.",point4Title:"Future-ready",point4Text:"AI, VR and interactive media.",
+        aboutFullStory:"Our full story",aboutMeetTeam:"Meet the team",
+        servicesEyebrow:"Schedule of Services",servicesTitle:"Integrated services for ambitious places and brands.",servicesText:"From early strategy to final visualization, our teams shape the complete spatial and visual narrative.",
+        clientsPreviewEyebrow:"Clients & Partners",clientsPreviewTitle:"Trusted by institutions, developers and regional leaders.",clientsPreviewText:"Across government, real estate, hospitality and investment, SNAP has built lasting relationships through design, visualization and reliable project delivery.",clientsPreviewButton:"Explore our clients",
+        featuredEyebrow:"Selected Work",featuredTitle:"Featured Projects",featuredText:"Six projects drawn from the current portfolio, spanning urban development, hospitality and residential work.",
+        projectsEyebrow:"Regional Portfolio",projectsTitle:"Our Projects",projectsText:"Search the portfolio by project name, country, city or category.",
+        contactEyebrow:"Contact",contactTitle:"Start a Project",contactText:"Tell us about your project, location and goals. We will prepare the right architectural and visualization approach for your brief.",
+        cairoOffice:"Cairo Office — Egypt",riyadhOffice:"Riyadh Office — Saudi Arabia",officeTag01:"Office 01",officeTag02:"Office 02",cairoAddress:"8 Hob Eldin St., Sefarat, Nasr City, Cairo",name:"Name",company:"Company",email:"Email",phone:"Phone",country:"Country",projectType:"Project Type",message:"Message",sendInquiry:"Send Inquiry",
+        footerText:"Architecture, interiors, urban development and visual storytelling across Egypt, Saudi Arabia and the Gulf.",footerNav:"Navigation",footerOffices:"Offices",footerMarkets:"Markets",marketSaudi:"Saudi Arabia",marketEgypt:"Egypt",marketGulf:"Gulf & Arab States",servicesFullPage:"See all services in detail",
+        allCategories:"All Categories",allCountries:"All Countries",results:"projects found",search:"Search projects…",designProjects:"Design",visualizationProjects:"Visualization",mapFilterNote:"Use search and filters to update visible project locations.",mapLoading:"Loading map…",viewMap:"Map",viewList:"List",viewHint:"See every project as an image list",
+        projectName:"Project Name",projectLocation:"Location",viewFullPortfolio:"View full portfolio"
+      },
+      ar:{
+        navHome:"الرئيسية",navAbout:"من نحن",navHowWeWork:"منهج العمل",navLeadership:"فريق القيادة",navServices:"الخدمات",navProjects:"المشاريع",navFeatured:"مشاريع مميزة",navClients:"العملاء",navStudio:"المكتب",navContact:"تواصل معنا",
+        heroEyebrow:"عمارة · إظهار معماري · تطوير عمراني",heroTitle:"عمارة تصنع المكان والتجربة والقيمة.",
+        heroText:"العمارة والتصميم العمراني والسرد البصري في السعودية ومصر والخليج.",
+        exploreProjects:"عرض المشاريع",contactUs:"ابدأ مشروعك",regionalPresence:"حضور إقليمي",regionalOffices:"مكتبان في القاهرة والرياض لخدمة الخليج ومنطقة الشرق الأوسط.",
+        aboutEyebrow:"عن سناب سعودي",aboutTitle:"ثلاثة عقود من العمارة وصناعة المكان والسرد البصري.",
+        aboutText:"بخبرة تتجاوز ثلاثة عقود، تجمع سناب سعودي العمارة والتصميم الداخلي والتطوير العمراني والإظهار والتحريك والواقع الافتراضي والعروض العقارية ضمن مكتب استشاري متكامل.",
+        aboutPull:"كل مشروع يبدأ رسمًا قبل أن يصبح مكانًا.",
+        point1Title:"تصميم متكامل",point1Text:"من الفكرة حتى التسليم.",point2Title:"تركيز إقليمي",point2Text:"السعودية ومصر والخليج.",
+        point3Title:"تخصصات متعددة",point3Text:"عمارة وداخلي وإظهار.",point4Title:"حلول مستقبلية",point4Text:"ذكاء اصطناعي وواقع افتراضي.",
+        aboutFullStory:"قصتنا كاملة",aboutMeetTeam:"تعرف على الفريق",
+        servicesEyebrow:"جدول الخدمات",servicesTitle:"خدمات متكاملة للمشروعات والعلامات الطموحة.",servicesText:"من الاستراتيجية الأولى حتى الإظهار النهائي، نصوغ التجربة المكانية والبصرية كاملة.",
+        clientsPreviewEyebrow:"العملاء والشركاء",clientsPreviewTitle:"ثقة مؤسسات ومطورين ورواد أعمال في المنطقة.",clientsPreviewText:"عبر القطاعات الحكومية والعقارية والضيافة والاستثمار، بنت سناب علاقات ممتدة من خلال التصميم والإظهار المعماري والتنفيذ الموثوق.",clientsPreviewButton:"استعرض عملاءنا",
+        featuredEyebrow:"أعمال مختارة",featuredTitle:"مشاريع مميزة",featuredText:"ستة مشروعات من المحفظة الحالية، بين التطوير العمراني والضيافة والسكن.",
+        projectsEyebrow:"محفظة إقليمية",projectsTitle:"مشاريعنا",projectsText:"ابحث باسم المشروع أو الدولة أو المدينة أو التصنيف.",
+        contactEyebrow:"تواصل",contactTitle:"ابدأ مشروعك",contactText:"أخبرنا عن مشروعك وموقعه وأهدافه لنقترح المنهج الأنسب للتصميم والإظهار.",
+        cairoOffice:"مكتب القاهرة — مصر",riyadhOffice:"مكتب الرياض — السعودية",officeTag01:"المكتب 01",officeTag02:"المكتب 02",cairoAddress:"8 شارع حب الدين، السفارات، مدينة نصر، القاهرة",name:"الاسم",company:"الشركة",email:"البريد الإلكتروني",phone:"الهاتف",country:"الدولة",projectType:"نوع المشروع",message:"الرسالة",sendInquiry:"إرسال الطلب",
+        footerText:"عمارة وتصميم داخلي وتطوير عمراني وسرد بصري في مصر والسعودية والخليج.",footerNav:"التنقل",footerOffices:"المكاتب",footerMarkets:"الأسواق",marketSaudi:"السعودية",marketEgypt:"مصر",marketGulf:"الخليج والدول العربية",servicesFullPage:"شوف كل الخدمات بالتفصيل",
+        allCategories:"كل التصنيفات",allCountries:"كل الدول",results:"مشروع",search:"ابحث في المشاريع…",designProjects:"التصميم",visualizationProjects:"الإظهار المعماري",mapFilterNote:"استخدم البحث والتصنيفات لتحديث مواقع المشاريع الظاهرة.",mapLoading:"جارٍ تحميل الخريطة…",viewMap:"خريطة",viewList:"قائمة",viewHint:"شوف كل مشروع كقائمة مصوّرة",
+        projectName:"اسم المشروع",projectLocation:"الموقع",viewFullPortfolio:"استعرض المحفظة كاملة"
+      }
+    };
+
+    function urlLang(){
+      const v = new URLSearchParams(location.search).get("lang");
+      return (v === "ar" || v === "en") ? v : null;
+    }
+    let lang = urlLang() || (function(){ try { return localStorage.getItem("snapLang"); } catch(e){ return null; } })() || "en";
+    const INTERNAL_PAGES = ["Index.html","about.html","how-we-work.html","leadership.html","clients.html","services.html","saudi-arabia.html","egypt.html","gulf-arab-states.html"];
+    function isInternalLink(a){
+      const href = a.getAttribute("href");
+      if(!href) return false;
+      if(/^(https?:)?\/\//i.test(href) || href.startsWith("mailto:") || href.startsWith("tel:")) return false;
+      return INTERNAL_PAGES.some(p => href.indexOf(p) !== -1);
+    }
+    function decorateInternalLinks(){
+      document.querySelectorAll("a[href]").forEach(a=>{
+        if(!isInternalLink(a)) return;
+        const href = a.getAttribute("href");
+        const [pathAndQuery, hash] = href.split("#");
+        const [path, query] = pathAndQuery.split("?");
+        const params = new URLSearchParams(query || "");
+        params.set("lang", lang);
+        a.setAttribute("href", path + "?" + params.toString() + (hash ? "#"+hash : ""));
+      });
+    }
+    let activeDiscipline = data.projects.some(p=>getProjectDiscipline(p)==="design") ? "design" : "visualization";
+    let filtered = [...data.projects];
+    let mapRegionSelection = null;
+
+    const $ = s => document.querySelector(s);
+    const $$ = s => [...document.querySelectorAll(s)];
+
+    function currentText(en, ar){ return lang === "ar" ? ar : en; }
+
+    function applyLanguage(){
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+      document.body.setAttribute("dir", document.documentElement.dir);
+      $("#langBtn").textContent = lang === "ar" ? "EN" : "AR";
+      $$("[data-i18n]").forEach(el=>{
+        const key = el.dataset.i18n;
+        if(translations[lang][key]) el.textContent = translations[lang][key];
+      });
+      $("#searchInput").placeholder = translations[lang].search;
+      if(typeof updateHeroMetadata==="function") updateHeroMetadata();
+      renderAll();
+      const floatingViewButton=$("#floatingMapReturn");
+      if(floatingViewButton){
+        floatingViewButton.textContent=$("#mapBtn").classList.contains("active")
+          ? (lang==="ar"?"القائمة ☰":"List ☰")
+          : (lang==="ar"?"العودة إلى الخريطة ↩":"Back to Map ↩");
+      }
+      try { localStorage.setItem("snapLang",lang); } catch(e){}
+      decorateInternalLinks();
+    }
+
+    function renderStats(){
+      const projectCount = Math.floor(data.projects.length/10)*10;
+      $("#stats").innerHTML = data.stats.map(s=>{
+        const value = s.en==="Projects" ? projectCount+"+" : s.value;
+        return `<div class="stat"><strong>${value}</strong><span>${lang==="ar"?s.ar:s.en}</span></div>`;
+      }).join("");
+    }
+
+    function renderServices(){
+      $("#servicesGrid").innerHTML = data.services.map((s,i)=>`
+        <article class="service-row">
+          <span class="service-code">S.${String(i+1).padStart(2,"0")}</span>
+          <span class="service-icon" aria-hidden="true">${s[0]}</span>
+          <h3>${lang==="ar"?s[2]:s[1]}</h3>
+          <p>${lang==="ar"?s[4]:s[3]}</p>
+        </article>`).join("");
+    }
+
+    const portfolioCategories = [
+      "Hospitality, Resorts & Leisure",
+      "Commercial Projects",
+      "Public & Civic Projects",
+      "Residential Projects",
+      "Public & Commercial Interiors",
+      "Residential Interiors"
+    ];
+
+    const portfolioCategoriesAr = {
+      "Hospitality, Resorts & Leisure":"الضيافة والمنتجعات والترفيه",
+      "Commercial Projects":"المشروعات التجارية",
+      "Public & Civic Projects":"المشروعات العامة والمدنية",
+      "Residential Projects":"المشروعات السكنية",
+      "Public & Commercial Interiors":"التصميم الداخلي للمشروعات العامة والتجارية",
+      "Residential Interiors":"التصميم الداخلي للمشروعات السكنية"
+    };
+
+    function getProjectDiscipline(project){
+      const status = project.status || "";
+      // Combined design + visualization work belongs to Design, as requested.
+      return /\barchitecture\b|\burban design\b|\binterior design\b/i.test(status)
+        ? "design"
+        : "visualization";
+    }
+
+    function getProjectCategory(project){
+      const original = project.category || "";
+      const status = project.status || "";
+      const isInterior = /interior/i.test(status) || /^interior/i.test(original);
+
+      if(isInterior){
+        return /residential|villa/i.test(original)
+          ? "Residential Interiors"
+          : "Public & Commercial Interiors";
+      }
+      if(/hospitality|leisure|resort|hotel/i.test(original)) return "Hospitality, Resorts & Leisure";
+      if(/commercial|corporate|retail|office/i.test(original)) return "Commercial Projects";
+      if(/residential|villa|housing/i.test(original)) return "Residential Projects";
+      return "Public & Civic Projects";
+    }
+
+    function getProjectCategoryLabel(project){
+      const category = getProjectCategory(project);
+      return lang === "ar" ? portfolioCategoriesAr[category] : category;
+    }
+
+    const statusTermsAr = {
+      "Architecture":"عمارة",
+      "Architectural Visualization":"إظهار معماري",
+      "Urban Design":"تخطيط عمراني",
+      "Interior Design":"تصميم داخلي",
+      "Landscape Design":"تصميم لاندسكيب",
+      "Visualization":"إظهار معماري",
+      "Web Design":"تصميم مواقع",
+      "Interactive":"تفاعلي",
+      "Interactive CD":"أسطوانة تفاعلية",
+      "Media & Graphics Animation":"ميديا وتحريك جرافيكي"
+    };
+    function getStatusLabel(project){
+      const status = project.status || "";
+      if(lang !== "ar") return status;
+      return status.split(" · ").map(part => statusTermsAr[part.trim()] || part).join(" · ");
+    }
+
+    function updateFilterStates(){
+      [$("#categoryFilter"),$("#countryFilter")].forEach(select=>{
+        select?.classList.toggle("filter-active",Boolean(select.value));
+      });
+    }
+
+    function setupFilters(){
+      const categorySelect = $("#categoryFilter");
+      const countrySelect = $("#countryFilter");
+      const selectedCategory = categorySelect.value;
+      const selectedCountry = countrySelect.value;
+
+      const categories = portfolioCategories;
+      const disciplineProjects = data.projects.filter(p=>getProjectDiscipline(p)===activeDiscipline);
+      const countries = [...new Set(disciplineProjects.map(p=>p.country))].sort();
+      const categoryLabel = value => lang === "ar" ? portfolioCategoriesAr[value] : value;
+      const countryLabel = value => {
+        const project = disciplineProjects.find(p=>p.country===value);
+        return lang === "ar" ? (project?.countryAr || value) : value;
+      };
+
+      categorySelect.innerHTML = `<option value="">${translations[lang].allCategories}</option>` + categories.map(c=>`<option value="${c}">${categoryLabel(c)}</option>`).join("");
+      countrySelect.innerHTML = `<option value="">${translations[lang].allCountries}</option>` + countries.map(c=>`<option value="${c}">${countryLabel(c)}</option>`).join("");
+
+      if(categories.includes(selectedCategory)) categorySelect.value = selectedCategory;
+      if(countries.includes(selectedCountry)) countrySelect.value = selectedCountry;
+      updateFilterStates();
+    }
+
+    function filterProjects(){
+      mapRegionSelection=null;
+      const q=$("#searchInput").value.trim().toLowerCase();
+      const cat=$("#categoryFilter").value;
+      const country=$("#countryFilter").value;
+      updateFilterStates();
+      filtered=data.projects.filter(p=>{
+        const classifiedCategory = getProjectCategory(p);
+        const text=[p.name,p.nameAr,p.country,p.countryAr,p.city,p.cityAr,p.category,p.categoryAr,classifiedCategory,portfolioCategoriesAr[classifiedCategory]].join(" ").toLowerCase();
+        return getProjectDiscipline(p)===activeDiscipline && (!q || text.includes(q)) && (!cat || classifiedCategory===cat) && (!country || p.country===country);
+      });
+      renderMap();
+      renderList();
+      if(filtered.length){
+        $("#resultCount").textContent=`${filtered.length} ${translations[lang].results}`;
+      }else{
+        const clearLabel = lang==="ar" ? "مسح الفلاتر" : "Clear filters";
+        $("#resultCount").innerHTML=`<span>0 ${translations[lang].results}</span> <button type="button" id="clearFiltersBtn" class="clear-filters">${clearLabel}</button>`;
+        const btn=$("#clearFiltersBtn");
+        if(btn) btn.onclick=clearFilters;
+      }
+    }
+
+    function clearFilters(){
+      $("#searchInput").value="";
+      $("#categoryFilter").value="";
+      $("#countryFilter").value="";
+      filterProjects();
+      bindProjectCards();
+    }
+
+    const projectMapRegions={
+      "Egypt":[
+        {key:"greater-cairo",name:"Greater Cairo",nameAr:"القاهرة الكبرى",lat:30.06906,lon:30.41016,cities:["cairo","new cairo","giza","heliopolis","maadi","nasr city","zamalek","el shorouk","obour city","10th of ramadan","6th october","6th of october","sheikh zayed city","fayoum"]},
+        {key:"alexandria-coast",name:"Alexandria & North Coast",nameAr:"الإسكندرية والساحل الشمالي",lat:31.41025,lon:26.85059,cities:["alexandria","north coast","marsa matrouh","siwa"]},
+        {key:"red-sea-sinai",name:"Red Sea & Sinai",nameAr:"البحر الأحمر وسيناء",lat:31.87749,lon:34.62891,cities:["ain sokhna","hurghada","marsa alam","sahl hasheesh","sharm el sheikh","taba","al arish","ras sidr","ras raya","ismailia"]},
+        {key:"upper-egypt",name:"Upper Egypt",nameAr:"صعيد مصر",lat:24.75,lon:32.75,cities:["aswan","luxor"]}
+      ],
+      "Saudi Arabia":[
+        {key:"riyadh-central",name:"Riyadh & Central Region",nameAr:"الرياض والمنطقة الوسطى",lat:25.95888,lon:45.79102,cities:["riyadh","khurais"]},
+        {key:"western-southern",name:"Western & Southern Region",nameAr:"المنطقة الغربية والجنوبية",lat:23.84342,lon:40.29785,cities:["jeddah","makkah","mecca","madina","madinah","alula","abha"]},
+        {key:"eastern",name:"Eastern Region",nameAr:"المنطقة الشرقية",lat:27.09668,lon:48.91113,cities:["dammam","khobar","dhahran","jubail"]}
+      ],
+      "United Arab Emirates":[
+        {key:"uae",name:"United Arab Emirates",nameAr:"الإمارات العربية المتحدة",lat:25.1,lon:54.85,cities:["dubai","abu dhabi","sharjah","ajman","ras al khaimah","fujairah","umm al quwain"]}
+      ]
+    };
+
+    const nationalMapPositions={
+      "Kuwait":{lat:29.38163,lon:47.72461},
+      "Qatar":{lat:26.05,lon:51.2},
+      "Yemen":{lat:17.05566,lon:45.35156},
+      "Libya":{lat:30.97948,lon:18.10547},
+      "Oman":{lat:20.25,lon:55.75}
+    };
+
+    function getProjectMapRegion(project){
+      const regions=projectMapRegions[project.country];
+      if(!regions){
+        const position=nationalMapPositions[project.country] || {};
+        return {key:"national",name:project.country,nameAr:project.countryAr || project.country,...position};
+      }
+
+      const city=(project.city || "").trim().toLowerCase();
+      const matched=regions.find(region=>region.cities.includes(city));
+      if(matched) return matched;
+
+      return regions.reduce((nearest,region)=>{
+        const distance=Math.hypot(project.lat-region.lat,project.lon-region.lon);
+        return !nearest || distance<nearest.distance ? {region,distance} : nearest;
+      },null).region;
+    }
+
+    function renderMap(){
+      if(!window.realLeafletMap) return;
+
+      window.realMarkersLayer.clearLayers();
+
+      const grouped = new Map();
+      filtered.forEach(project=>{
+        if(typeof project.lat!=="number" || typeof project.lon!=="number") return;
+        const region=getProjectMapRegion(project);
+        const key = `${project.country}|${region.key}`;
+        if(!grouped.has(key)){
+          grouped.set(key,{
+            country:project.country,
+            countryAr:project.countryAr,
+            region:region.name,
+            regionAr:region.nameAr,
+            lat:region.lat ?? 0,
+            lon:region.lon ?? 0,
+            hasFixedCenter:Number.isFinite(region.lat) && Number.isFinite(region.lon),
+            projects:[]
+          });
+        }
+        const group=grouped.get(key);
+        group.projects.push(project);
+        if(!group.hasFixedCenter){
+          group.lat+=project.lat;
+          group.lon+=project.lon;
+        }
+      });
+
+      const bounds=[];
+      grouped.forEach(group=>{
+        if(!group.hasFixedCenter){
+          group.lat/=group.projects.length;
+          group.lon/=group.projects.length;
+        }
+        const regionLabel=lang==="ar"?group.regionAr:group.region;
+        const markerIcon=L.divIcon({
+          className:"",
+          html:`<div class="overview-map-marker ${activeDiscipline}-marker">${group.projects.length}</div>`,
+          iconSize:[30,30],
+          iconAnchor:[15,-8],
+          popupAnchor:[0,-18]
+        });
+
+        const marker=L.marker([group.lat,group.lon],{icon:markerIcon});
+
+        const projectCountLabel=lang==="ar"
+          ? `${group.projects.length} مشروع`
+          : `${group.projects.length} ${group.projects.length===1?"project":"projects"}`;
+        marker.bindTooltip(`<strong>${regionLabel}</strong><br>${projectCountLabel}`,{
+          direction:"top",
+          offset:[0,-18],
+          opacity:.96
+        });
+
+        marker.on("click",()=>{
+          mapRegionSelection=group;
+          filtered=[...group.projects];
+          renderList();
+          $("#resultCount").textContent=`${filtered.length} ${translations[lang].results}`;
+          $("#listBtn").click();
+          const returnButton=$("#floatingMapReturn");
+          if(returnButton){
+            returnButton.textContent=lang==="ar"?"العودة إلى الخريطة ↩":"Back to Map ↩";
+          }
+        });
+
+        marker.addTo(window.realMarkersLayer);
+        bounds.push([group.lat,group.lon]);
+      });
+
+      if(bounds.length){
+        window.__mapFitBounds=bounds;
+        window.realLeafletMap.fitBounds(bounds,{
+          padding:[55,55],
+          maxZoom:6
+        });
+      }else{
+        window.__mapFitBounds=null;
+        window.realLeafletMap.setView([24.5,38],4);
+      }
+    }
+
+
+    
+
+    function renderList(){
+      if(!filtered.length){
+        const title = lang==="ar" ? "لا توجد مشاريع مطابقة" : "No matching projects";
+        const sub = lang==="ar" ? "جرّب توسيع بحثك أو مسح الفلاتر." : "Try broadening your search or clearing the filters.";
+        const clearLabel = lang==="ar" ? "مسح الفلاتر" : "Clear filters";
+        $("#listView").innerHTML=`
+          <div class="list-empty">
+            <div class="list-empty-mark">∅</div>
+            <h3>${title}</h3>
+            <p>${sub}</p>
+            <button type="button" class="clear-filters" onclick="clearFilters()">${clearLabel}</button>
+          </div>`;
+        return;
+      }
+      $("#listView").innerHTML=filtered.map(p=>`
+        <article class="list-item" tabindex="0" data-id="${p.id}">
+          <div class="list-item-thumb">
+            <img src="${p.image}" alt="${currentText(p.name,p.nameAr)}" loading="lazy" onerror="this.style.display='none'">
+            <div class="list-item-placeholder">${lang === "ar" ? "صورة المشروع" : "Project Image"}</div>
+          </div>
+          <div class="list-item-body">
+            <span>${currentText(p.country,p.countryAr)} · ${currentText(p.city,p.cityAr)}</span>
+            <h3>${currentText(p.name,p.nameAr)}</h3>
+            <div class="list-item-meta">
+              <div class="list-item-row"><span class="list-item-label">${lang==="ar"?"التصنيف":"Category"}</span>${getProjectCategoryLabel(p)}</div>
+              <div class="list-item-row"><span class="list-item-label">${lang==="ar"?"نطاق العمل":"Scope of Work"}</span>${getStatusLabel(p)}</div>
+              ${p.year && p.year !== "—" ? `<div class="list-item-row"><span class="list-item-label">${lang==="ar"?"السنة":"Year"}</span>${p.year}</div>` : ""}
+            </div>
+          </div>
+        </article>`).join("");
+    }
+
+
+    function renderFeaturedProjects(){
+      const featuredDesign = data.projects.filter(p=>p.featured && getProjectDiscipline(p)==="design");
+      const additionalDesign = data.projects.filter(p=>!p.featured && getProjectDiscipline(p)==="design");
+      const designPool = [...featuredDesign,...additionalDesign];
+      const fallbackPool = [...data.projects.filter(p=>p.featured),...data.projects.filter(p=>!p.featured)];
+      const featuredProjects = (designPool.length ? designPool : fallbackPool).slice(0,6);
+      $("#featuredGrid").innerHTML = featuredProjects.map(p=>`
+        <button class="featured-card" type="button" data-id="${p.id}">
+          <div class="featured-thumb">
+            <img src="${p.image}" alt="${currentText(p.name,p.nameAr)}" loading="lazy" onerror="this.style.display='none'">
+            <div class="featured-placeholder">${lang === "ar" ? "صورة المشروع" : "Project Image"}</div>
+          </div>
+          <div class="featured-body">
+            <div class="featured-name">${currentText(p.name,p.nameAr)}</div>
+            <div class="featured-meta">
+              <div class="featured-meta-row"><span class="featured-meta-label">${lang==="ar"?"التصنيف":"Category"}</span>${getProjectCategoryLabel(p)}</div>
+              <div class="featured-meta-row"><span class="featured-meta-label">${lang==="ar"?"نطاق العمل":"Scope of Work"}</span>${getStatusLabel(p)}</div>
+            </div>
+            <div class="featured-location">${currentText(p.city,p.cityAr)}, ${currentText(p.country,p.countryAr)}</div>
+          </div>
+          <span class="featured-arrow">→</span>
+        </button>`).join("");
+
+      document.querySelectorAll('#featuredGrid .featured-card').forEach(card=>{
+        card.onclick=()=>openModal(card.dataset.id);
+      });
+    }
+
+    function renderAll(){
+      updateDisciplineTabs(); renderStats(); renderServices(); setupFilters(); renderFeaturedProjects(); filterProjects(); bindProjectCards();
+    }
+
+    function updateDisciplineTabs(){
+      const totals = data.projects.reduce((counts,project)=>{
+        counts[getProjectDiscipline(project)]++;
+        return counts;
+      },{design:0,visualization:0});
+      $("#designCount").textContent=totals.design;
+      $("#visualizationCount").textContent=totals.visualization;
+      $$(".discipline-tab").forEach(tab=>{
+        const selected=tab.dataset.discipline===activeDiscipline;
+        tab.classList.toggle("active",selected);
+        tab.setAttribute("aria-selected",String(selected));
+      });
+    }
+
+    function selectDiscipline(discipline){
+      if(discipline===activeDiscipline) return;
+      activeDiscipline=discipline;
+      $("#searchInput").value="";
+      $("#categoryFilter").value="";
+      updateDisciplineTabs();
+      setupFilters();
+      filterProjects();
+      bindProjectCards();
+    }
+
+    function fitProjectMapToViewport(){
+      const mapShell=$("#mapShell");
+      if(!mapShell || mapShell.style.display==="none") return;
+      const top=Math.max(0,mapShell.getBoundingClientRect().top);
+      const bottomGap=18;
+      const availableHeight=Math.max(320,window.innerHeight-top-bottomGap);
+      mapShell.style.height=`${availableHeight}px`;
+      window.realLeafletMap?.invalidateSize({pan:false});
+      const fitTarget = window.__mapFitBounds && window.__mapFitBounds.length ? window.__mapFitBounds : window.__mapAllBounds;
+      if(window.realLeafletMap && fitTarget){
+        window.realLeafletMap.fitBounds(fitTarget,{padding:[55,55],maxZoom:6});
+      }
+    }
+
+    function scheduleProjectMapFit(){
+      requestAnimationFrame(()=>requestAnimationFrame(fitProjectMapToViewport));
+      setTimeout(fitProjectMapToViewport,350);
+      setTimeout(fitProjectMapToViewport,750);
+    }
+
+    function bindProjectCards(){
+      setTimeout(()=>{
+        $$("[data-id].project-card, [data-id].list-item").forEach(el=>{
+          el.onclick=()=>openModal(el.dataset.id);
+          el.onkeydown=e=>{
+            if(e.key==="Enter" || e.key===" "){
+              e.preventDefault();
+              openModal(el.dataset.id);
+            }
+          };
+        });
+      },0);
+    }
+
+
+    function getVideoEmbed(url){
+      if(!url) return null;
+
+      const youtubeMatch = url.match(
+        /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([A-Za-z0-9_-]{6,})/
+      );
+      if(youtubeMatch){
+        return {
+          type:"iframe",
+          src:`https://www.youtube.com/embed/${youtubeMatch[1]}`
+        };
+      }
+
+      const vimeoMatch = url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+      if(vimeoMatch){
+        return {
+          type:"iframe",
+          src:`https://player.vimeo.com/video/${vimeoMatch[1]}`
+        };
+      }
+
+      const driveMatch = url.match(/drive\.google\.com\/file\/d\/([A-Za-z0-9_-]+)/);
+      if(driveMatch){
+        return {
+          type:"iframe",
+          src:`https://drive.google.com/file/d/${driveMatch[1]}/preview`
+        };
+      }
+
+      if(/\.(mp4|webm|ogg)(\?.*)?$/i.test(url)){
+        return {
+          type:"video",
+          src:url
+        };
+      }
+
+      return {
+        type:"link",
+        src:url
+      };
+    }
+
+    function renderProjectVideo(project){
+      const wrap = $("#modalVideoWrap");
+      const frame = $("#modalVideoFrame");
+      const link = $("#modalVideoLink");
+      const localVideo = `videos/portfolio/${project.id}.mp4`;
+      const videoUrl = project.video || localVideo;
+
+      frame.innerHTML = "";
+      wrap.classList.remove("show");
+
+      link.href = videoUrl;
+      const media = getVideoEmbed(videoUrl);
+
+      if(media.type === "iframe"){
+        frame.innerHTML = `<iframe src="${media.src}" title="${currentText(project.name,project.nameAr)} video" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+        wrap.classList.add("show");
+        return;
+      }
+
+      if(media.type === "video"){
+        const base = `videos/portfolio/${project.id}`;
+        const candidates = [
+          `${base}.mp4`,
+          videoUrl,
+          `${base}.webm`,
+          `${base}.mov`,
+          `${base}.m4v`,
+          `${base}/video.mp4`,
+          `${base}/project-video.mp4`
+        ];
+
+        const video = document.createElement("video");
+        video.controls = true;
+        video.preload = "metadata";
+        video.playsInline = true;
+
+        let index = 0;
+        function tryNext(){
+          if(index >= candidates.length){
+            frame.innerHTML = `<div style="height:100%;display:grid;place-items:center;color:white;padding:24px;text-align:center">Video file not found.</div>`;
+            link.href = videoUrl;
+            wrap.classList.add("show");
+            return;
+          }
+          const src = candidates[index++];
+          video.src = src;
+          link.href = src;
+          video.load();
+        }
+
+        video.addEventListener("error", tryNext);
+        frame.appendChild(video);
+        wrap.classList.add("show");
+        tryNext();
+        return;
+      }
+
+      frame.innerHTML = `<div style="height:100%;display:grid;place-items:center;color:white;padding:24px;text-align:center">Use the link below to open the project video.</div>`;
+      wrap.classList.add("show");
+    }
+
+    let lastFocusedEl=null;
+    function galleryImgError(img){
+      const gallery=img.parentElement;
+      img.remove();
+      if(gallery && !gallery.querySelector("img")){
+        gallery.innerHTML=`<div class="gallery-empty">${lang==="ar"?"لا توجد صور إضافية لهذا المشروع بعد.":"No additional images for this project yet."}</div>`;
+      }
+    }
+    function openModal(id){
+      const p=data.projects.find(x=>x.id===id);
+      if(!p) return;
+      lastFocusedEl=document.activeElement;
+      const localFolder = `images/portfolio/${p.id}`;
+      const localHero = `${localFolder}/1.jpg`;
+      const modalHero = $("#modalHero");
+      modalHero.onerror = () => {
+        modalHero.onerror = null;
+        if(p.image && modalHero.src !== p.image) modalHero.src = p.image;
+      };
+      modalHero.src = localHero;
+      modalHero.alt=currentText(p.name,p.nameAr);
+      $("#modalCategory").textContent=getProjectCategoryLabel(p);
+      $("#modalTitle").textContent=currentText(p.name,p.nameAr);
+      $("#modalDescription").textContent=currentText(p.description,p.descriptionAr);
+      $("#modalMeta").innerHTML=[
+        currentText(p.city,p.cityAr), currentText(p.country,p.countryAr), p.client, getStatusLabel(p)
+      ].map(v=>`<span>${v}</span>`).join("");
+      renderProjectVideo(p);
+      const gallery = Array.isArray(p.gallery) && p.gallery.length
+        ? p.gallery
+        : [1,2,3,4].map(i=>`${localFolder}/${i}.jpg`);
+      $("#modalGallery").innerHTML=gallery.map((img,i)=>`<img loading="lazy" src="${img}" alt="${currentText(p.name,p.nameAr)} ${i+1}" onerror="galleryImgError(this)">`).join("");
+      window.realLeafletMap?.closePopup();
+      $("#projectModal").classList.add("show");
+      $("#projectModal").setAttribute("aria-hidden","false");
+      document.body.style.overflow="hidden";
+      const closeBtn=$("#modalClose");
+      if(closeBtn) closeBtn.focus();
+    }
+
+    function closeModal(){
+      $("#projectModal").classList.remove("show");
+      $("#projectModal").setAttribute("aria-hidden","true");
+      $("#modalVideoFrame").innerHTML = "";
+      $("#modalVideoWrap").classList.remove("show");
+      document.body.style.overflow="";
+      if(lastFocusedEl && lastFocusedEl.focus){ lastFocusedEl.focus(); lastFocusedEl=null; }
+    }
+
+    function trapModalFocus(e){
+      const modal=$("#projectModal");
+      const focusable=modal.querySelectorAll('button, [href], input, textarea, select, [tabindex]:not([tabindex="-1"])');
+      const list=[...focusable].filter(el=>el.offsetParent!==null);
+      if(!list.length) return;
+      const first=list[0], last=list[list.length-1];
+      if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+    }
+
+    $("#langBtn").addEventListener("click",()=>{lang=lang==="en"?"ar":"en";applyLanguage();});
+    $("#menuBtn").addEventListener("click",()=>{
+      const open=$("#navLinks").classList.toggle("open");
+      $("#menuBtn").classList.toggle("open",open);
+      $("#menuBtn").setAttribute("aria-expanded",String(open));
+    });
+    $$("#navLinks a").forEach(a=>a.addEventListener("click",()=>{
+      $("#navLinks").classList.remove("open");
+      $("#menuBtn").classList.remove("open");
+      $("#menuBtn").setAttribute("aria-expanded","false");
+    }));
+    $$(".nav-group-trigger").forEach(t=>t.addEventListener("click",e=>{
+      e.stopPropagation();
+      const g=t.closest(".nav-group"); if(!g) return;
+      const open=g.classList.toggle("open");
+      t.setAttribute("aria-expanded",open);
+    }));
+    document.addEventListener("click",e=>{
+      $$(".nav-group.open").forEach(g=>{ if(!g.contains(e.target)){ g.classList.remove("open"); g.querySelector(".nav-group-trigger")?.setAttribute("aria-expanded","false"); } });
+    });
+    $("#searchInput").addEventListener("input",()=>{filterProjects();bindProjectCards();});
+    $("#categoryFilter").addEventListener("change",()=>{filterProjects();bindProjectCards();});
+    $("#countryFilter").addEventListener("change",()=>{filterProjects();bindProjectCards();});
+    $$(".discipline-tab").forEach(tab=>tab.addEventListener("click",()=>selectDiscipline(tab.dataset.discipline)));
+    $("#mapBtn").addEventListener("click",()=>{
+      const floatingViewButton=$("#floatingMapReturn");
+      if(floatingViewButton) floatingViewButton.textContent=lang==="ar"?"القائمة ☰":"List ☰";
+      if(mapRegionSelection){
+        mapRegionSelection=null;
+        filterProjects();
+        bindProjectCards();
+      }
+      $("#mapBtn").classList.add("active");$("#listBtn").classList.remove("active");
+      $("#mapShell").style.display="block";$("#listView").classList.remove("active");
+      scheduleProjectMapFit();
+      try { localStorage.setItem("snapProjectsView","map"); } catch(e){}
+    });
+
+    const projectsNavLink=document.querySelector('#navLinks a[href="#projects"]');
+    projectsNavLink?.addEventListener("click",scheduleProjectMapFit);
+    window.addEventListener("resize",scheduleProjectMapFit);
+    $("#listBtn").addEventListener("click",()=>{
+      $("#listBtn").classList.add("active");$("#mapBtn").classList.remove("active");
+      $("#mapShell").style.display="none";$("#listView").classList.add("active");bindProjectCards();
+      const floatingViewButton=$("#floatingMapReturn");
+      if(floatingViewButton) floatingViewButton.textContent=lang==="ar"?"العودة إلى الخريطة ↩":"Back to Map ↩";
+      try { localStorage.setItem("snapProjectsView","list"); } catch(e){}
+    });
+    if(window.matchMedia("(max-width:640px)").matches){
+      $("#listBtn").click();
+    }else{
+      try { if(localStorage.getItem("snapProjectsView")==="list"){ $("#listBtn").click(); } } catch(e){}
+    }
+
+    // Hint: nudge users toward the List view — re-shown on each Projects visit until they actually use it
+    (function(){
+      const vt=document.getElementById("viewToggle");
+      if(!vt) return;
+      const listBtn=document.getElementById("listBtn");
+      const mapBtn=document.getElementById("mapBtn");
+      const used=()=>{ try { return localStorage.getItem("snapListHintSeen_v3")==="1"; } catch(e){ return false; } };
+      let hideTimer;
+      const hideHint=()=>{ clearTimeout(hideTimer); vt.classList.remove("hint-on"); };
+      const showHint=()=>{
+        if(used()) return;
+        if(listBtn && listBtn.classList.contains("active")) return;
+        clearTimeout(hideTimer);
+        vt.classList.add("hint-on");
+        hideTimer=setTimeout(()=>vt.classList.remove("hint-on"), 9000);
+      };
+      // Using the list dismisses the hint permanently; switching to map just hides it (so it can return)
+      listBtn?.addEventListener("click",()=>{ try { localStorage.setItem("snapListHintSeen_v3","1"); } catch(e){} hideHint(); });
+      mapBtn?.addEventListener("click",hideHint);
+      // Show on first load and on every Projects link click
+      setTimeout(showHint, 1200);
+      document.querySelectorAll('a[href="#projects"]').forEach(a=>a.addEventListener("click",()=>setTimeout(showHint, 500)));
+    })();
+
+    // Back-to-top button
+    (function(){
+      const btn=document.createElement("button");
+      btn.className="back-to-top"; btn.type="button";
+      btn.setAttribute("aria-label", lang==="ar" ? "العودة لأعلى" : "Back to top");
+      btn.innerHTML="↑";
+      document.body.appendChild(btn);
+      btn.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+      window.addEventListener("scroll",()=>btn.classList.toggle("show", window.scrollY>600),{passive:true});
+    })();
+
+    (function(){
+      const btn=document.createElement("button");
+      btn.id="floatingMapReturn";
+      btn.className="map-return-btn";
+      btn.type="button";
+      const listIsActive=$("#listBtn").classList.contains("active");
+      btn.textContent=listIsActive
+        ? (lang==="ar"?"العودة إلى الخريطة ↩":"Back to Map ↩")
+        : (lang==="ar"?"القائمة ☰":"List ☰");
+      btn.addEventListener("click",()=>{
+        const target=$("#mapBtn").classList.contains("active")?$("#listBtn"):$("#mapBtn");
+        target.click();
+      });
+      document.body.appendChild(btn);
+      const projectsSection=$("#projects");
+      const sectionAfterProjects=$("#contact");
+      if(projectsSection){
+        const updateVisibility=()=>{
+          const rect=projectsSection.getBoundingClientRect();
+          const nextRect=sectionAfterProjects?.getBoundingClientRect();
+          const nextSectionIsVisible=nextRect && nextRect.top<window.innerHeight;
+          const visible=rect.bottom>96 && rect.top<window.innerHeight-72 && !nextSectionIsVisible;
+          btn.classList.toggle("show",visible);
+          btn.setAttribute("aria-hidden",String(!visible));
+        };
+        window.addEventListener("scroll",updateVisibility,{passive:true});
+        window.addEventListener("hashchange",()=>requestAnimationFrame(updateVisibility));
+        window.addEventListener("resize",updateVisibility,{passive:true});
+        updateVisibility();
+      }
+    })();
+
+    // Scrollspy: highlight nav link of the section in view
+    (function(){
+      const spyIds=["home","projects","services","about","contact"];
+      const spyMap={};
+      spyIds.forEach(id=>{ const a=document.querySelector('#navLinks a[href="#'+id+'"]'); if(a) spyMap[id]=a; });
+      const sections=spyIds.map(id=>document.getElementById(id)).filter(Boolean);
+      if(!sections.length || !("IntersectionObserver" in window)) return;
+      let current=null;
+      const setActive=id=>{
+        if(current===id) return;
+        current=id;
+        Object.values(spyMap).forEach(a=>a.classList.remove("current"));
+        if(spyMap[id]) spyMap[id].classList.add("current");
+      };
+      const obs=new IntersectionObserver(entries=>{
+        const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio);
+        if(visible[0]) setActive(visible[0].target.id);
+      },{rootMargin:"-45% 0px -50% 0px",threshold:[0,.25,.5,1]});
+      sections.forEach(s=>obs.observe(s));
+    })();
+
+    $("#modalClose").addEventListener("click",closeModal);
+    $("#projectModal").addEventListener("click",e=>{if(e.target.id==="projectModal") closeModal();});
+    document.addEventListener("keydown",e=>{
+      const modalOpen=$("#projectModal").classList.contains("show");
+      if(e.key==="Escape" && modalOpen){ closeModal(); }
+      if(e.key==="Tab" && modalOpen){ trapModalFocus(e); }
+    });
+
+
+    $("#contactForm").addEventListener("submit",e=>{
+      e.preventDefault();
+      const form=new FormData(e.target);
+      const subject=encodeURIComponent("New SNAP project inquiry");
+      const body=encodeURIComponent([...form.entries()].map(([k,v])=>`${k}: ${v}`).join("\n"));
+      location.href=`mailto:snap@snaparc.com?subject=${subject}&body=${body}`;
+      const note=$("#formNote");
+      if(note){
+        note.textContent = lang==="ar"
+          ? "تم فتح بريدك لإرسال الرسالة. لو مفتحش، ابعتلنا على snap@snaparc.com — وهنرد عليك قريب."
+          : "Your email app is opening to send the message. If it didn't, reach us at snap@snaparc.com — we'll reply shortly.";
+        note.classList.add("show");
+      }
+    });
+
+
+    // Hero movie slider
+    let heroSlideIndex = 0;
+    const heroSlides = [...document.querySelectorAll(".hero-slide")];
+    const heroDots = [...document.querySelectorAll(".hero-dot")];
+    const heroVideos = heroSlides.map(slide=>slide.querySelector("video")).filter(Boolean);
+    const heroMobileMedia = window.matchMedia("(max-width: 640px)");
+    function applyHeroVideoSources(){
+      heroVideos.forEach(video=>{
+        const nextSource=heroMobileMedia.matches ? video.dataset.mobileSrc : video.dataset.desktopSrc;
+        if(!nextSource || video.getAttribute("src")===nextSource) return;
+        video.src=nextSource;
+        video.dataset.prepared="false";
+        video.load();
+      });
+    }
+    applyHeroVideoSources();
+    const reduceHeroMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const HERO_DURATION_MS=4500;
+    let heroTimer;
+    let heroIsAdvancing=false;
+
+    function clearHeroTimer(){
+      window.clearTimeout(heroTimer);
+      heroTimer=undefined;
+    }
+    function scheduleHeroAdvance(index){
+      clearHeroTimer();
+      if(index!==heroSlideIndex) return;
+      heroTimer=window.setTimeout(()=>{
+        if(index!==heroSlideIndex) return;
+        heroAdvanceNext();
+      },HERO_DURATION_MS);
+    }
+    const heroProjects = [
+      {name:"Jeddah Center Development",nameAr:"تطوير وسط جدة",location:"Jeddah, KSA",locationAr:"جدة، السعودية"},
+      {name:"Shaden Resort",nameAr:"منتجع شادن",location:"Al Ula, KSA",locationAr:"العلا، السعودية"},
+      {name:"BIM & Digital Twin Modeling",nameAr:"نمذجة BIM والتوأم الرقمي",location:"Riyadh, KSA",locationAr:"الرياض، السعودية"}
+    ];
+
+    function updateHeroMetadata(){
+      const project=heroProjects[heroSlideIndex];
+      if(!project) return;
+      const nameNode=$("#heroProjectName");
+      const locationNode=$("#heroProjectLocation");
+      nameNode.textContent=lang==="ar"?project.nameAr:project.name;
+      locationNode.textContent=lang==="ar"?project.locationAr:project.location;
+      [nameNode,locationNode].forEach(node=>{
+        node.classList.remove("meta-change");
+        void node.offsetWidth;
+        node.classList.add("meta-change");
+      });
+    }
+
+    function heroAdvanceNext(){
+      if(heroIsAdvancing) return;
+      heroIsAdvancing=true;
+      showHeroSlide(heroSlideIndex + 1);
+      window.setTimeout(()=>{heroIsAdvancing=false;},250);
+    }
+    function prepareUpcomingHero(){
+      if(heroVideos.length < 2) return;
+      const upcomingIndex=(heroSlideIndex + 1) % heroVideos.length;
+      const upcomingVideo=heroVideos[upcomingIndex];
+      if(!upcomingVideo || upcomingVideo.dataset.prepared==="true") return;
+      upcomingVideo.preload="metadata";
+      upcomingVideo.load();
+      upcomingVideo.dataset.prepared="true";
+    }
+    function showHeroSlide(index){
+      clearHeroTimer();
+      const outgoingIndex=heroSlideIndex;
+      const outgoingSlide=heroSlides[outgoingIndex];
+      const currentVideo = outgoingSlide?.querySelector("video");
+      if(currentVideo){
+        currentVideo.pause();
+      }
+
+      outgoingSlide?.classList.remove("active");
+      heroDots[outgoingIndex]?.classList.remove("active");
+
+      heroSlideIndex = (index + heroSlides.length) % heroSlides.length;
+
+      heroSlides[heroSlideIndex]?.classList.add("active");
+      heroDots[heroSlideIndex]?.classList.add("active");
+      updateHeroMetadata();
+
+      // Keep the outgoing film on its final frame during the crossfade.
+      // Reset it only after its 1.1s opacity transition has fully finished.
+      if(currentVideo){
+        window.setTimeout(()=>{
+          if(!outgoingSlide?.classList.contains("active")) currentVideo.currentTime=0;
+        },1200);
+      }
+
+      const nextVideo = heroSlides[heroSlideIndex]?.querySelector("video");
+      if(nextVideo){
+        nextVideo.loop=false;
+        nextVideo.currentTime=0;
+        const startNextVideo=()=>nextVideo.play().catch(()=>{});
+        if(nextVideo.readyState>=3){
+          startNextVideo();
+        }else{
+          nextVideo.addEventListener("canplay",startNextVideo,{once:true});
+          nextVideo.load();
+        }
+      }
+
+      scheduleHeroAdvance(heroSlideIndex);
+      window.setTimeout(prepareUpcomingHero,1200);
+    }
+
+    heroDots.forEach((dot,index)=>dot.addEventListener("click",()=>showHeroSlide(index)));
+    $("#heroPrev").addEventListener("click",()=>showHeroSlide(heroSlideIndex - 1));
+    $("#heroNext").addEventListener("click",()=>showHeroSlide(heroSlideIndex + 1));
+    heroMobileMedia.addEventListener("change",()=>{
+      applyHeroVideoSources();
+      showHeroSlide(heroSlideIndex);
+    });
+    // Load the opening film only; prepare the next film after the first view settles.
+    heroVideos.forEach((video,index)=>{
+      video.muted=true;
+      video.loop=false;
+      video.preload=index===0 ? "auto" : "none";
+      if(index===0){
+        video.dataset.prepared="true";
+        video.load();
+        video.play().catch(()=>{});
+      }
+    });
+    scheduleHeroAdvance(heroSlideIndex);
+    window.setTimeout(prepareUpcomingHero,1400);
+
+    document.addEventListener("visibilitychange",()=>{
+      const activeVideo = heroSlides[heroSlideIndex]?.querySelector("video");
+      if(document.hidden){
+        clearHeroTimer();
+        activeVideo?.pause();
+      } else {
+        activeVideo?.play().catch(()=>{});
+        scheduleHeroAdvance(heroSlideIndex);
+      }
+    });
+
+
+    function initializeRealMap(){
+      const mapNode=document.getElementById("realMap");
+      if(typeof L==="undefined"){
+        const ml=document.getElementById("mapLoading");
+        if(ml) ml.style.display="none";
+        if(mapNode){
+          mapNode.innerHTML='<div style="height:100%;min-height:580px;display:grid;place-items:center;padding:30px;text-align:center;background:#EAE5D9;color:#343C37;font-family:Archivo,Arial,sans-serif">تعذر تحميل مكتبة الخريطة. تأكد من اتصال الإنترنت ثم أعد تحميل الصفحة.</div>';
+        }
+        return;
+      }
+
+      const allProjectPoints=data.projects
+        .filter(project=>typeof project.lat==="number" && typeof project.lon==="number")
+        .map(project=>[project.lat,project.lon]);
+      const projectBounds=L.latLngBounds(allProjectPoints);
+      const movementBounds=projectBounds.pad(.6);
+
+      window.realLeafletMap=L.map("realMap",{
+        zoomControl:true,
+        scrollWheelZoom:true,
+        minZoom:3,
+        maxZoom:12,
+        maxBounds:movementBounds,
+        maxBoundsViscosity:1
+      }).setView([24.5,38],4);
+
+      const cartoTiles=L.tileLayer(
+        "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+        {
+          subdomains:"abcd",
+          maxZoom:20,
+          attribution:"&copy; OpenStreetMap contributors &copy; CARTO"
+        }
+      ).addTo(window.realLeafletMap);
+
+      const hideMapLoading=()=>{
+        const ml=document.getElementById("mapLoading");
+        if(ml && !ml.classList.contains("hidden")){
+          ml.classList.add("hidden");
+          setTimeout(()=>{ ml.style.display="none"; },450);
+        }
+      };
+      cartoTiles.on("load",hideMapLoading);
+      setTimeout(hideMapLoading,4000);
+
+      let cartoErrors=0;
+      let fallbackLoaded=false;
+
+      cartoTiles.on("tileerror",()=>{
+        cartoErrors++;
+
+        if(cartoErrors>=3 && !fallbackLoaded){
+          fallbackLoaded=true;
+          window.realLeafletMap.removeLayer(cartoTiles);
+
+          L.tileLayer(
+            "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+            {
+              maxZoom:19,
+              attribution:"Tiles &copy; Esri"
+            }
+          ).addTo(window.realLeafletMap);
+        }
+      });
+
+      window.realMarkersLayer=L.layerGroup().addTo(window.realLeafletMap);
+      window.__mapAllBounds=projectBounds.pad(.08);
+      window.realLeafletMap.fitBounds(window.__mapAllBounds,{padding:[36,36]});
+      renderMap();
+    }
+
+    // Homepage journey: lead with proof of work, then explain capabilities and studio.
+    // Full portfolio remains a separate, clearly labelled exploration stage.
+    (function arrangeHomepageJourney(){
+      const main=document.querySelector("main");
+      const featured=document.getElementById("featuredProjects");
+      const services=document.getElementById("services");
+      const about=document.getElementById("about");
+      const clientsPreview=document.querySelector(".clients-preview");
+      if(main && featured && services && about && clientsPreview){
+        main.insertBefore(featured,about);
+        main.insertBefore(services,about);
+        main.insertBefore(clientsPreview,featured);
+      }
+    })();
+
+    applyLanguage();
+    (function applyUrlCountryFilter(){
+      const urlCountry = new URLSearchParams(location.search).get("country");
+      if(!urlCountry) return;
+      const countrySelect = $("#countryFilter");
+      const match = [...countrySelect.options].find(o=>o.value.toLowerCase()===urlCountry.toLowerCase());
+      if(match){
+        countrySelect.value = match.value;
+        filterProjects();
+        bindProjectCards();
+      }
+    })();
+    initializeRealMap();
+    scheduleProjectMapFit();
+
+    if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window){
+      const revealTargets = document.querySelectorAll(".section-head, #featuredProjects .featured-head");
+      const io = new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){ entry.target.classList.add("in-view"); io.unobserve(entry.target); }
+        });
+      },{threshold:.2});
+      revealTargets.forEach(el=>io.observe(el));
+    } else {
+      document.querySelectorAll(".section-head, #featuredProjects .featured-head").forEach(el=>el.classList.add("in-view"));
+    }
+  </script>
+</body>
+</html>
