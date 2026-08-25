@@ -558,11 +558,14 @@
       html[dir="rtl"] .map-title{font-size:1.02rem}
     }
     @media (max-width:640px){
+      .map-return-btn{display:none!important}
       .container{width:min(100% - 48px,1200px)}
       .section{padding:80px 0}
       .section-head{display:block}
       .section-head p{margin-top:14px}
-      .hero-inner{padding:72px 0 170px}
+      .hero{display:block;min-height:100svh}
+      .hero-inner{padding:72px 0 38px}
+      .hero-titleblock{position:relative;inset:auto}
       .hero-copy{padding-inline-start:18px}
       .hero-copy h1{font-size:clamp(2.65rem,13vw,3.7rem);line-height:1.02}
       html[dir="rtl"] .hero-copy h1{font-size:clamp(2.15rem,10.5vw,3rem);line-height:1.12}
@@ -1246,7 +1249,7 @@ if (typeof L === "undefined") {
     const data = {
       stats:[
         {value:"30+",en:"Years of Experience",ar:"عامًا من الخبرة"},
-        {value:"137",en:"Projects",ar:"مشروع"},
+        {value:"240+",en:"Projects",ar:"مشروع"},
         {value:"9",en:"Countries",ar:"دول"},
         {value:"2",en:"Cairo & Riyadh",ar:"القاهرة والرياض"}
       ],
@@ -1343,7 +1346,7 @@ if (typeof L === "undefined") {
         a.setAttribute("href", path + "?" + params.toString() + (hash ? "#"+hash : ""));
       });
     }
-    let activeDiscipline = "design";
+    let activeDiscipline = data.projects.some(p=>getProjectDiscipline(p)==="design") ? "design" : "visualization";
     let filtered = [...data.projects];
     let mapRegionSelection = null;
 
@@ -1682,7 +1685,9 @@ if (typeof L === "undefined") {
     function renderFeaturedProjects(){
       const featuredDesign = data.projects.filter(p=>p.featured && getProjectDiscipline(p)==="design");
       const additionalDesign = data.projects.filter(p=>!p.featured && getProjectDiscipline(p)==="design");
-      const featuredProjects = [...featuredDesign,...additionalDesign].slice(0,6);
+      const designPool = [...featuredDesign,...additionalDesign];
+      const fallbackPool = [...data.projects.filter(p=>p.featured),...data.projects.filter(p=>!p.featured)];
+      const featuredProjects = (designPool.length ? designPool : fallbackPool).slice(0,6);
       $("#featuredGrid").innerHTML = featuredProjects.map(p=>`
         <button class="featured-card" type="button" data-id="${p.id}">
           <div class="featured-thumb">
@@ -1979,7 +1984,11 @@ if (typeof L === "undefined") {
       if(floatingViewButton) floatingViewButton.textContent=lang==="ar"?"العودة إلى الخريطة ↩":"Back to Map ↩";
       try { localStorage.setItem("snapProjectsView","list"); } catch(e){}
     });
-    try { if(localStorage.getItem("snapProjectsView")==="list"){ $("#listBtn").click(); } } catch(e){}
+    if(window.matchMedia("(max-width:640px)").matches){
+      $("#listBtn").click();
+    }else{
+      try { if(localStorage.getItem("snapProjectsView")==="list"){ $("#listBtn").click(); } } catch(e){}
+    }
 
     // Hint: nudge users toward the List view — re-shown on each Projects visit until they actually use it
     (function(){
@@ -2031,21 +2040,19 @@ if (typeof L === "undefined") {
       });
       document.body.appendChild(btn);
       const projectsSection=$("#projects");
-      if(projectsSection && "IntersectionObserver" in window){
-        const observer=new IntersectionObserver(entries=>{
-          const visible=entries.some(entry=>entry.isIntersecting);
-          btn.classList.toggle("show",visible);
-          btn.setAttribute("aria-hidden",String(!visible));
-        },{rootMargin:"-72px 0px -12% 0px",threshold:0});
-        observer.observe(projectsSection);
-      }else if(projectsSection){
+      const sectionAfterProjects=$("#contact");
+      if(projectsSection){
         const updateVisibility=()=>{
           const rect=projectsSection.getBoundingClientRect();
-          const visible=rect.bottom>72 && rect.top<window.innerHeight*.88;
+          const nextRect=sectionAfterProjects?.getBoundingClientRect();
+          const nextSectionIsVisible=nextRect && nextRect.top<window.innerHeight;
+          const visible=rect.bottom>96 && rect.top<window.innerHeight-72 && !nextSectionIsVisible;
           btn.classList.toggle("show",visible);
           btn.setAttribute("aria-hidden",String(!visible));
         };
         window.addEventListener("scroll",updateVisibility,{passive:true});
+        window.addEventListener("hashchange",()=>requestAnimationFrame(updateVisibility));
+        window.addEventListener("resize",updateVisibility,{passive:true});
         updateVisibility();
       }
     })();
