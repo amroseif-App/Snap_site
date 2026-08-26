@@ -2,11 +2,11 @@
   {
     "id": "fouka-bay-phase-1",
     "name": "Fouka",
-    "nameAr": "فوكا",
+    "nameAr": "فوكة",
     "country": "Egypt",
-    "countryAr": "Egypt",
+    "countryAr": "مصر",
     "city": "North Coast",
-    "cityAr": "North Coast",
+    "cityAr": "الساحل الشمالي",
     "category": "Residential",
     "categoryAr": "Residential",
     "year": "—",
@@ -23,24 +23,24 @@
       "images/portfolio/fouka-bay-phase-1/03.webp"
     ],
     "description": "Fouka is a visualization project located in North Coast, Egypt.",
-    "descriptionAr": "فوكا مشروع تصور معماري يقع في North Coast، Egypt."
+    "descriptionAr": "فوكة مشروع تصور معماري يقع في الساحل الشمالي، مصر."
   },
   {
     "id": "monti-galala-chs",
-    "name": "Monti Galala Chalets",
-    "nameAr": "Monti Galala Chalets",
+    "name": "IL Monte Galala",
+    "nameAr": "إل مونتي جلالة",
     "country": "Egypt",
-    "countryAr": "Egypt",
-    "city": "North Coast",
-    "cityAr": "North Coast",
+    "countryAr": "مصر",
+    "city": "Ain Sokhna",
+    "cityAr": "العين السخنة",
     "category": "Residential",
     "categoryAr": "Residential",
     "year": "—",
     "status": "Visualization",
     "client": "—",
     "featured": false,
-    "lat": 30.876,
-    "lon": 28.956,
+    "lat": 29.6,
+    "lon": 32.35,
     "image": "images/portfolio/monti-galala-chs/cover.webp",
     "gallery": [
       "images/portfolio/monti-galala-chs/cover.webp",
@@ -50,17 +50,17 @@
       "images/portfolio/monti-galala-chs/04.webp",
       "images/portfolio/monti-galala-chs/05.webp"
     ],
-    "description": "Monti Galala Chalets is a visualization project located in North Coast, Egypt.",
-    "descriptionAr": "Monti Galala Chalets مشروع تصور معماري يقع في North Coast، Egypt."
+    "description": "IL Monte Galala is a visualization project located in Ain Sokhna, Egypt.",
+    "descriptionAr": "إل مونتي جلالة مشروع تصور معماري يقع في العين السخنة، مصر."
   },
   {
     "id": "the-shore",
     "name": "The Shore",
-    "nameAr": "The Shore",
+    "nameAr": "شورز",
     "country": "Egypt",
-    "countryAr": "Egypt",
+    "countryAr": "مصر",
     "city": "North Coast",
-    "cityAr": "North Coast",
+    "cityAr": "الساحل الشمالي",
     "category": "Residential",
     "categoryAr": "Residential",
     "year": "—",
@@ -80,16 +80,16 @@
       "images/portfolio/the-shore/06.webp"
     ],
     "description": "The Shore is a visualization project located in North Coast, Egypt.",
-    "descriptionAr": "The Shore مشروع تصور معماري يقع في North Coast، Egypt."
+    "descriptionAr": "شورز مشروع تصور معماري يقع في الساحل الشمالي، مصر."
   },
   {
     "id": "the-view",
     "name": "The View",
-    "nameAr": "The View",
+    "nameAr": "ذا ڤيو",
     "country": "Egypt",
-    "countryAr": "Egypt",
+    "countryAr": "مصر",
     "city": "North Coast",
-    "cityAr": "North Coast",
+    "cityAr": "الساحل الشمالي",
     "category": "Residential",
     "categoryAr": "Residential",
     "year": "—",
@@ -106,16 +106,16 @@
       "images/portfolio/the-view/03.webp"
     ],
     "description": "The View is a visualization project located in North Coast, Egypt.",
-    "descriptionAr": "The View مشروع تصور معماري يقع في North Coast، Egypt."
+    "descriptionAr": "ذا ڤيو مشروع تصور معماري يقع في الساحل الشمالي، مصر."
   },
   {
     "id": "astoria",
     "name": "Astoria",
-    "nameAr": "Astoria",
+    "nameAr": "أستوريا",
     "country": "Egypt",
-    "countryAr": "Egypt",
+    "countryAr": "مصر",
     "city": "6th October",
-    "cityAr": "6th October",
+    "cityAr": "السادس من أكتوبر",
     "category": "Residential",
     "categoryAr": "Residential",
     "year": "—",
@@ -136,16 +136,16 @@
       "images/portfolio/astoria/07.webp"
     ],
     "description": "Astoria is a visualization project located in 6th October, Egypt.",
-    "descriptionAr": "Astoria مشروع تصور معماري يقع في 6th October، Egypt."
+    "descriptionAr": "أستوريا مشروع تصور معماري يقع في السادس من أكتوبر، مصر."
   },
   {
     "id": "montaza-quatro-mall",
     "name": "Montaza Quatro Mall",
-    "nameAr": "Montaza Quatro Mall",
+    "nameAr": "المنتزه كواترو مول",
     "country": "Egypt",
-    "countryAr": "Egypt",
+    "countryAr": "مصر",
     "city": "6th October",
-    "cityAr": "6th October",
+    "cityAr": "السادس من أكتوبر",
     "category": "Commercial",
     "categoryAr": "Commercial",
     "year": "—",
@@ -162,16 +162,16 @@
       "images/portfolio/montaza-quatro-mall/03.webp"
     ],
     "description": "Montaza Quatro Mall is a visualization project located in 6th October, Egypt.",
-    "descriptionAr": "Montaza Quatro Mall مشروع تصور معماري يقع في 6th October، Egypt."
+    "descriptionAr": "المنتزه كواترو مول مشروع تصور معماري يقع في السادس من أكتوبر، مصر."
   },
   {
     "id": "katamia",
     "name": "Katamia",
-    "nameAr": "Katamia",
+    "nameAr": "القطامية",
     "country": "Egypt",
-    "countryAr": "Egypt",
+    "countryAr": "مصر",
     "city": "New Cairo",
-    "cityAr": "New Cairo",
+    "cityAr": "القاهرة الجديدة",
     "category": "Residential",
     "categoryAr": "Residential",
     "year": "—",
@@ -189,16 +189,16 @@
       "images/portfolio/katamia/04.webp"
     ],
     "description": "Katamia is a visualization project located in New Cairo, Egypt.",
-    "descriptionAr": "Katamia مشروع تصور معماري يقع في New Cairo، Egypt."
+    "descriptionAr": "القطامية مشروع تصور معماري يقع في القاهرة الجديدة، مصر."
   },
   {
     "id": "porto-new-cairo",
     "name": "Porto New Cairo",
-    "nameAr": "Porto New Cairo",
+    "nameAr": "بورتو القاهرة الجديدة",
     "country": "Egypt",
-    "countryAr": "Egypt",
+    "countryAr": "مصر",
     "city": "New Cairo",
-    "cityAr": "New Cairo",
+    "cityAr": "القاهرة الجديدة",
     "category": "Residential",
     "categoryAr": "Residential",
     "year": "—",
@@ -209,7 +209,7 @@
     "lon": 31.49,
     "image": "images/portfolio/porto-new-cairo/cover.webp",
     "description": "Porto New Cairo is a visualization project located in New Cairo, Egypt.",
-    "descriptionAr": "Porto New Cairo مشروع تصور معماري يقع في New Cairo، Egypt.",
+    "descriptionAr": "بورتو القاهرة الجديدة مشروع تصور معماري يقع في القاهرة الجديدة، مصر.",
     "x": 43.96,
     "y": 32.77,
     "gallery": [
@@ -222,11 +222,11 @@
   {
     "id": "porto-6th-of-october",
     "name": "Porto 6th of October",
-    "nameAr": "Porto 6th of October",
+    "nameAr": "بورتو السادس من أكتوبر",
     "country": "Egypt",
-    "countryAr": "Egypt",
+    "countryAr": "مصر",
     "city": "6th of October",
-    "cityAr": "6th of October",
+    "cityAr": "السادس من أكتوبر",
     "category": "Residential",
     "categoryAr": "Residential",
     "year": "—",
@@ -237,7 +237,7 @@
     "lon": 30.9746,
     "image": "images/portfolio/porto-6th-of-october/cover.webp",
     "description": "Porto 6th of October is a visualization project located in 6th of October, Egypt.",
-    "descriptionAr": "Porto 6th of October مشروع تصور معماري يقع في 6th of October، Egypt.",
+    "descriptionAr": "بورتو السادس من أكتوبر مشروع تصور معماري يقع في السادس من أكتوبر، مصر.",
     "x": 43.08,
     "y": 33.12,
     "gallery": [
@@ -250,11 +250,11 @@
   {
     "id": "maxim-mall",
     "name": "Maxim Mall",
-    "nameAr": "Maxim Mall",
+    "nameAr": "مكسيم مول",
     "country": "Egypt",
-    "countryAr": "Egypt",
+    "countryAr": "مصر",
     "city": "New Cairo",
-    "cityAr": "New Cairo",
+    "cityAr": "القاهرة الجديدة",
     "category": "Commercial",
     "categoryAr": "Commercial",
     "year": "—",
@@ -271,7 +271,7 @@
       "images/portfolio/maxim-mall/03.webp"
     ],
     "description": "Maxim Mall is a visualization project located in New Cairo, Egypt.",
-    "descriptionAr": "Maxim Mall مشروع تصور معماري يقع في New Cairo، Egypt."
+    "descriptionAr": "مكسيم مول مشروع تصور معماري يقع في القاهرة الجديدة، مصر."
   },
   {
     "id": "el-alamein",
@@ -300,11 +300,11 @@
   {
     "id": "royal-maxim",
     "name": "Royal Maxim",
-    "nameAr": "Royal Maxim",
+    "nameAr": "رويال مكسيم",
     "country": "Egypt",
-    "countryAr": "Egypt",
+    "countryAr": "مصر",
     "city": "New Cairo",
-    "cityAr": "New Cairo",
+    "cityAr": "القاهرة الجديدة",
     "category": "Residential",
     "categoryAr": "Residential",
     "year": "—",
@@ -321,24 +321,24 @@
       "images/portfolio/royal-maxim/03.webp"
     ],
     "description": "Royal Maxim is a visualization project located in New Cairo, Egypt.",
-    "descriptionAr": "Royal Maxim مشروع تصور معماري يقع في New Cairo، Egypt."
+    "descriptionAr": "رويال مكسيم مشروع تصور معماري يقع في القاهرة الجديدة، مصر."
   },
   {
     "id": "royal-beach",
     "name": "Royal Beach",
-    "nameAr": "Royal Beach",
+    "nameAr": "رويال بيتش",
     "country": "Egypt",
-    "countryAr": "Egypt",
-    "city": "Sharm El Sheikh",
-    "cityAr": "Sharm El Sheikh",
+    "countryAr": "مصر",
+    "city": "North Coast",
+    "cityAr": "الساحل الشمالي",
     "category": "Resort",
     "categoryAr": "Resort",
     "year": "—",
     "status": "Visualization",
     "client": "—",
     "featured": false,
-    "lat": 27.9158,
-    "lon": 34.33,
+    "lat": 30.876,
+    "lon": 28.956,
     "image": "images/portfolio/royal-beach/cover.webp",
     "gallery": [
       "images/portfolio/royal-beach/cover.webp",
@@ -346,17 +346,17 @@
       "images/portfolio/royal-beach/02.webp",
       "images/portfolio/royal-beach/03.webp"
     ],
-    "description": "Royal Beach is a visualization project located in Sharm El Sheikh, Egypt.",
-    "descriptionAr": "Royal Beach مشروع تصور معماري يقع في Sharm El Sheikh، Egypt."
+    "description": "Royal Beach is a visualization project located in North Coast, Egypt.",
+    "descriptionAr": "رويال بيتش مشروع تصور معماري يقع في الساحل الشمالي، مصر."
   },
   {
     "id": "grand-heights",
     "name": "Grand Heights",
-    "nameAr": "Grand Heights",
+    "nameAr": "جراند هايتس",
     "country": "Egypt",
-    "countryAr": "Egypt",
+    "countryAr": "مصر",
     "city": "6th October",
-    "cityAr": "6th October",
+    "cityAr": "السادس من أكتوبر",
     "category": "Residential",
     "categoryAr": "Residential",
     "year": "—",
@@ -374,16 +374,16 @@
       "images/portfolio/grand-heights/04.webp"
     ],
     "description": "Grand Heights is a visualization project located in 6th October, Egypt.",
-    "descriptionAr": "Grand Heights مشروع تصور معماري يقع في 6th October، Egypt."
+    "descriptionAr": "جراند هايتس مشروع تصور معماري يقع في السادس من أكتوبر، مصر."
   },
   {
     "id": "jeera",
     "name": "Jeera",
-    "nameAr": "Jeera",
+    "nameAr": "جيرة",
     "country": "Egypt",
-    "countryAr": "Egypt",
+    "countryAr": "مصر",
     "city": "6th October",
-    "cityAr": "6th October",
+    "cityAr": "السادس من أكتوبر",
     "category": "Residential",
     "categoryAr": "Residential",
     "year": "—",
@@ -400,16 +400,16 @@
       "images/portfolio/jeera/03.webp"
     ],
     "description": "Jeera is a visualization project located in 6th October, Egypt.",
-    "descriptionAr": "Jeera مشروع تصور معماري يقع في 6th October، Egypt."
+    "descriptionAr": "جيرة مشروع تصور معماري يقع في السادس من أكتوبر، مصر."
   },
   {
     "id": "jewar",
     "name": "Jewar",
-    "nameAr": "Jewar",
+    "nameAr": "جوار",
     "country": "Egypt",
-    "countryAr": "Egypt",
+    "countryAr": "مصر",
     "city": "6th October",
-    "cityAr": "6th October",
+    "cityAr": "السادس من أكتوبر",
     "category": "Residential",
     "categoryAr": "Residential",
     "year": "—",
@@ -426,16 +426,16 @@
       "images/portfolio/jewar/03.webp"
     ],
     "description": "Jewar is a visualization project located in 6th October, Egypt.",
-    "descriptionAr": "Jewar مشروع تصور معماري يقع في 6th October، Egypt."
+    "descriptionAr": "جوار مشروع تصور معماري يقع في السادس من أكتوبر، مصر."
   },
   {
     "id": "al-ghad",
     "name": "Al Ghad",
-    "nameAr": "Al Ghad",
+    "nameAr": "جامعة الغد",
     "country": "Saudi Arabia",
-    "countryAr": "Saudi Arabia",
+    "countryAr": "السعودية",
     "city": "Riyadh",
-    "cityAr": "Riyadh",
+    "cityAr": "الرياض",
     "category": "Residential",
     "categoryAr": "Residential",
     "year": "—",
@@ -452,16 +452,16 @@
       "images/portfolio/al-ghad/03.webp"
     ],
     "description": "Al Ghad is a visualization project located in Riyadh, Saudi Arabia.",
-    "descriptionAr": "Al Ghad مشروع تصور معماري يقع في Riyadh، Saudi Arabia."
+    "descriptionAr": "جامعة الغد مشروع تصور معماري يقع في الرياض، السعودية."
   },
   {
     "id": "al-raeda",
     "name": "Al Raeda",
-    "nameAr": "Al Raeda",
+    "nameAr": "الرائدة",
     "country": "Saudi Arabia",
-    "countryAr": "Saudi Arabia",
+    "countryAr": "السعودية",
     "city": "Riyadh",
-    "cityAr": "Riyadh",
+    "cityAr": "الرياض",
     "category": "Residential",
     "categoryAr": "Residential",
     "year": "—",
@@ -478,16 +478,16 @@
       "images/portfolio/al-raeda/03.webp"
     ],
     "description": "Al Raeda is a visualization project located in Riyadh, Saudi Arabia.",
-    "descriptionAr": "Al Raeda مشروع تصور معماري يقع في Riyadh، Saudi Arabia."
+    "descriptionAr": "الرائدة مشروع تصور معماري يقع في الرياض، السعودية."
   },
   {
     "id": "family-park",
     "name": "Family Park",
-    "nameAr": "Family Park",
+    "nameAr": "حديقة الأسرة",
     "country": "Egypt",
-    "countryAr": "Egypt",
+    "countryAr": "مصر",
     "city": "New Cairo",
-    "cityAr": "New Cairo",
+    "cityAr": "القاهرة الجديدة",
     "category": "Resort",
     "categoryAr": "Resort",
     "year": "—",
@@ -504,6 +504,6 @@
       "images/portfolio/family-park/03.webp"
     ],
     "description": "Family Park is a visualization project located in New Cairo, Egypt.",
-    "descriptionAr": "Family Park مشروع تصور معماري يقع في New Cairo، Egypt."
+    "descriptionAr": "حديقة الأسرة مشروع تصور معماري يقع في القاهرة الجديدة، مصر."
   }
 ]
