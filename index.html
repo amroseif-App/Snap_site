@@ -2353,10 +2353,20 @@ if (typeof L === "undefined") {
       }).setView([24.5,38],4);
 
       const primaryTiles=L.tileLayer(
-        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+        "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
         {
-          maxZoom:19,
+          maxZoom:16,
           attribution:"Tiles &copy; Esri"
+        }
+      ).addTo(window.realLeafletMap);
+
+      const referenceTiles=L.tileLayer(
+        "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}",
+        {
+          maxZoom:16,
+          pane:"overlayPane",
+          opacity:.7,
+          attribution:""
         }
       ).addTo(window.realLeafletMap);
 
@@ -2379,12 +2389,13 @@ if (typeof L === "undefined") {
         if(primaryTileErrors>=3 && !fallbackLoaded){
           fallbackLoaded=true;
           window.realLeafletMap.removeLayer(primaryTiles);
+          window.realLeafletMap.removeLayer(referenceTiles);
 
           L.tileLayer(
-            "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+            "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
             {
               maxZoom:19,
-              attribution:"&copy; OpenStreetMap contributors"
+              attribution:"Tiles &copy; Esri"
             }
           ).addTo(window.realLeafletMap).on("load",hideMapLoading);
         }
