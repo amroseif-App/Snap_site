@@ -2099,6 +2099,9 @@ if (typeof L === "undefined") {
       btn.addEventListener("click",()=>{
         const target=$("#mapBtn").classList.contains("active")?$("#listBtn"):$("#mapBtn");
         target.click();
+        requestAnimationFrame(()=>{
+          projectsSection?.scrollIntoView({behavior:"smooth",block:"start"});
+        });
       });
       document.body.appendChild(btn);
       const projectsSection=$("#projects");
