@@ -2352,12 +2352,11 @@ if (typeof L === "undefined") {
         maxBoundsViscosity:1
       }).setView([24.5,38],4);
 
-      const cartoTiles=L.tileLayer(
-        "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+      const primaryTiles=L.tileLayer(
+        "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
         {
-          subdomains:"abcd",
-          maxZoom:20,
-          attribution:"&copy; OpenStreetMap contributors &copy; CARTO"
+          maxZoom:19,
+          attribution:"Tiles &copy; Esri"
         }
       ).addTo(window.realLeafletMap);
 
@@ -2368,26 +2367,26 @@ if (typeof L === "undefined") {
           setTimeout(()=>{ ml.style.display="none"; },450);
         }
       };
-      cartoTiles.on("load",hideMapLoading);
+      primaryTiles.on("load",hideMapLoading);
       setTimeout(hideMapLoading,4000);
 
-      let cartoErrors=0;
+      let primaryTileErrors=0;
       let fallbackLoaded=false;
 
-      cartoTiles.on("tileerror",()=>{
-        cartoErrors++;
+      primaryTiles.on("tileerror",()=>{
+        primaryTileErrors++;
 
-        if(cartoErrors>=3 && !fallbackLoaded){
+        if(primaryTileErrors>=3 && !fallbackLoaded){
           fallbackLoaded=true;
-          window.realLeafletMap.removeLayer(cartoTiles);
+          window.realLeafletMap.removeLayer(primaryTiles);
 
           L.tileLayer(
-            "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+            "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
             {
               maxZoom:19,
-              attribution:"Tiles &copy; Esri"
+              attribution:"&copy; OpenStreetMap contributors"
             }
-          ).addTo(window.realLeafletMap);
+          ).addTo(window.realLeafletMap).on("load",hideMapLoading);
         }
       });
 
