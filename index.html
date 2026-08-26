@@ -518,7 +518,13 @@
     .modal-meta{display:flex;flex-wrap:wrap;gap:10px 24px;color:var(--muted);font-family:var(--font-mono);font-size:.8rem;text-transform:uppercase;padding-bottom:20px;border-bottom:1px solid var(--paper-line)}
     #modalDescription{margin-top:22px;font-size:1rem;max-width:640px}
     .modal-gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:32px;background:var(--paper-line);border:1px solid var(--paper-line)}
-    .modal-gallery img{width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--vellum-2)}
+    .modal-gallery img{width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--vellum-2);cursor:zoom-in;transition:filter .25s ease,transform .25s ease}
+    .modal-gallery img:hover{filter:brightness(.88);transform:scale(.995)}
+    .image-lightbox{position:fixed;inset:0;z-index:7000;display:none;place-items:center;background:rgba(5,12,18,.94);padding:clamp(16px,4vw,56px)}
+    .image-lightbox.show{display:grid}
+    .image-lightbox img{display:block;max-width:100%;max-height:calc(100vh - 32px);width:auto;height:auto;object-fit:contain;box-shadow:0 24px 70px rgba(0,0,0,.5)}
+    .image-lightbox-close{position:absolute;top:18px;right:18px;z-index:2;width:48px;height:48px;border:1px solid rgba(255,255,255,.42);background:rgba(12,29,38,.82);color:#fff;font-size:1.65rem;line-height:1;cursor:pointer}
+    .image-lightbox-close:hover{background:var(--redline);border-color:var(--redline)}
 
     @media (max-width:1160px){
       .nav{direction:ltr;justify-content:flex-start;gap:12px}
@@ -1238,6 +1244,11 @@ html[dir="rtl"] .project-popup button{text-align:right}
     </article>
   </div>
 
+  <div class="image-lightbox" id="imageLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Project image preview">
+    <button class="image-lightbox-close" id="imageLightboxClose" type="button" aria-label="Close image">×</button>
+    <img id="imageLightboxImg" alt="">
+  </div>
+
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script>
 if (typeof L === "undefined") {
@@ -1378,10 +1389,8 @@ if (typeof L === "undefined") {
     }
 
     function renderStats(){
-      const projectCount = Math.floor(data.projects.length/10)*10;
       $("#stats").innerHTML = data.stats.map(s=>{
-        const value = s.en==="Projects" ? projectCount+"+" : s.value;
-        return `<div class="stat"><strong>${value}</strong><span>${lang==="ar"?s.ar:s.en}</span></div>`;
+        return `<div class="stat"><strong>${s.value}</strong><span>${lang==="ar"?s.ar:s.en}</span></div>`;
       }).join("");
     }
 
@@ -1918,12 +1927,31 @@ if (typeof L === "undefined") {
     }
 
     function closeModal(){
+      closeImageLightbox();
       $("#projectModal").classList.remove("show");
       $("#projectModal").setAttribute("aria-hidden","true");
       $("#modalVideoFrame").innerHTML = "";
       $("#modalVideoWrap").classList.remove("show");
       document.body.style.overflow="";
       if(lastFocusedEl && lastFocusedEl.focus){ lastFocusedEl.focus(); lastFocusedEl=null; }
+    }
+
+    function openImageLightbox(img){
+      const lightbox=$("#imageLightbox");
+      const preview=$("#imageLightboxImg");
+      preview.src=img.currentSrc || img.src;
+      preview.alt=img.alt || "Project image";
+      lightbox.classList.add("show");
+      lightbox.setAttribute("aria-hidden","false");
+      $("#imageLightboxClose").focus();
+    }
+
+    function closeImageLightbox(){
+      const lightbox=$("#imageLightbox");
+      if(!lightbox?.classList.contains("show")) return;
+      lightbox.classList.remove("show");
+      lightbox.setAttribute("aria-hidden","true");
+      $("#imageLightboxImg").removeAttribute("src");
     }
 
     function trapModalFocus(e){
@@ -2080,7 +2108,15 @@ if (typeof L === "undefined") {
 
     $("#modalClose").addEventListener("click",closeModal);
     $("#projectModal").addEventListener("click",e=>{if(e.target.id==="projectModal") closeModal();});
+    $("#modalGallery").addEventListener("click",e=>{
+      const img=e.target.closest("img");
+      if(img) openImageLightbox(img);
+    });
+    $("#imageLightboxClose").addEventListener("click",closeImageLightbox);
+    $("#imageLightbox").addEventListener("click",e=>{if(e.target.id==="imageLightbox") closeImageLightbox();});
     document.addEventListener("keydown",e=>{
+      const lightboxOpen=$("#imageLightbox").classList.contains("show");
+      if(e.key==="Escape" && lightboxOpen){ closeImageLightbox(); return; }
       const modalOpen=$("#projectModal").classList.contains("show");
       if(e.key==="Escape" && modalOpen){ closeModal(); }
       if(e.key==="Tab" && modalOpen){ trapModalFocus(e); }
